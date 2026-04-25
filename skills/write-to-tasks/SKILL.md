@@ -5,17 +5,39 @@ description: Break a plan, spec, or PRD into work tasks, each accomplishing a ve
 
 # Write to tasks
 
+Break a plan into independently actionable tasks.
+
 ## Workflows
 
-1. **Gather context**
+### Creating Tasks
 
-2. **Explore the codebase**
+1. **Gather context**
+    - Work from existing context
+    - If the user passes a github issue: fetch with `gh issue view <number>`
+    - if the user references a spec: look up `.specs/<spec-name>/*.md`
+
+2. **Explore the codebase (optional)**
+    - If not already in context, explore the codebase to understand the current state of the code
 
 3. **Draft vertical slices**
+    - Create tasks from thin vertical slices that implements through ALL integration layers end-to-end
+    - Each slice delivers a narrow but complete path through every layer (tests, schema, api ,ui etc.) and is verifiable on its own
+    - Prefer many thin slices over few thick ones
 
 4. **Confirm with the user**:
+    - Present the proposed breakdown, for each task include:
+        - Short descriptive title
+        - User sorties covered
+        - Blocking relationships with other tasks
+    - Confirm with the user:
+        - Are the tasks set to the right granularity (too coarse / too fine). Highlight what could potentially be split / merged
+        - Are the dependency links correct
+    - Iterate until user approves
 
 5. **Create the tasks**
+    - Create the tasks in dependency order (blockers first) so that they can be referenced correctly in the related tasks
+    - If the plan came from a github issue: create tasks as github issues using `gh issue create` and reference parent github issue in related tasks
+    - If the plan came from a spec in `.specs/<spec-name>/`, create ordered tasks as markdown files in `.specs/<spec-name>/tasks/`
 
 ## Features
 
@@ -51,5 +73,3 @@ AC1 - **Given** a registered user, **when** entering a valid username and passwo
 ## Further Notes
 
 ```
-
-## Pitfalls

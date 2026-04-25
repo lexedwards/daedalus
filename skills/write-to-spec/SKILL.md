@@ -21,7 +21,9 @@ Specs are named lower-case, kebab-case, and concise to the topic of the spec.
     - The spec name must represent and reflect the scope of work
     - spec directories always live within the project
 
-2. **Generate the requirements document**: `.specs/<spec-name>/REQUIREMENTS.md`
+2. **Explore the codebase** to understand the current state, if not already
+
+3. **Generate the requirements document**: `.specs/<spec-name>/REQUIREMENTS.md`
     - Use the requirements template (see below)
     - Create requirements that cover the complete scope of the work
     - For each requirement, encapsulate a meaningful user story and extensive acceptance criteria
@@ -32,7 +34,8 @@ When a user specifies to update a spec:
 
 1. If no spec name was given: inspect existing and have the user choose
 2. Read `.specs/<spec-name>/REQUIREMENTS.md` to understand the existing requirements
-3. Inspect for implicit contradictions and interview the user for clarification
+3. Explore the codebase to understand the current state, if not already
+4. Inspect for implicit contradictions and interview the user for clarification
 
 ## Features
 

@@ -9,6 +9,21 @@ Takes the current conversation and context (codebase, terminology...) and produc
 
 ## Workflows
 
+### Creating a new PRD
+
+1. **Explore the codebase** to understand the current state, if not already
+
+2. **Write the PRD** using the template below
+
+### Updating a PRD
+
+1. **Read the current PRD** referenced by the user
+    - If it is a Github issue and not already in context, fetch it with `gh issue view <number>`
+
+2. **Explore the codebase** to understand the current state, if not already
+
+3. **Update the PRD** ensuring it fits with the template below
+
 ## Features
 
 ### PRD Template

@@ -7,11 +7,18 @@ description: Grilling session that interviews and challenges the user until reac
 
 ## Workflow
 
-Interview me relentlessly about every aspect of this plan until we reach a shared understanding. Walk down each branch of the design tree, resolving dependencies between decisions one-by-one. For each question, provide your recommended answer.
+1. **Interview the user relentlessly** about every aspect of this plan until we reach a shared understanding
+    - Walk down each branch of the design tree, resolving dependencies between decisions one-by-one
+    - If a question can be answered by exploring the codebase, explore the codebase instead
+    - For each question, provide your recommended answer
+    - Ask the questions one at a time, waiting for feedback on each question before continuing.
 
-If a question can be answered by exploring the codebase, explore the codebase instead.
-
-Ask the questions one at a time, waiting for feedback on each question before continuing.
+2. **Offer to capture important decisions in ADRs**
+    - Only offer ADRs for decisions that are match all:
+        - hard to reverse
+        - require context to be understood
+        - genuine alternatives were available.
+    - Use and follow the [ADR instructions](./references/ADRs.md)
 
 ## Pitfalls
 
