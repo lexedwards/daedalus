@@ -43,6 +43,10 @@ status: <proposed | accepted | deprecated | superseded by [[NNN-slug]]>
 
 1-3 sentences on what we decided and why
 
+## Consequences (Optional)
+
+- Concise pros and cons on mitigate/accepted risks 
+
 ```
 
 ### ADR Location
