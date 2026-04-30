@@ -36,8 +36,10 @@ Break a plan into independently actionable tasks.
 
 5. **Create the tasks**
     - Create the tasks in dependency order (blockers first) so that they can be referenced correctly in the related tasks
-    - If the plan came from a github issue: create tasks as github issues using `gh issue create` and reference parent github issue in related tasks
-    - If the plan came from a spec in `.specs/<spec-name>/`, create ordered tasks as markdown files in `.specs/<spec-name>/tasks/`
+    - If the plan came from a github issue:
+        - create tasks as github issues using `gh issue create` and reference parent github issue in related tasks
+    - If the plan came from a spec in `.specs/<spec-name>/`:
+        - create ordered tasks as markdown files in `.specs/<spec-name>/tasks/`
 
 ## Features
 

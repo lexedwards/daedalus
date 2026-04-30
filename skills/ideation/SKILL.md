@@ -13,13 +13,6 @@ description: Grilling session that interviews and challenges the user until reac
     - For each question, provide your recommended answer
     - Ask the questions one at a time, waiting for feedback on each question before continuing.
 
-2. **Offer to capture important decisions in ADRs**
-    - Only offer ADRs for decisions that are match all:
-        - hard to reverse
-        - require context to be understood
-        - genuine alternatives were available.
-    - Use and follow the [ADR instructions](./references/ADRs.md)
-
 ## Pitfalls
 
 - **Challenge against established terminology** - when the user uses a term that conflicts convention, call it out immediately.
