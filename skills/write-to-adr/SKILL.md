@@ -61,12 +61,12 @@ Scan the folder location for the highest existing number and increment by one, u
 
 ### What to capture
 
-- **Architecture**
-- **Integration patterns between systems and services**
-- **Technology choices that are difficult to reverse**
-- **Deliberate deviations**
-- **Non-codified constraints**
-- **Not-obvious rejections**
+- **Architecture**: e.g. event-driven writes, request/response reads; monolith-first with defined seam points for future extraction
+- **Integration patterns between systems and services**: e.g. async messaging via queue vs direct REST call; who owns the contract when two teams share an API
+- **Technology choices that are difficult to reverse**: e.g. PostgreSQL over MongoDB; Auth0 as identity provider; Kafka as the event backbone
+- **Deliberate deviations**: e.g. skipping the org-standard API gateway because latency requirements ruled it out; using REST where the team default is GraphQL
+- **Non-codified constraints**: e.g. "no PII outside EU regions" agreed verbally with legal; a vendor SLA that limits call frequency not written in any spec; auth must use SSO per a CISO directive
+- **Not-obvious rejections**: e.g. ruled out CQRS despite the read/write split because team lacked the operational maturity; considered gRPC but dropped it due to browser client requirements
 
 ## Pitfalls
 
@@ -77,4 +77,5 @@ Scan the folder location for the highest existing number and increment by one, u
   - genuine alternatives were available.
 - Use `[[wiki-links]]` to reference other documentation
 - Exclude code snippets or implementation details
+- Only include one topic per ADR
 - Be concise
