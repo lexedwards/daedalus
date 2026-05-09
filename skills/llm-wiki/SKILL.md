@@ -71,9 +71,12 @@ When the user provides a source (URL, file, paste), integrate it into the wiki:
 
 5. Update navigation
     - Add new pages to `index.md` following instructions
-    - Append to `log/md` following instructions
+    - Append to `log.md` following instructions
 
-6. Report changes
+6. Commit and push via `git`
+    - Use the `log.md` one line action subject
+
+7. Report changes
     - Inform the user of what's been updated
 
 ### Query
@@ -83,8 +86,10 @@ When the user asks a question about the wiki's domain:
 1. Read `index.md` to identify relevant pages
 2. Read the relevant pages
 3. From the compiled knowledge, cite the wiki pages you drew from.
-4. If the answer is a substantial comparison, create a page in `queries/` or `comparisons/`. Don't file trivial lookups.
-5. Update `log.md`
+4. If the answer is a substantial comparison:
+    1. create a page in `queries/` or `comparisons/`. Don't file trivial lookups.
+    2. Update `log.md`
+    3. Commit and push via `git`
 
 ### Lint
 
@@ -267,3 +272,4 @@ a `_meta/topic-map.md` that groups pages by theme for faster navigation.
   The agent should check log size during lint.
 - **Handle contradictions explicitly** — don't silently overwrite. Note both claims with dates,
   mark in frontmatter, flag for user review.
+- **Resolve git rebase to resolve conflicts** - and lint afterwards.
