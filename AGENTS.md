@@ -41,7 +41,7 @@ npx --yes markdownlint-cli "**/*.md" --config .markdownlint.yaml
 Lint one file:
 
 ```bash
-npx --yes markdownlint-cli "skills/write-a-skill/SKILL.md" --config .markdownlint.yaml
+npx --yes markdownlint-cli "skills/<skill-name>/SKILL.md" --config .markdownlint.yaml
 ```
 
 Lint this guide:
@@ -106,7 +106,7 @@ When you are asked about style, types, imports, or testing, anchor your answer i
 
 ## Style Guidelines
 
-These conventions are inferred from `.markdownlint.yaml` and `skills/write-a-skill/SKILL.md`.
+These conventions are inferred from `.markdownlint.yaml` and existing repository content.
 
 ### Markdown and Formatting
 
@@ -119,7 +119,7 @@ These conventions are inferred from `.markdownlint.yaml` and `skills/write-a-ski
 
 ### Naming
 
-- Skill directories: kebab-case, for example `write-a-skill`.
+- Skill directories: kebab-case.
 - Main skill file: `SKILL.md` exactly.
 - Reference files: descriptive lowercase names.
 - Avoid vague durable filenames like `misc.md`, `temp.md`, or `notes.md`.

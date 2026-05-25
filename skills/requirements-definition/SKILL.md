@@ -1,11 +1,11 @@
 ---
-name: write-to-spec
-description:  Turn the current context into a Spec - a collection of documents outlining the intent of scoped work. Use when the user specifically asks for one or is following spec-driven-development.
+name: requirements-definition
+description: Define scoped work requirements in a spec. Use when the user specifically asks for a spec or is following spec-driven development.
 ---
 
-# Write to Spec
+# Requirements Definition
 
-Takes the current conversation and context (codebase, terminology..) and produces a new spec. Synthesizing without interviewing the user - only use what is already known.
+Define scoped work requirements from the current conversation and context (codebase, terminology...) in a new spec. Synthesize without interviewing the user - only use what is already known.
 
 ## Workflows
 

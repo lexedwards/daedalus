@@ -1,11 +1,11 @@
 ---
-name: write-a-skill
-description: Create new agent skills with proper location, structure, progressive disclosure, and bundled resources. Use when the user wants to create, write, or build a new skill.
+name: capability-design
+description: Design reusable agent capabilities with proper location, structure, progressive disclosure, and bundled resources. Use when the user wants to create, write, or build a new skill.
 ---
 
-# Write a Skill
+# Capability Design
 
-Create a reusable skill, instructions on how to reliably handle a specific type of task.
+Design reusable agent capabilities that reliably handle a specific type of task.
 
 ## Trigger Phrases
 

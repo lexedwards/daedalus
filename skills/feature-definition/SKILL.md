@@ -1,11 +1,11 @@
 ---
-name: write-to-prd
-description: Turn the current context into a PRD. Use when the user wants to capture planned work, or specifically asks for one.
+name: feature-definition
+description: Define planned user-facing work and scope in a PRD. Use when the user wants to capture planned work, or specifically asks for one.
 ---
 
-# Write to PRD
+# Feature Definition
 
-Takes the current conversation and context (codebase, terminology...) and produces a PRD. Synthesizing without interviewing the user - only use what is already known.
+Define planned user-facing work from the current conversation and context (codebase, terminology...) in a PRD. Synthesize without interviewing the user - only use what is already known.
 
 ## Workflows
 

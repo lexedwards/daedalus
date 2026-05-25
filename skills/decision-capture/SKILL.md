@@ -1,11 +1,11 @@
 ---
-name: write-to-adr
-description: create and update an ADR to capture important and hard-to-reverse decisions as they crystalise. Use when a user wants to capture important or critical implementation decisions.
+name: decision-capture
+description: Capture important and hard-to-reverse decisions in ADRs as they crystalise. Use when a user wants to preserve important or critical implementation decisions.
 ---
 
-# Write to ADR
+# Decision Capture
 
-Takes the current conversation and context (codebase, terminology...) and produces ADRs. Synthesize without interviewing the user - only use what is already in known.
+Preserve important decisions from the current conversation and context (codebase, terminology...) as ADRs. Synthesize without interviewing the user - only use what is already known.
 
 ## Workflows
 

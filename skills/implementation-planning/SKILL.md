@@ -1,11 +1,11 @@
 ---
-name: write-to-tasks
-description: Break a plan, spec, or PRD into work tasks, each accomplishing a vertical slice. Use this when the user wants to create implementation tasks or break down work into manageable tasks.
+name: implementation-planning
+description: Plan incremental implementation by breaking a plan, spec, or PRD into vertical work slices. Use when the user wants to create implementation tasks or break down work into manageable tasks.
 ---
 
-# Write to tasks
+# Implementation Planning
 
-Break a plan into independently actionable tasks.
+Break a plan into independently actionable implementation tasks.
 
 ## Workflows
 
