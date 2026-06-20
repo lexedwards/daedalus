@@ -76,3 +76,8 @@ AC1 - **Given** a registered user, **when** entering a valid username and passwo
 ## Further Notes
 
 ```
+
+## Pitfalls
+
+- Always rollup documentation along side implementation to avoid drift.
+
