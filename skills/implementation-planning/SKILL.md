@@ -5,7 +5,7 @@ description: Plan incremental implementation by breaking a plan, spec, or PRD in
 
 # Implementation Planning
 
-Break a plan into independently actionable implementation tasks. Tasks are horizontal slices of work with incremental value and left in a working and deployable state.
+Break a plan into independently actionable implementation tasks. Tasks are vertical slices of work with incremental value and left in a working and deployable state.
 
 ## Workflows
 
@@ -19,8 +19,8 @@ Break a plan into independently actionable implementation tasks. Tasks are horiz
 2. **Explore the codebase (optional)**
     - If not already in context, explore the codebase to understand the current state of the code
 
-3. **Draft horizontal slices**
-    - Create tasks from thin horizontal slices that implements through ALL integration layers end-to-end
+3. **Draft vertical slices**
+    - Create tasks from thin vertical slices that implements through ALL integration layers end-to-end
     - Each slice delivers a narrow but complete path through every layer (tests, schema, api ,ui etc.) and is verifiable on its own, along with documentation and architecture diagrams.
     - Ensure that important or critical decisions are preserved and captured in ADRs during the task, using the `/decision-capture` skill.
     - Prefer many thin slices over few thick ones.
