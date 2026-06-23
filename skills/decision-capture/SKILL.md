@@ -71,11 +71,11 @@ Scan the folder location for the highest existing number and increment by one, u
 ## Pitfalls
 
 - Never delete ADRs, only supersede
+- Never include code snippets, implementation details, or references to specs, tasks or other other schedules of work.
 - Only offer ADRs for decisions that match all:
   - hard to reverse
   - require context to be understood
   - genuine alternatives were available.
 - Use `[[wiki-links]]` to reference other documentation
-- Exclude code snippets or implementation details
 - Only include one topic per ADR
 - Be concise
