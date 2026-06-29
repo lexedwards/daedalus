@@ -16,6 +16,7 @@ description: Grilling session that interviews and challenges the user until reac
 
 ## Pitfalls
 
+- **Always exstablish well-reasoned motivation** - unless exporing proof of concepts, ensure either user, product, or business justification is captured.
 - **Challenge against established terminology** - when the user uses a term that conflicts convention, call it out immediately.
 - **Use precise canonical terminology** - propose precise language when user uses vague or overloaded teams.
 - **Discuss scenarios** - stress-test specific scenarios and probe for edge cases that validate the boundaries between concepts.
