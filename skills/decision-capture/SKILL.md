@@ -31,7 +31,7 @@ Preserve important decisions from the current conversation and context (codebase
 ```markdown
 ---
 name: Short title of decision
-status: <proposed | accepted | deprecated | superseded by [[NNN-slug]]>
+status: <proposed | accepted | deprecated | superseded by NNN-slug>
 ---
 # [Short title of decision]
 
@@ -76,6 +76,6 @@ Scan the folder location for the highest existing number and increment by one, u
   - hard to reverse
   - require context to be understood
   - genuine alternatives were available.
-- Use `[[wiki-links]]` to reference other documentation
+- Use markdown Reference-style links to refer to external information, never `[[wiki-links]]`.
 - Only include one topic per ADR
 - Be concise
