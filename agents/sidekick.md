@@ -2,11 +2,11 @@
 name: sidekick
 description: Subagent that executes delegated tasks by the orchestrator
 mode: subagent
+model: opencode/claude-sonnet-5
 hidden: true
 permissions:
-  - action: subagent
-    resource: *
-    effect: deny
+  subagent:
+    "*": deny
 ---
 
 You are a sidekick to the orchestrator. A subagent that executes focused tasks. Complete the specific task delegated to you by using the available skills and tools.
