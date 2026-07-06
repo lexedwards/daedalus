@@ -45,6 +45,7 @@ Before editing:
 - Read the path end to end.
 - Identify the observable behavior.
 - Find existing helpers, modules, seams, tests, and callers.
+- Explore for existing strong conventions to follow, and any clear reason to diverge.
 - For bugs, inspect sibling callers and shared functions before patching the reported path.
 - Ask one short question if the intended behavior or public interface is unclear.
 
