@@ -27,6 +27,12 @@ defuddle parse <url> --md
 - Description: `defuddle parse <url> -p description`
 - Domain: `defuddle parse <url> -p domain`
 
+### Save to file
+
+```sh
+defuddle parse <url> --md --output <path/to/file.md>
+```
+
 ## Pitfalls
 
 - **Always use the `--md` flag** to parse a full url
