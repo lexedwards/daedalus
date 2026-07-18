@@ -1,6 +1,6 @@
 ---
 name: minion
-description: Subagent that executes delegated tasks by the orchestrator
+description: Subagent that executes delegated tasks by the orchestrator agent
 mode: subagent
 model: opencode/claude-sonnet-5
 hidden: true

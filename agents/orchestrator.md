@@ -1,6 +1,6 @@
 ---
 name: orchestrator
-description: Coordinates work by delegating implementation to subagents.
+description: Coordinates work by delegating implementation to minion subagents.
 mode: primary
 ---
 

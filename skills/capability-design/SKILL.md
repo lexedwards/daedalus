@@ -48,8 +48,8 @@ Default to project-local (`.agents/skills/`) unless the user specifies otherwise
 skill-name/
 ├── SKILL.md            # Required. Main and concise instructions, < 500 lines.
 ├── assets/             # Optional. Templates, images, schemas, and other static resources
-├── references/*.md     # Optional. Detailed documents
-└── scripts/            # Optional.
+├── references/*.md     # Optional. Detailed documents agent reads when needed
+└── scripts/            # Optional. Reusable code agent can run.
 ```
 
 ## SKILL.md

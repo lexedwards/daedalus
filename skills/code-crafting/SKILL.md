@@ -1,6 +1,6 @@
 ---
 name: code-crafting
-description: Guide pragmatic coding with minimal design, cohesive modules, test-driven behavior changes, vertical slices, root-cause fixes, and disciplined verification. Use when implementing, fixing, refactoring, or reviewing code.
+description: Guide pragmatic coding with minimal design, cohesive modules, test-driven development behavior changes, vertical slices, root-cause fixes, and disciplined verification. Use when implementing, fixing, refactoring, or reviewing code.
 ---
 
 # Code Crafting
@@ -35,7 +35,7 @@ Do not use it for pure documentation or static content changes unless the user a
 ## Craft Loop
 
 ```text
-TRACE -> CHOOSE SLICE -> DESIGN LOCAL SEAM -> RED -> GREEN -> REFACTOR -> VERIFY
+TRACE -> CHOOSE SLICE -> DESIGN LOCAL SEAM -> TDD: RED -> TDD: GREEN -> TDD: REFACTOR -> VERIFY
 ```
 
 ## 1. Trace
@@ -110,7 +110,7 @@ Before adding or expanding a seam, ask:
 - Would deleting this module spread the same cohesive logic across callers?
 - Am I simplifying the system, or just moving complexity into a larger box?
 
-## 4. Red
+## 4. TDD: Red
 
 For behavior changes, write one failing check before implementation when practical.
 
@@ -130,7 +130,7 @@ reproduce bug -> confirm failure -> fix root cause -> confirm pass -> run releva
 
 Do not write all tests first and then all implementation. Use one test, one implementation, one verification loop.
 
-## 5. Green
+## 5. TDD: Green
 
 Write the least code that passes the current check.
 
@@ -144,11 +144,11 @@ Use the lazy ladder after tracing the real flow:
 6. Can it be one straightforward line?
 7. Only then, add the minimum custom code that works.
 
-Do not add speculative abstractions, future-proofing, generic helpers, broad modules, or new dependencies.
+Do not add speculative abstractions, excessive exports, future-proofing, generic helpers, broad modules, or new dependencies.
 
 Never simplify away input validation at trust boundaries, security, accessibility basics, data-loss prevention, clear error handling, or explicitly requested behavior.
 
-## 6. Refactor
+## 6. TDD: Refactor
 
 Refactor only after checks pass.
 
@@ -186,6 +186,7 @@ real implementation -> fake -> stub -> mock
 
 Good tests:
 
+- Describes the product behavior, not the underlying code.
 - Test state and outcomes, not internal interactions.
 - Use Arrange, Act, Assert structure when it improves clarity.
 - Name the behavior being specified.
@@ -206,7 +207,7 @@ Do not:
 
 - Clean up unrelated code while passing through.
 - Modernize nearby files.
-- Add unrequested features.
+- Add features that are not requested.
 - Create utilities for one use.
 - Mix refactors with behavior changes unless required for the slice.
 - Repeat the same verification command on unchanged code just for reassurance.
