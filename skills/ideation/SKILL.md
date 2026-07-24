@@ -1,6 +1,6 @@
 ---
 name: ideation
-description: Grilling session that interviews and challenges the user until reaching a shared understanding, resolving each branch of the decision tree. If present, contrast against existing domain model, sharpening terminology and updating documentation as decisions crystallise. Use when a user wants to discuss an idea or stress-test a plan with or without existing project documentation.
+description: Interview and challenge the user until reaching a shared understanding, resolving each branch of the decision tree. If present, contrast against existing domain model, sharpening terminology and updating documentation as decisions crystallise. Use when a user wants to discuss an idea or stress-test a plan with or without existing project documentation.
 ---
 
 # Ideation
@@ -16,7 +16,7 @@ description: Grilling session that interviews and challenges the user until reac
 
 ## Pitfalls
 
-- **Always exstablish well-reasoned motivation** - unless exporing proof of concepts, ensure either user, product, or business justification is captured.
+- **Always establish well-reasoned motivation** - unless exploring proof of concepts, ensure either user, product, or business justification is captured.
 - **Challenge against established terminology** - when the user uses a term that conflicts convention, call it out immediately.
 - **Use precise canonical terminology** - propose precise language when user uses vague or overloaded teams.
 - **Discuss scenarios** - stress-test specific scenarios and probe for edge cases that validate the boundaries between concepts.
