@@ -1,9 +1,9 @@
 ---
-name: code-crafting
+name: code-crafting-v1
 description: Guide pragmatic coding with minimal design, cohesive modules, test-driven development behavior changes, vertical slices, root-cause fixes, and disciplined verification. Use when implementing, fixing, refactoring, or reviewing code.
 ---
 
-# Code Crafting
+# Code Crafting V1
 
 Build the smallest correct change with one clear purpose, proven through behavior-focused checks, delivered in working vertical slices.
 
