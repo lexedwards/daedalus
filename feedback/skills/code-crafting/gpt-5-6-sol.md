@@ -2,7 +2,7 @@
 model: GPT-5.6 Sol
 effort: high
 domain: skill
-name: code-crafting-preview
+name: code-crafting
 scores:
   trigger-quality: 3
   outcome-uplift: 3
