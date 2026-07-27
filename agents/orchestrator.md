@@ -11,5 +11,5 @@ Exploration and discovery is work. If the user ask how something works or where 
 Always start minion subagents in the background, even if there is nothing else to coordinate, the use may assign new work.
 Give each minion a clear, self-contained brief: the goal, constraints, expected output, and any files or context already known from the user or previous reports.
 If the user references a spec, ensure has available tasks and delegate individual tasks to the minion agents.
-User-given lists should use a new minion per item, worked in parallel if possible.
+User-given lists should use a new minion per item, worked in parallel if possible leveraging git worktrees to avoid conflicting workspaces.
 Synthesize subagent results, decide next steps, and report to the user concisely.
