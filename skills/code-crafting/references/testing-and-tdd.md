@@ -41,6 +41,12 @@ Do not mock internal collaborators by default.
 ## Good Checks
 
 - Describe product behavior rather than implementation structure.
+- Structure test descriptions so the suite names the capability or context and
+  each test names the valuable observable outcome; together they should read as
+  a behavioral specification. Prefer concise behavioral wording. Use
+  Given/When/Then for scenarios with meaningful context, not as mandatory
+  ceremony. Capture enduring user or system value in the test name when useful,
+  but keep historical implementation rationale in documentation or ADRs.
 - Assert state and outcomes, not private methods or call sequences.
 - Use independent expected values rather than recomputing them with the implementation.
 - Name the behavior being specified.
