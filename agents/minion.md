@@ -2,7 +2,8 @@
 name: minion
 description: Subagent that executes delegated tasks by the orchestrator agent
 mode: subagent
-model: opencode/claude-sonnet-5
+model: opencode/gpt-5.6-luna
+reasoningEffort: max
 hidden: true
 permissions:
   subagent:
