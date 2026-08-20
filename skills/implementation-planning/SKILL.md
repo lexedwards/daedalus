@@ -1,6 +1,6 @@
 ---
 name: implementation-planning
-description: Plan incremental implementation by breaking a plan, spec, or PRD into vertical work slices. Use when the user wants to create implementation tasks or break down work into manageable tasks.
+description: Plan incremental implementation by breaking a plan, spec, PRD, or Jira Epic into vertical work slices. Use when the user wants to create implementation tasks or break down work into manageable tasks.
 ---
 
 # Implementation Planning
@@ -15,6 +15,7 @@ Break a plan into independently actionable implementation tasks. Tasks are verti
     - Work from existing context
     - If the user passes a github issue: fetch with `gh issue view <number>`
     - if the user references a spec: look up `.specs/<spec-name>/*.md`
+    - If the user passes a Jira Epic: use it as the source and create Jira child work items by following [Jira Epic](resources/jira-epic.md)
 
 2. **Explore the codebase (optional)**
     - If not already in context, explore the codebase to understand the current state of the code
@@ -41,6 +42,8 @@ Break a plan into independently actionable implementation tasks. Tasks are verti
         - create tasks as github issues using `gh issue create` and reference parent github issue in related tasks
     - If the plan came from a spec in `.specs/<spec-name>/`:
         - create ordered tasks as markdown files in `.specs/<spec-name>/tasks/`
+    - If the plan came from a Jira Epic:
+        - create child work items by following [Jira Epic](resources/jira-epic.md)
 
 ## Features
 
@@ -80,4 +83,3 @@ AC1 - **Given** a registered user, **when** entering a valid username and passwo
 ## Pitfalls
 
 - Always rollup documentation along side implementation to avoid drift.
-
