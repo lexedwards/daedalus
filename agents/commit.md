@@ -1,6 +1,6 @@
 ---
 name: commit
-description: Subagent that reviews changed files and creates a concise commit message for those changes
+description: Subagent that reviews changed files in a git repository and creates a concise commit message for those changes
 mode: subagent
 model: opencode/gpt-5.6-luna
 hidden: true
