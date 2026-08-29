@@ -1,6 +1,6 @@
 ---
 name: requirements-capture
-description: Capture product requirements for new or changed user-facing work before implementation. Use when the user wants to capture requirements, create or update a local `.specs/<spec-name>/REQUIREMENTS.md` spec or Jira Epic, or draft/update a PRD-style product requirements document in the response unless a destination is specified.
+description: Capture product requirements for new or changed user-facing work before implementation. Use when the user wants to capture requirements, create or update a local `.specs/<spec-name>/REQUIREMENTS.md` spec, Jira Epic, or Linear project, or draft/update a PRD-style product requirements document in the response unless a destination is specified.
 ---
 
 # Requirements Capture
@@ -14,6 +14,7 @@ Do not use this skill for implementation planning, task breakdown, solution desi
 1. **Determine the artifact**
    - If the user asks for requirements without naming an artifact, create or update a local spec. See [Local Spec](references/local-spec.md).
    - If the user asks for a Jira Epic, create or update the requirements Epic. See [Jira Epic](references/jira-epic.md).
+   - If the user explicitly asks to capture requirements in Linear, create or update a Linear project. See [Linear Project](references/linear-project.md).
    - If the user asks for a PRD or product requirements document, produce PRD-style output. See [PRD](references/prd.md).
    - If the user references an existing artifact, update that artifact using the matching workflow.
 
