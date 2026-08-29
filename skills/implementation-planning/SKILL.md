@@ -1,6 +1,6 @@
 ---
 name: implementation-planning
-description: Plan incremental implementation by breaking a plan, spec, PRD, or Jira Epic into vertical work slices. Use when the user wants to create implementation tasks or break down work into manageable tasks.
+description: Plan incremental implementation by breaking a plan, spec, PRD, Jira Epic, or Linear project or project milestone into vertical work slices. Use when the user wants to create implementation tasks or break down work into manageable tasks.
 ---
 
 # Implementation Planning
@@ -16,6 +16,7 @@ Break a plan into independently actionable implementation tasks. Tasks are verti
     - If the user passes a github issue: fetch with `gh issue view <number>`
     - if the user references a spec: look up `.specs/<spec-name>/*.md`
     - If the user passes a Jira Epic: use it as the source and create Jira child work items by following [Jira Epic](resources/jira-epic.md)
+    - If the user passes a Linear project or project milestone: use it as the source and create Linear issues by following [Linear Project and Milestone](resources/linear-project.md)
 
 2. **Explore the codebase (optional)**
     - If not already in context, explore the codebase to understand the current state of the code
@@ -29,7 +30,7 @@ Break a plan into independently actionable implementation tasks. Tasks are verti
 4. **Confirm with the user**:
     - Present the proposed breakdown, for each task include:
         - Short descriptive title
-        - User sorties covered
+        - User stories covered
         - Blocking relationships with other tasks
     - Confirm with the user:
         - Are the tasks set to the right granularity (too coarse / too fine). Highlight what could potentially be split / merged
@@ -44,6 +45,8 @@ Break a plan into independently actionable implementation tasks. Tasks are verti
         - create ordered tasks as markdown files in `.specs/<spec-name>/tasks/`
     - If the plan came from a Jira Epic:
         - create child work items by following [Jira Epic](resources/jira-epic.md)
+    - If the plan came from a Linear project or project milestone:
+        - create issues by following [Linear Project and Milestone](resources/linear-project.md)
 
 ## Features
 
