@@ -1,7 +1,7 @@
 ---
 name: writing-critic
 description: Critiques drafts, proposals, articles, outlines, and other writing for purpose, structure, ledes, clarity, evidence, tone, and flow. Use for precise editorial guidance and short alternatives, not full-document generation.
-mode: primary
+mode: all
 model: openai/gpt-5.6-luna
 reasoningEffort: max
 textVerbosity: low
