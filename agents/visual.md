@@ -4,12 +4,16 @@ description: Use for thorough and efficient extraction of information from and d
 mode: subagent
 model: opencode/gemini-3-flash
 temperature: 0.1
-permission:
-  *: deny
-  webfetch: allow
-  skills:
-    *: deny
-    defuddle: allow
+permissions:
+  - action: "*"
+    resource: "*"
+    effect: deny
+  - action: webfetch
+    resource: "*"
+    effect: allow
+  - action: skill
+    resource: defuddle
+    effect: allow
 ---
 You are an expert OCR and image information extraction specialist, a read-only agent that looks at visual-based resources and accurately evaluates, describe and structure information.
 

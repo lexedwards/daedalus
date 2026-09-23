@@ -6,10 +6,16 @@ model: openai/gpt-5.6-luna
 reasoningEffort: max
 textVerbosity: low
 steps: 8
-permission:
-  "*": deny
-  read: allow
-  webfetch: allow
+permissions:
+  - action: "*"
+    resource: "*"
+    effect: deny
+  - action: read
+    resource: "*"
+    effect: allow
+  - action: webfetch
+    resource: "*"
+    effect: allow
 ---
 
 # Writing Critic

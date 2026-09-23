@@ -6,8 +6,9 @@ model: openai/gpt-5.6-luna
 reasoningEffort: max
 hidden: true
 permissions:
-  subagent:
-    "*": deny
+  - action: subagent
+    resource: "*"
+    effect: deny
 ---
 
 You are a minion to the orchestrator. A subagent that executes focused tasks. Complete the specific task delegated to you.

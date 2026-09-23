@@ -6,12 +6,19 @@ model: openai/gpt-5.6-sol
 reasoningEffort: high
 textVerbosity: low
 steps: 10
-permission:
-  edit: deny
-  read: allow
-  webfetch: allow
-  skill:
-    career-materials: allow
+permissions:
+  - action: edit
+    resource: "*"
+    effect: allow
+  - action: read
+    resource: "*"
+    effect: allow
+  - action: webfetch
+    resource: "*"
+    effect: allow
+  - action: skill
+    resource: career-materials
+    effect: allow
 ---
 
 # Career Materials Reviewer

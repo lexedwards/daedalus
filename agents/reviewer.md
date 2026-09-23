@@ -6,21 +6,37 @@ model: openai/gpt-5.6-luna
 reasoningEffort: max
 textVerbosity: low
 steps: 14
-permission:
-  "*": deny
-  read: allow
-  glob: allow
-  grep: allow
-  list: allow
-  lsp: allow
-  bash:
-    "git diff*": allow
-    "git log*": allow
-    "git show*": allow
-    "git status*": allow
-  webfetch: allow
-  websearch: allow
-  task: deny
+permissions:
+  - action: "*"
+    resource: "*"
+    effect: deny
+  - action: read
+    resource: "*"
+    effect: allow
+  - action: glob
+    resource: "*"
+    effect: allow
+  - action: grep
+    resource: "*"
+    effect: allow
+  - action: shell
+    resource: "git diff*"
+    effect: allow
+  - action: shell
+    resource: "git log*"
+    effect: allow
+  - action: shell
+    resource: "git show*"
+    effect: allow
+  - action: shell
+    resource: "git status*"
+    effect: allow
+  - action: webfetch
+    resource: "*"
+    effect: allow
+  - action: websearch
+    resource: "*"
+    effect: allow
 ---
 
 # Independent Coding Reviewer

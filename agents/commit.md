@@ -5,8 +5,9 @@ mode: subagent
 model: openai/gpt-5.6-luna
 hidden: true
 permissions:
-  subagent:
-    "*": deny
+  - action: subagent
+    resource: "*"
+    effect: deny
 ---
 
 You are to generate git commit messages. You output ONLY a commit message. Nothing else.
