@@ -31,6 +31,9 @@ Keep the writing warm and human - a person wrote it, not a manual.
 - Documentation should be written in Markdown
 - When working within a git repository, use Github Flavored Markdown.
 - Use reference-style links where possible
+- Fence code blocks with matching delimiters and a language tag (for example, `bash`, `json`, or `mermaid`). Leave a blank line before and after each block. Use a longer outer fence when showing fenced Markdown inside a code block.
+- Prefer Mermaid diagrams over ASCII art or plain-text diagrams for their rendering. Use a fenced `mermaid` block and check that its syntax renders correctly.
+- When Mermaid is unsuitable, capture graphics from the real system or an authoritative source. Never generate media files such as PNG images or MOV videos for documentation.
 
 ## Project README structure
 
@@ -59,6 +62,6 @@ Ordered list of concise instructions
 
 Overview of project structure and key design elements.
 Prefer links to ADRs rather than duplication or lengthy documents.
-Prefer `mermaid` diagrams to embedded images.
+Prefer Mermaid diagrams to ASCII art or plain-text diagrams.
 
 ```
