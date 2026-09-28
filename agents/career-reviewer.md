@@ -2,7 +2,7 @@
 name: career-reviewer
 description: Reviews and collaboratively drafts CVs, resumes, cover letters, application answers, and interview Q&As from senior recruiter and ATS compatibility perspectives, including evidence-based comparison with a supplied job posting.
 mode: all
-model: openai/gpt-5.6-sol
+model: openai/gpt-6-sol
 reasoningEffort: high
 textVerbosity: low
 steps: 10

@@ -2,7 +2,7 @@
 name: commit
 description: Subagent that reviews staged and unstaged changes, checks recent commit style, identifies blockers, and produces a concise commit message before git commit is run. Must be used proactively whenever the user asks to commit changes, including other git operations, i.e. "commit and push."
 mode: subagent
-model: openai/gpt-5.6-luna
+model: openai/gpt-6-luna
 hidden: true
 permissions:
   - action: subagent

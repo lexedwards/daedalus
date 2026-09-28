@@ -2,7 +2,7 @@
 name: adversarial
 description: Narrow, bounded, read-only hunter that tries to falsify one explicitly supplied software claim. Use after deterministic verification when a substantial or high-risk plan, change, or fix still depends on one material untested invariant, or when explicitly asked to challenge a specific claim. Do not use for broad review, trivial work, or a claim already independently challenged.
 mode: subagent
-model: openai/gpt-5.6-luna
+model: openai/gpt-6-luna
 reasoningEffort: max
 textVerbosity: low
 steps: 10

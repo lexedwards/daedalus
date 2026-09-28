@@ -2,7 +2,7 @@
 name: reviewer
 description: Independent, bounded, read-only reviewer for plans, changes, and fixes with adjustable quick, standard, or deep effort. Use proactively once after verification for substantial or high-risk behavioral work, and when explicitly requested. Skip trivial, documentation-only, formatting-only, generated, or already independently reviewed work.
 mode: subagent
-model: openai/gpt-5.6-luna
+model: openai/gpt-6-luna
 reasoningEffort: max
 textVerbosity: low
 steps: 14
