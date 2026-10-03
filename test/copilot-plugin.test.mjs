@@ -20,7 +20,7 @@ test('root Agent Plugins manifest shares the canonical skill inventory', async (
   assert.equal(manifest.version, pkg.version);
   const directories = (await readdir(path.join(root, 'skills'), { withFileTypes: true }))
     .filter((entry) => entry.isDirectory()).map((entry) => entry.name).sort();
-  assert.equal(directories.length, 14);
+  assert.equal(directories.length, 15);
   assert.deepEqual(directories, (await readSkills()).map((skill) => skill.id).sort());
   await assert.rejects(access(path.join(root, 'skills/code-crafting-v1')), { code: 'ENOENT' });
 });

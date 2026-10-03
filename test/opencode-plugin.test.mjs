@@ -107,7 +107,8 @@ test('registers the current skill bundle with accessible reference files', async
       },
     },
   });
-  assert.equal(registered.size, 14);
+  assert.equal(registered.size, 15);
+  assert.equal(registered.get('eval').autoinvoke, false);
   assert.equal(registered.has('code-crafting-v1'), false);
   const skill = registered.get('harness-configuration');
   assert.match(skill.content, /^\s*# Harness Configuration/);
@@ -130,7 +131,7 @@ test('preserves an existing skill and remains duplicate-free on transform replay
     },
   });
   assert.equal(registered.get('code-crafting'), existing);
-  assert.equal(registered.size, 14);
+  assert.equal(registered.size, 15);
 });
 
 test('supports multiline YAML and preserves the Markdown body', async () => {

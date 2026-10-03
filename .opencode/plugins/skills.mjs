@@ -12,6 +12,7 @@ export const skillIDs = [
   'create-skill',
   'decision-capture',
   'defuddle',
+  'eval',
   'harness-configuration',
   'humanizer',
   'ideation',
