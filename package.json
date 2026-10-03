@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Reusable agent skills with an OpenCode V2 plugin adapter",
+  "description": "Reusable agents and skills for OpenCode V2 and GitHub Copilot CLI",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lexedwards/agentic.git"
@@ -18,6 +18,8 @@
     ".opencode/plugins/",
     "skills/",
     "agents/",
+    "plugin.json",
+    "com.github.copilot/",
     "README.md"
   ],
   "scripts": {

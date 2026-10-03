@@ -5,7 +5,7 @@ import { parseDocument } from 'yaml';
 
 const skillsDirectory = fileURLToPath(new URL('../../skills/', import.meta.url));
 
-// Keep the released inventory deliberate; code-crafting-v1 is an archived skill.
+// Keep the released inventory deliberate.
 export const skillIDs = [
   'career-materials',
   'code-crafting',

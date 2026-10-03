@@ -3,7 +3,7 @@
 ## Purpose
 
 This repository is a Markdown-first content repo for agent workflows.
-It contains documentation in `README.md`, `commands/`, and `skills/`, plus a Git-installable OpenCode V2 plugin in `.opencode/plugins/`.
+It contains documentation in `README.md`, `commands/`, and `skills/`, plus an OpenCode V2 plugin in `.opencode/plugins/` and a root Agent Plugins 1.0 manifest for GitHub Copilot CLI.
 The plugin has a root `package.json`, a Bun lockfile, and behavior tests in `test/`. There is no compiled output.
 
 Use this file as the default guide for coding agents working here.
@@ -19,8 +19,9 @@ Do not invent build steps, test steps, or coding conventions that are not actual
 - Agent definitions live under `agents/` as Markdown files with YAML frontmatter.
 - `.markdownlint.yaml` defines Markdown style.
 - `package.json` exports the OpenCode V2 plugin and defines its dependencies and checks.
-- `.opencode/plugins/skills.mjs` lists the skills registered by the plugin; archived `code-crafting-v1` is excluded.
+- `.opencode/plugins/skills.mjs` lists the skills registered by the plugin.
 - `.opencode/plugins/agents.mjs` lists and loads the agents registered by the plugin.
+- Root `plugin.json` shares `skills/` with Copilot CLI. `com.github.copilot/agents/` contains relative symlinks to the OpenCode-first definitions in `agents/`; no generator is required.
 - There is no `go.mod`, `Cargo.toml`, `pyproject.toml`, or `Makefile`.
 - There are no Cursor rules in `.cursor/rules/` or `.cursorrules`.
 - There is no Copilot instruction file at `.github/copilot-instructions.md`.
@@ -66,7 +67,7 @@ Run the OpenCode adapter behavior tests:
 bun test test
 ```
 
-Run one test file with `bun test test/opencode-plugin.test.mjs`. For Markdown-only changes, lint the changed files, re-read them, and verify referenced paths and commands. Unit tests do not establish that a Git installation loads in OpenCode; check that boundary separately when changing packaging.
+Run one test file with `bun test test/opencode-plugin.test.mjs` or `bun test test/copilot-plugin.test.mjs`. For Markdown-only changes, lint the changed files, re-read them, and verify referenced paths and commands. Unit tests do not establish that a Git installation loads in OpenCode or Copilot; check each runtime boundary separately when available, and report unverified runtime behavior accurately.
 
 ## Validation Workflow
 
