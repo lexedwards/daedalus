@@ -12,10 +12,10 @@
     "opencode": ">=2.0.11"
   },
   "exports": {
-    ".": "./.opencode/plugins/daedalus.mjs"
+    ".": "./plugins/daedalus.mjs"
   },
   "files": [
-    ".opencode/plugins/",
+    "plugins/",
     "skills/",
     "agents/",
     "plugin.json",

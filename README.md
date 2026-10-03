@@ -25,13 +25,15 @@ opencode plugin add 'github:lexedwards/agentic#overhaul'
 
 Start a new session. The plugin registers the bundled skills and agents; existing definitions with matching IDs take precedence.
 
-To use a local checkout, run `bun install --frozen-lockfile` there and add its plugin directory to your `opencode.jsonc`:
+To use a local checkout globally, run `bun install --frozen-lockfile` there and add its root directory to your global `~/.config/opencode/opencode.jsonc`:
 
 ```jsonc
 {
-  "plugins": ["/absolute/path/to/daedalus/.opencode/plugins"]
+  "plugins": ["/absolute/path/to/daedalus"]
 }
 ```
+
+The implementation lives in `plugins/` so OpenCode does not auto-load a second copy when you work in this checkout. If your configuration points to the old `.opencode/plugins/` directory, replace that path with the checkout root.
 
 ### GitHub Copilot CLI
 
@@ -69,7 +71,7 @@ For coordinated work, select the `orchestrator` agent in OpenCode, or start Copi
 
 - **[Skills](skills/)** — task-specific workflows for implementation, requirements, planning, technical writing, configuration, and more.
 - **[Agents](agents/)** — an orchestrator and specialists for code review, adversarial checks, visual analysis, execution, and commits.
-- **[Integrations](.opencode/plugins/)** — an OpenCode V2 plugin and a [Copilot plugin manifest](plugin.json), sharing the same source definitions.
+- **[Integrations](plugins/)** — an OpenCode V2 plugin and a [Copilot plugin manifest](plugin.json), sharing the same source definitions.
 
 ## Development
 

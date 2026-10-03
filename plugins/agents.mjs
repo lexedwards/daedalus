@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { Agent } from '@opencode/plugin';
 import { parseDocument } from 'yaml';
 
-const agentsDirectory = fileURLToPath(new URL('../../agents/', import.meta.url));
+const agentsDirectory = fileURLToPath(new URL('../agents/', import.meta.url));
 
 export const agentIDs = [
   'adversarial',

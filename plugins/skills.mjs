@@ -3,7 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseDocument } from 'yaml';
 
-const skillsDirectory = fileURLToPath(new URL('../../skills/', import.meta.url));
+const skillsDirectory = fileURLToPath(new URL('../skills/', import.meta.url));
 
 // Keep the released inventory deliberate.
 export const skillIDs = [

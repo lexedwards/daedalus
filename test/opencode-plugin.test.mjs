@@ -4,9 +4,9 @@ import os from 'node:os';
 import path from 'node:path';
 import { test } from 'bun:test';
 import { Agent } from '@opencode/plugin';
-import plugin from '../.opencode/plugins/daedalus.mjs';
-import { readSkills } from '../.opencode/plugins/skills.mjs';
-import { readAgents } from '../.opencode/plugins/agents.mjs';
+import plugin from '../plugins/daedalus.mjs';
+import { readSkills } from '../plugins/skills.mjs';
+import { readAgents } from '../plugins/agents.mjs';
 
 function agentContext(registered = new Map()) {
   return {

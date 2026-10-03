@@ -3,7 +3,7 @@
 ## Purpose
 
 This repository is a Markdown-first content repo for agent workflows.
-It contains documentation in `README.md` and `skills/`, agent definitions in `agents/`, an OpenCode V2 plugin in `.opencode/plugins/`, and a root Agent Plugins 1.0 manifest for GitHub Copilot CLI.
+It contains documentation in `README.md` and `skills/`, agent definitions in `agents/`, an OpenCode V2 plugin in `plugins/`, and a root Agent Plugins 1.0 manifest for GitHub Copilot CLI.
 The plugin has a root `package.json`, a Bun lockfile, and behavior tests in `test/`. There is no compiled output.
 
 Use this file as the default guide for coding agents working here.
@@ -19,8 +19,9 @@ Do not invent build steps, test steps, or coding conventions that are not actual
 - `.markdownlint.yaml` defines Markdown style.
 - `.markdownlint-cli2.yaml` selects Markdown files and excludes dependencies for `bun run lint`.
 - `package.json` exports the OpenCode V2 plugin and defines its dependencies and checks.
-- `.opencode/plugins/skills.mjs` lists the skills registered by the plugin.
-- `.opencode/plugins/agents.mjs` lists and loads the agents registered by the plugin.
+- `plugins/skills.mjs` lists the skills registered by the plugin.
+- `plugins/agents.mjs` lists and loads the agents registered by the plugin.
+- The plugin lives outside `.opencode/plugins/` to avoid automatic project loading alongside a globally configured copy.
 - Root `plugin.json` shares `skills/` with Copilot CLI. `com.github.copilot/agents/` contains relative symlinks to the OpenCode-first definitions in `agents/`; no generator is required.
 - There is no `go.mod`, `Cargo.toml`, `pyproject.toml`, or `Makefile`.
 - There are no Cursor rules in `.cursor/rules/` or `.cursorrules`.

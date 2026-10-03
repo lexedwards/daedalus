@@ -3,7 +3,7 @@ import { access, lstat, readFile, readdir, readlink, realpath } from 'node:fs/pr
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { test } from 'bun:test';
-import { readSkills } from '../.opencode/plugins/skills.mjs';
+import { readSkills } from '../plugins/skills.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 
