@@ -3,7 +3,7 @@ import { readSkills } from './skills.mjs';
 import { readAgents } from './agents.mjs';
 
 export default Plugin.define({
-  id: 'agentic',
+  id: 'daedalus',
   async setup(ctx) {
     const [skills, agents] = await Promise.all([readSkills(), readAgents()]);
     await ctx.skill.transform((editor) => {

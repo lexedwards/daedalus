@@ -1,1 +1,1 @@
-export { default } from './agentic.mjs';
+export { default } from './daedalus.mjs';

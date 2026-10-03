@@ -8,13 +8,11 @@ const agentsDirectory = fileURLToPath(new URL('../../agents/', import.meta.url))
 
 export const agentIDs = [
   'adversarial',
-  'career-reviewer',
   'commit',
   'minion',
   'orchestrator',
   'reviewer',
   'visual',
-  'writing-critic',
 ];
 
 export async function readAgents(directory = agentsDirectory, ids = agentIDs) {

@@ -1,1 +1,0 @@
-../../agents/writing-critic.md

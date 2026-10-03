@@ -4,7 +4,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { test } from 'bun:test';
 import { Agent } from '@opencode/plugin';
-import plugin from '../.opencode/plugins/agentic.mjs';
+import plugin from '../.opencode/plugins/daedalus.mjs';
 import { readSkills } from '../.opencode/plugins/skills.mjs';
 import { readAgents } from '../.opencode/plugins/agents.mjs';
 
@@ -32,7 +32,7 @@ test('registers bundled agents with prompts, models, settings, and ordered permi
     agent: agentContext(registered),
   });
   assert.deepEqual([...registered.keys()].sort(), [
-    'adversarial', 'career-reviewer', 'commit', 'minion', 'orchestrator', 'reviewer', 'visual', 'writing-critic',
+    'adversarial', 'commit', 'minion', 'orchestrator', 'reviewer', 'visual',
   ]);
   const reviewer = registered.get('reviewer');
   assert.match(reviewer.system, /# Independent Coding Reviewer/);
@@ -57,11 +57,11 @@ test('preserves existing agents on registration and transform replay', async () 
   const registered = new Map([[existing.id, existing]]);
   await plugin.setup({ skill: { async transform() {} }, agent: agentContext(registered) });
   assert.equal(registered.get('reviewer'), existing);
-  assert.equal(registered.size, 8);
+  assert.equal(registered.size, 6);
 });
 
 test('loads agent model variants and rejects invalid metadata with the source path', async () => {
-  const directory = await mkdtemp(path.join(os.tmpdir(), 'agentic-agent-'));
+  const directory = await mkdtemp(path.join(os.tmpdir(), 'daedalus-agent-'));
   try {
     const file = path.join(directory, 'example.md');
     await writeFile(file, '---\nname: example\ndescription: Example\nmodel: openai/reasoner#high\n---\n# Example\n');
@@ -87,7 +87,7 @@ test('loads agent model variants and rejects invalid metadata with the source pa
 });
 
 async function fixture(frontmatter, run) {
-  const directory = await mkdtemp(path.join(os.tmpdir(), 'agentic-skill-'));
+  const directory = await mkdtemp(path.join(os.tmpdir(), 'daedalus-skill-'));
   try {
     await mkdir(path.join(directory, 'example'));
     await writeFile(path.join(directory, 'example', 'SKILL.md'), frontmatter);

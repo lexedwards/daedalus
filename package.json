@@ -1,9 +1,9 @@
 {
-  "name": "agentic",
+  "name": "daedalus",
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Reusable agents and skills for OpenCode V2 and GitHub Copilot CLI",
+  "description": "Skills, agents, and practices for deliberate AI-assisted engineering",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lexedwards/agentic.git"
@@ -12,7 +12,7 @@
     "opencode": ">=2.0.11"
   },
   "exports": {
-    ".": "./.opencode/plugins/agentic.mjs"
+    ".": "./.opencode/plugins/daedalus.mjs"
   },
   "files": [
     ".opencode/plugins/",

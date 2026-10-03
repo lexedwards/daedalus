@@ -3,7 +3,7 @@
 ## Purpose
 
 This repository is a Markdown-first content repo for agent workflows.
-It contains documentation in `README.md`, `commands/`, and `skills/`, plus an OpenCode V2 plugin in `.opencode/plugins/` and a root Agent Plugins 1.0 manifest for GitHub Copilot CLI.
+It contains documentation in `README.md` and `skills/`, agent definitions in `agents/`, an OpenCode V2 plugin in `.opencode/plugins/`, and a root Agent Plugins 1.0 manifest for GitHub Copilot CLI.
 The plugin has a root `package.json`, a Bun lockfile, and behavior tests in `test/`. There is no compiled output.
 
 Use this file as the default guide for coding agents working here.
@@ -15,7 +15,6 @@ Do not invent build steps, test steps, or coding conventions that are not actual
 - Main content is Markdown.
 - Skills live under `skills/<skill-name>/`.
 - A skill's primary file is `SKILL.md` in uppercase.
-- Commands live under `commands/` and are currently Markdown documents only.
 - Agent definitions live under `agents/` as Markdown files with YAML frontmatter.
 - `.markdownlint.yaml` defines Markdown style.
 - `package.json` exports the OpenCode V2 plugin and defines its dependencies and checks.
@@ -106,11 +105,6 @@ When you are asked about style, types, imports, or testing, anchor your answer i
 - Keep the description to a single line.
 - Keep `SKILL.md` concise and move rarely needed detail into nearby reference files.
 
-### Command Structure
-
-- Command docs live in `commands/`.
-- Keep them Markdown-only unless the user explicitly asks for scripts.
-
 ## Style Guidelines
 
 These conventions are inferred from `.markdownlint.yaml` and existing repository content.
@@ -145,7 +139,7 @@ If you add a script in the future:
 - Prefer standard library or shell-native behavior first.
 - Keep dependencies minimal.
 - Document how to run the script in the same change.
-- Place the script next to the skill or command it supports.
+- Place the script next to the skill or agent it supports.
 
 ### Error Handling and Safety
 

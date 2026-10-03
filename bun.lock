@@ -3,7 +3,7 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "agentic",
+      "name": "daedalus",
       "dependencies": {
         "@opencode/plugin": "2.0.11",
         "yaml": "2.9.1",
