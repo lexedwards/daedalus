@@ -17,6 +17,7 @@
   "files": [
     ".opencode/plugins/",
     "skills/",
+    "agents/",
     "README.md"
   ],
   "scripts": {

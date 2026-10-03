@@ -16,9 +16,11 @@ Do not invent build steps, test steps, or coding conventions that are not actual
 - Skills live under `skills/<skill-name>/`.
 - A skill's primary file is `SKILL.md` in uppercase.
 - Commands live under `commands/` and are currently Markdown documents only.
+- Agent definitions live under `agents/` as Markdown files with YAML frontmatter.
 - `.markdownlint.yaml` defines Markdown style.
 - `package.json` exports the OpenCode V2 plugin and defines its dependencies and checks.
 - `.opencode/plugins/skills.mjs` lists the skills registered by the plugin; archived `code-crafting-v1` is excluded.
+- `.opencode/plugins/agents.mjs` lists and loads the agents registered by the plugin.
 - There is no `go.mod`, `Cargo.toml`, `pyproject.toml`, or `Makefile`.
 - There are no Cursor rules in `.cursor/rules/` or `.cursorrules`.
 - There is no Copilot instruction file at `.github/copilot-instructions.md`.
