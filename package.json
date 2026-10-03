@@ -23,11 +23,15 @@
     "README.md"
   ],
   "scripts": {
+    "lint": "markdownlint-cli2",
     "test": "bun test test",
     "check:package": "bun pm pack --dry-run"
   },
   "dependencies": {
     "@opencode/plugin": "2.0.11",
     "yaml": "2.9.1"
+  },
+  "devDependencies": {
+    "markdownlint-cli2": "0.23.3"
   }
 }

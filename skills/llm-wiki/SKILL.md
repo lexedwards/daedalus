@@ -121,13 +121,13 @@ When the user asks to lint, check-health, or audit the wiki:
     ├─ articles/        # Web Articles, clippings
     ├─ assets/          # Images, documents referenced by sources
     └─ transcripts/     # Meeting notes, interviews
-    ```
+```
 
 ### AGENTS.md Template
 
 Adapt to the context of the domain and any specifics from the user.
 
-```markdown
+````markdown
 # AGENTS.md
 
 ## Purpose
@@ -210,7 +210,7 @@ When new information conflicts with existing content:
 3. Mark the contradiction in frontmatter: `contradictions: [page-name]`
 4. Flag for user review in the lint report
 
-```
+````
 
 ### index.md Template
 

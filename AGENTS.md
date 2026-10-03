@@ -17,6 +17,7 @@ Do not invent build steps, test steps, or coding conventions that are not actual
 - A skill's primary file is `SKILL.md` in uppercase.
 - Agent definitions live under `agents/` as Markdown files with YAML frontmatter.
 - `.markdownlint.yaml` defines Markdown style.
+- `.markdownlint-cli2.yaml` selects Markdown files and excludes dependencies for `bun run lint`.
 - `package.json` exports the OpenCode V2 plugin and defines its dependencies and checks.
 - `.opencode/plugins/skills.mjs` lists the skills registered by the plugin.
 - `.opencode/plugins/agents.mjs` lists and loads the agents registered by the plugin.
@@ -40,22 +41,10 @@ bun run check:package
 
 ### Lint
 
-Use Markdown linting with the checked-in config:
+Lint all Markdown with the locally installed CLI and checked-in configuration:
 
 ```bash
-npx --yes markdownlint-cli "**/*.md" --ignore node_modules --config .markdownlint.yaml
-```
-
-Lint one file:
-
-```bash
-npx --yes markdownlint-cli "skills/<skill-name>/SKILL.md" --config .markdownlint.yaml
-```
-
-Lint this guide:
-
-```bash
-npx --yes markdownlint-cli "AGENTS.md" --config .markdownlint.yaml
+bun run lint
 ```
 
 ### Test
@@ -70,16 +59,10 @@ Run one test file with `bun test test/opencode-plugin.test.mjs` or `bun test tes
 
 ## Validation Workflow
 
-For a normal Markdown edit:
+For Markdown edits, including single-skill edits:
 
 ```bash
-npx --yes markdownlint-cli "**/*.md" --ignore node_modules --config .markdownlint.yaml
-```
-
-For a single-skill edit:
-
-```bash
-npx --yes markdownlint-cli "skills/<skill-name>/SKILL.md" --config .markdownlint.yaml
+bun run lint
 ```
 
 For a broader content change:

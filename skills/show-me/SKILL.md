@@ -6,6 +6,8 @@ metadata:
   github: https://github.com/humanlayer/skills/blob/main/plugins/show-me/skills/show-me/SKILL.md
 ---
 
+# Show Me
+
 Help the user understand the current topic of conversation visually. Skip the preamble and keep prose brief. Pick the smallest view that makes the key point clear.
 
 - Show logic or an algorithm as pseudocode:
@@ -117,7 +119,7 @@ function expandSkill(command: string): string {
 }
 ```
 
-### guidance
+## Guidance
 
 Place each visual next to the short text it supports. Keep only the calls, files, props, states, and boundaries needed to answer the user's current question or the options to resolve the current discussion point.
 

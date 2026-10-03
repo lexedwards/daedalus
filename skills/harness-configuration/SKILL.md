@@ -141,7 +141,7 @@ Trigger this workflow when the user asks to update this skill itself, refresh it
 9. Check that the frontmatter `name` matches the skill directory, the description stays on one line, and `SKILL.md` remains under 500 lines. Check local links, field tables, examples, and Markdown lint using the destination repository's real workflow. In this repository, run:
 
    ```bash
-   npx --yes markdownlint-cli "skills/harness-configuration/**/*.md" --config .markdownlint.yaml
+   bun run lint
    ```
 
 10. Re-read the changed files after lint passes. Report added, changed, deprecated, or removed options, conflicts, and remaining uncertainty. Include which harnesses and revisions were checked.

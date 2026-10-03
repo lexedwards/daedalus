@@ -73,13 +73,13 @@ For coordinated work, select the `orchestrator` agent in OpenCode, or start Copi
 
 ## Development
 
-Requires Bun and Node.js/npm for Markdown linting. No compilation step is needed.
+Requires Bun and Node.js for the local Markdown lint CLI. No compilation step is needed.
 
 ```sh
 bun install --frozen-lockfile
 bun test test
 bun run check:package
-npx --yes markdownlint-cli "**/*.md" --ignore node_modules --config .markdownlint.yaml
+bun run lint
 ```
 
 ## Credits
