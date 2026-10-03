@@ -18,9 +18,18 @@ Use this skill for:
 - Choosing where logic should live.
 - Deciding how much testing or verification is enough.
 
-## Choose a Mode
+## Start Here
 
-Select the mode before doing detailed work:
+Before inspecting project files, identify every work mode present in the request, including review subtasks. Use the read tool to load the union of their starting principles. Resolve paths from this skill's base directory. Links name files to read; their contents are not loaded with this skill.
+
+- Implementation, bug fix, or refactor: read [trace-before-changing](../principle-trace-before-changing/SKILL.md) and [smallest-complete-change](../principle-smallest-complete-change/SKILL.md).
+- Code or design review: read [trace-before-changing](../principle-trace-before-changing/SKILL.md) and [evidence-before-verdicts](../principle-evidence-before-verdicts/SKILL.md).
+
+Read each starting principle once.
+
+## Choose Workflows
+
+Use the relevant workflow for each part of the request:
 
 - **Implementation or refactor:** `TRACE -> CHOOSE SLICE -> DESIGN SEAM -> PROVE -> IMPLEMENT -> REFACTOR -> VERIFY`
 - **Bug fix:** `TRACE -> REPRODUCE -> FIX ROOT CAUSE -> REGRESSION CHECK -> VERIFY`
@@ -29,83 +38,67 @@ Select the mode before doing detailed work:
 
 Review modes do not edit code unless the user explicitly asks for changes. See [review workflows](references/review-workflows.md) for detailed branches.
 
-## Core Principles
-
-- Trace the real path before changing or judging it.
-- Use the least code that correctly satisfies the requirement.
-- Let one cohesive module hide useful complexity, but do not create abstractions for hypothetical variation.
-- Test observable behavior through public interfaces, not implementation details.
-- Deliver one complete vertical slice at a time and fix shared root causes at their shared point.
-- Refactor only after relevant checks are green.
-- Preserve validation, security, accessibility, data-loss prevention, and clear error handling.
-- Stop when the requested outcome is satisfied.
-
 ## Trace
 
 Before editing or assessing:
 
-- Read the relevant path end to end.
-- Identify observable behavior, callers, helpers, seams, tests, and boundaries.
-- Check existing conventions and constraints before introducing a new pattern.
-- For bugs, inspect sibling callers and shared functions before patching the reported path.
+- Trace the affected behavior, callers, and boundaries before choosing a change or making an assessment ([principle-trace-before-changing](../principle-trace-before-changing/SKILL.md)).
+- Locate the existing tests and seams. For bugs, inspect sibling callers and shared functions before choosing the fix location.
 - Ask one short question only when ambiguity changes the public behavior or risk; otherwise state a reasonable assumption.
-
-Never use laziness as a substitute for understanding. The smallest change in the wrong place is still a bug.
 
 ## Choose a Slice
 
-For implementation work, choose the smallest complete slice that proves one behavior:
+When planning dependent implementation steps, read [sequence-verifiable-slices](../principle-sequence-verifiable-slices/SKILL.md) before sequencing the work. Choose one complete slice that proves a behavior before building dependent work:
 
 - A parser handles one new case.
 - A user completes one flow.
 - An endpoint supports one operation.
 - A bug reproduction fails before the fix and passes after it.
 
-Prefer risk-first slicing when an unknown is expensive. Avoid building all tests, models, or scaffolding before one useful path works.
+Prove expensive unknowns in the earliest useful slice.
 
 ## Make Precise, Strategic Changes
 
-The goal is not the fewest changed lines; it is the smallest complete and coherent change. Before and during implementation:
-
-- Understand the real path, affected callers, and shared boundaries before editing.
-- Fix the root cause at the shared point instead of patching symptoms in several callers.
-- Touch every relevant surface needed to keep behavior consistent, but do not broaden the task with unrelated cleanup or modernization.
-- Reuse existing helpers, interfaces, conventions, and dependencies before creating new ones.
-- Keep the change easy to review: one purpose, explicit scope, clear names, and no speculative future-proofing.
+Fix the shared cause and update affected surfaces without unrelated cleanup ([principle-smallest-complete-change](../principle-smallest-complete-change/SKILL.md)).
 
 Read [precise change strategy](references/change-strategy.md) when a task crosses multiple files, callers, or boundaries.
 
 ## Design the Seam
 
-Use a local seam only when it reduces caller knowledge around one cohesive concern or represents real variation. Prefer existing interfaces, plain functions, explicit data flow, and composition before adding classes, managers, adapters, or broad utilities.
+Before choosing a module or abstraction, read [hide-useful-complexity](../principle-hide-useful-complexity/SKILL.md). Use a seam that hides cohesive complexity or represents real variation.
+
+When changing input validation, authorization, or external-data handling, read [boundary-discipline](../principle-boundary-discipline/SKILL.md) before choosing the fix. Place validation at trust boundaries and keep domain decisions independent of framework and I/O wiring.
 
 Read [module design](references/module-design.md) when choosing module depth, interfaces, or abstractions.
 
 ## Prove the Behavior
 
+For non-trivial observable behavior changes with a runnable harness, read [test-observable-behavior](../principle-test-observable-behavior/SKILL.md) and [testing and TDD](references/testing-and-tdd.md) before editing production behavior.
+
 Use this precedence for behavior changes:
 
-1. If a runnable test harness exists, write one failing public-behavior check before implementation.
+1. For a non-trivial behavior change with a runnable harness, first add a public-behavior check and run it against the unchanged implementation. Confirm that it fails because the requested behavior is missing. Only then edit the implementation.
 2. For a bug, reproduce the failure and preserve it as a regression check when practical.
 3. If no harness exists, use the cheapest durable manual, runtime, or boundary check available and state the gap.
 4. For a genuinely trivial, low-risk one-liner, an existing relevant check may be enough; do not add a test solely for ceremony.
 
-If a failing check cannot be created for a legitimate reason, record the reason and use the nearest reliable check. Keep expected values independent from the implementation.
-
-Read [testing and TDD](references/testing-and-tdd.md) for test selection, test doubles, and examples.
+If a failing check cannot be created for a legitimate reason, record the reason and use the nearest reliable check.
 
 ## Implement and Refactor
 
-Write the least code that passes the current check, applying the **lazy ladder** after tracing the real flow: prefer existing code, the standard library, the native platform, and already-installed dependencies before adding minimal custom code, and stop at the first option that correctly satisfies the behavior. See [precise change strategy](references/change-strategy.md) for the full ladder.
+Implement the chosen behavior with the least code that passes the current check. Use the **lazy ladder** in [precise change strategy](references/change-strategy.md) to choose what to reuse or add.
 
-Do not add speculative exports, future-proofing, generic helpers, unrelated cleanup, or new dependencies. Never trade away trust-boundary validation, security, accessibility, data-loss protection, error handling, or explicitly requested behavior.
+Do not add speculative exports or new dependencies.
 
-Refactor only after the behavior is green. Prefer less code, clearer names, smaller interfaces, cohesive modules, and removal of pass-through layers. Run the relevant check after each behaviorally meaningful or risk-changing refactor increment.
+Refactor only after the behavior is green. Run the relevant check after each behaviorally meaningful or risk-changing refactor increment.
+
+When making a consequential decision that needs durable rationale, read [preserve-decision-context](../principle-preserve-decision-context/SKILL.md) as the decision arises. Preserve its constraints and rationale.
 
 ## Verify
 
-- Run the narrowest relevant check first.
-- Broaden verification when the change crosses a shared boundary, public API, schema, configuration, migration, security-sensitive path, or when targeted checks reveal wider risk.
+Before selecting completion checks, read [verify-in-proportion-to-risk](../principle-verify-in-proportion-to-risk/SKILL.md).
+
+- Run focused checks first and expand them to cover affected boundaries and material risks.
 - Keep the system working after every slice.
 - Leave one durable runnable check for non-trivial logic when the repository supports it.
 - If no automated harness exists, perform the smallest reliable manual check and state the gap.
@@ -114,7 +107,7 @@ Read [verification](references/verification.md) for risk-based escalation guidan
 
 ## Review Evidence
 
-For code review, report only findings supported by the inspected code or checks. For each finding, state severity, location or scope, concrete impact, recommendation, and confidence. Distinguish a confirmed defect from missing evidence or a preference.
+For code review, report evidence-backed findings and distinguish defects from uncertainty and preferences ([principle-evidence-before-verdicts](../principle-evidence-before-verdicts/SKILL.md)). For each finding, state severity, location or scope, concrete impact, recommendation, and confidence.
 
 For design review, compare viable options against the stated constraints, surface trade-offs, make one recommendation, and identify residual uncertainty. Do not turn a review into an implementation plan unless requested.
 

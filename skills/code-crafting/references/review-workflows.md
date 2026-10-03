@@ -11,9 +11,9 @@ SCOPE -> TRACE -> GATHER EVIDENCE -> ASSESS -> REPORT
 ```
 
 1. **Scope:** confirm the requested files, change set, behavior, and review criteria.
-2. **Trace:** follow the relevant path through callers, shared logic, and boundaries.
+2. **Trace:** follow the relevant path through callers, shared logic, and boundaries ([principle-trace-before-changing](../../principle-trace-before-changing/SKILL.md)).
 3. **Gather evidence:** inspect tests, configuration, error paths, and targeted checks where useful.
-4. **Assess:** separate confirmed defects from risks, missing evidence, and style preferences.
+4. **Assess:** separate confirmed defects from risks, missing evidence, and style preferences ([principle-evidence-before-verdicts](../../principle-evidence-before-verdicts/SKILL.md)).
 5. **Report:** order findings by severity and explain impact and remediation.
 
 Do not edit code unless the user asks for changes.
