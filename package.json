@@ -1,0 +1,30 @@
+{
+  "name": "agentic",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Reusable agent skills with an OpenCode V2 plugin adapter",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lexedwards/agentic.git"
+  },
+  "engines": {
+    "opencode": ">=2.0.11"
+  },
+  "exports": {
+    ".": "./.opencode/plugins/agentic.mjs"
+  },
+  "files": [
+    ".opencode/plugins/",
+    "skills/",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "bun test test",
+    "check:package": "bun pm pack --dry-run"
+  },
+  "dependencies": {
+    "@opencode/plugin": "2.0.11",
+    "yaml": "2.9.1"
+  }
+}

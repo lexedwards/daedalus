@@ -3,8 +3,8 @@
 ## Purpose
 
 This repository is a Markdown-first content repo for agent workflows.
-Today it contains documentation in `README.md`, `commands/`, and `skills/`.
-There is no application runtime, package manifest, compiled output, or automated test suite in the repo today.
+It contains documentation in `README.md`, `commands/`, and `skills/`, plus a Git-installable OpenCode V2 plugin in `.opencode/plugins/`.
+The plugin has a root `package.json`, a Bun lockfile, and behavior tests in `test/`. There is no compiled output.
 
 Use this file as the default guide for coding agents working here.
 Prefer the smallest correct change.
@@ -16,8 +16,10 @@ Do not invent build steps, test steps, or coding conventions that are not actual
 - Skills live under `skills/<skill-name>/`.
 - A skill's primary file is `SKILL.md` in uppercase.
 - Commands live under `commands/` and are currently Markdown documents only.
-- `.markdownlint.yaml` is the only checked-in machine-readable style config.
-- There is no `package.json`, `go.mod`, `Cargo.toml`, `pyproject.toml`, or `Makefile`.
+- `.markdownlint.yaml` defines Markdown style.
+- `package.json` exports the OpenCode V2 plugin and defines its dependencies and checks.
+- `.opencode/plugins/skills.mjs` lists the skills registered by the plugin; archived `code-crafting-v1` is excluded.
+- There is no `go.mod`, `Cargo.toml`, `pyproject.toml`, or `Makefile`.
 - There are no Cursor rules in `.cursor/rules/` or `.cursorrules`.
 - There is no Copilot instruction file at `.github/copilot-instructions.md`.
 
@@ -27,15 +29,19 @@ If Cursor or Copilot rule files are added later, treat them as repo-level instru
 
 ### Build
 
-There is no confirmed build command in this repository.
-Do not claim a build exists unless a real build tool or manifest is added.
+The JavaScript adapter runs directly; no compilation is required. Install dependencies and preview package contents with:
+
+```bash
+bun install --frozen-lockfile
+bun run check:package
+```
 
 ### Lint
 
 Use Markdown linting with the checked-in config:
 
 ```bash
-npx --yes markdownlint-cli "**/*.md" --config .markdownlint.yaml
+npx --yes markdownlint-cli "**/*.md" --ignore node_modules --config .markdownlint.yaml
 ```
 
 Lint one file:
@@ -52,22 +58,20 @@ npx --yes markdownlint-cli "AGENTS.md" --config .markdownlint.yaml
 
 ### Test
 
-There is no automated test suite in the repository today.
-Do not report that tests passed unless you added a real test harness and ran it.
+Run the OpenCode adapter behavior tests:
 
-Single-test execution is not applicable right now.
-If a user asks you to "run tests", the practical equivalent is:
+```bash
+bun test test
+```
 
-1. Lint the changed Markdown files.
-2. Re-read the edited files for structure, paths, and examples.
-3. Verify that any commands mentioned in docs are real for this repo.
+Run one test file with `bun test test/opencode-plugin.test.mjs`. For Markdown-only changes, lint the changed files, re-read them, and verify referenced paths and commands. Unit tests do not establish that a Git installation loads in OpenCode; check that boundary separately when changing packaging.
 
 ## Validation Workflow
 
 For a normal Markdown edit:
 
 ```bash
-npx --yes markdownlint-cli "**/*.md" --config .markdownlint.yaml
+npx --yes markdownlint-cli "**/*.md" --ignore node_modules --config .markdownlint.yaml
 ```
 
 For a single-skill edit:
@@ -126,13 +130,12 @@ These conventions are inferred from `.markdownlint.yaml` and existing repository
 
 ### Imports, Types, and Dependencies
 
-There is no application source tree here, so normal import-order and type-system rules are not yet established.
-Translate those concerns into content structure:
+For content, express structure through frontmatter and predictable sections. For the OpenCode adapter, use ES modules, Node standard-library APIs, and the pinned V2 plugin API:
 
-- Imports: not applicable unless you add executable scripts.
-- Types: express structure through clear frontmatter and predictable section names.
+- Imports: use `node:` prefixes for standard-library modules.
+- Types: validate skill frontmatter at the package boundary.
 - Interfaces: prefer explicit headings and stable file layout.
-- Dependencies: do not introduce a runtime or package manager unless the user asks for one.
+- Dependencies: keep runtime dependencies minimal and update `bun.lock` when changing them.
 
 If you add a script in the future:
 
