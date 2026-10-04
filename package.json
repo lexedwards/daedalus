@@ -6,7 +6,7 @@
   "description": "Skills, agents, and practices for deliberate AI-assisted engineering",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lexedwards/agentic.git"
+    "url": "git+https://github.com/lexedwards/daedalus.git"
   },
   "engines": {
     "opencode": ">=2.0.11"

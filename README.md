@@ -13,14 +13,14 @@ AI can produce plenty of output. Daedalus helps make that output worth using.
 
 ## Install
 
-The repository currently lives at `lexedwards/agentic`. These instructions use the `overhaul` branch.
+Install from `lexedwards/daedalus` on the `main` branch.
 
 ### OpenCode
 
 Requires **OpenCode 2.0.11 or later**. Install globally:
 
 ```sh
-opencode plugin add 'github:lexedwards/agentic#overhaul'
+opencode plugin add 'github:lexedwards/daedalus#main'
 ```
 
 Start a new session. The plugin registers the bundled skills and agents; existing definitions with matching IDs take precedence.
@@ -40,7 +40,7 @@ The implementation lives in `plugins/` so OpenCode does not auto-load a second c
 Install from a checkout:
 
 ```sh
-git clone --branch overhaul https://github.com/lexedwards/agentic.git daedalus
+git clone --branch main https://github.com/lexedwards/daedalus.git daedalus
 copilot plugin install ./daedalus
 copilot plugin list
 ```
