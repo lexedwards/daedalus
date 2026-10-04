@@ -6,7 +6,7 @@ Read this reference when selecting a check, writing a test, or deciding whether 
 
 For a behavior change with a runnable harness:
 
-1. Write one failing check through the public interface.
+1. Write one failing check through the public interface ([principle-test-observable-behavior](../../principle-test-observable-behavior/SKILL.md)).
 2. Implement the least code that passes it.
 3. Refactor only while the check remains green.
 4. Repeat for the next behavior.
@@ -21,7 +21,7 @@ If no harness exists, use the smallest durable manual, runtime, or boundary chec
 - **Integration:** real boundaries such as APIs, databases, filesystems, queues, or framework wiring.
 - **End-to-end or runtime:** critical user flows and cross-system behavior.
 
-Choose the cheapest check that proves the behavior. Escalate when the affected boundary or risk requires it.
+Choose the cheapest check that proves the behavior, and escalate when the affected boundary or risk requires it ([principle-verify-in-proportion-to-risk](../../principle-verify-in-proportion-to-risk/SKILL.md)).
 
 ## Prefer Real Behavior
 
@@ -38,24 +38,14 @@ real implementation -> fake -> stub -> mock
 
 Do not mock internal collaborators by default.
 
-## Good Checks
+## Readable Checks
 
-- Describe product behavior rather than implementation structure.
 - Structure test descriptions so the suite names the capability or context and
   each test names the valuable observable outcome; together they should read as
   a behavioral specification. Prefer concise behavioral wording. Use
   Given/When/Then for scenarios with meaningful context, not as mandatory
   ceremony. Capture enduring user or system value in the test name when useful,
-  but keep historical implementation rationale in documentation or ADRs.
-- Assert state and outcomes, not private methods or call sequences.
-- Use independent expected values rather than recomputing them with the implementation.
-- Name the behavior being specified.
+  but keep historical implementation rationale in documentation or ADRs
+  ([principle-preserve-decision-context](../../principle-preserve-decision-context/SKILL.md)).
 - Use Arrange, Act, Assert when it improves clarity.
 - Prefer clear, DAMP tests over indirection that hides the scenario.
-
-## Weak Checks
-
-- Assert private methods or internal call order.
-- Pass immediately without proving the behavior.
-- Reuse the implementation algorithm to calculate the expected value.
-- Use vague names such as `works`, `handles errors`, or `test 1`.

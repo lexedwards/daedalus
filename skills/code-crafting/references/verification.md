@@ -4,7 +4,7 @@ Read this reference when deciding how far checks should extend beyond the first 
 
 ## Risk-Based Escalation
 
-Start with the narrowest relevant check. Broaden only when the affected scope or evidence justifies it.
+Start with the narrowest relevant check and broaden when affected boundaries or evidence warrant it ([principle-verify-in-proportion-to-risk](../../principle-verify-in-proportion-to-risk/SKILL.md)).
 
 | Risk or boundary | Minimum useful verification |
 | --- | --- |
@@ -25,7 +25,7 @@ Use the smallest reliable check available:
 - Inspect the resulting state or output independently.
 - Record what was not covered.
 
-Do not invent a test runner, build step, or passing result.
+Report only checks actually performed and keep unverified behavior explicit ([principle-evidence-before-verdicts](../../principle-evidence-before-verdicts/SKILL.md)).
 
 ## Completion Check
 

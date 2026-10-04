@@ -10,37 +10,13 @@ Read this reference when deciding whether logic needs a new module, interface, s
 - **Adapter:** a concrete implementation at a seam.
 - **Depth:** useful behavior hidden behind a small interface.
 
-## Reconcile the Defaults
+## Design the Seam
 
-Start with the least code that satisfies the requirement. Add a deeper module only when one cohesive concern hides enough complexity to reduce caller knowledge. Minimalism removes unnecessary structure; it does not require spreading complex rules across callers.
+Introduce a module only when its cohesive behavior reduces caller knowledge or its seam represents real variation ([principle-hide-useful-complexity](../../principle-hide-useful-complexity/SKILL.md)).
 
-## Before Adding a Seam
+Keep the design no larger than the current requirement needs ([principle-smallest-complete-change](../../principle-smallest-complete-change/SKILL.md)).
 
-Ask:
-
-- Does this behavior vary for a real, present reason?
-- Are the rules behind the seam directly related?
-- Does the seam make callers simpler or merely move complexity?
-- Would deleting the module spread the same cohesive logic across callers?
-- Is an existing interface or helper sufficient?
-- Is there one implementation with no credible variation? If so, prefer a local function unless the seam is already real.
-
-## Prefer
-
-- Plain functions before classes when stateful identity is not needed.
-- Existing interfaces before new interfaces.
-- Explicit data flow before hidden orchestration.
-- Composition of small modules before one broad module.
-- One cohesive deep module before duplicated business rules.
-
-## Avoid
-
-- God modules.
-- Manager objects that coordinate unrelated work.
-- Utility dumping grounds.
-- Pass-through layers.
-- Speculative adapters and generic abstractions.
-- Excessive exports that enlarge the public surface.
+Separate domain decisions from framework, transport, and storage adapters ([principle-boundary-discipline](../../principle-boundary-discipline/SKILL.md)).
 
 ## Interface Checklist
 

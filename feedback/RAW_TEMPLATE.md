@@ -7,5 +7,4 @@ scores:
     name-of-criteria: <score 1-5>
 ---
 
-# Feedback: <DOMAIN> - <NAME>
-
+# Feedback: `<DOMAIN>` - `<NAME>`
