@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 # Boundary Discipline
 
-Parse untrusted input at system boundaries. Pass validated domain values inward. Keep business decisions in pure functions and framework wiring in a thin, mechanical shell.
+Establish trust at the boundary that owns it. Pass validated domain values inward and keep external representations and I/O out of domain decisions.
 
 - **Validate at entry.** Parse CLI arguments, configuration, network payloads, and external storage results into the domain model. Reject invalid input with a meaningful error at the boundary that owns it.
 - **Trust established invariants.** Internal functions consume validated values. Remove repeated shape checks and defensive fallbacks for states the boundary already excludes. A type annotation or unchecked cast does not establish validity.

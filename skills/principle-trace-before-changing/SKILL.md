@@ -13,6 +13,7 @@ Understand the real path before changing or judging it.
 - Inspect sibling callers and shared functions before choosing where a fix belongs.
 - Check existing conventions, interfaces, and dependencies before introducing a new pattern.
 - Resolve observable questions through inspection or execution. Ask the user when missing intent materially changes the outcome.
+- For a reported defect, reproduce the relevant path when feasible. Otherwise inspect or instrument enough of it to distinguish the suspected causes.
 - Keep the investigation bounded to the decision at hand. Do not substitute assumptions for evidence.
 
 **The tests:**

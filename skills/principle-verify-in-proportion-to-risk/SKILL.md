@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 # Verify in Proportion to Risk
 
-Use the narrowest reliable check that proves the outcome. Expand verification when the affected scope or evidence warrants it.
+Use the narrowest reliable check that establishes the requested outcome at the affected boundary. Expand verification when the affected scope or evidence warrants it.
 
 - Check the actual behavior and resulting artifact. Do not treat compilation or a worker's self-report as sufficient proof.
 - Cover affected callers and integrations when changing shared logic.
@@ -14,6 +14,7 @@ Use the narrowest reliable check that proves the outcome. Expand verification wh
 - Strengthen runtime and regression checks for security, authorization, data integrity, concurrency, and critical user flows.
 - Use bounded independent review when the change's substance or risk warrants it. Do not increase effort merely because no findings appeared.
 - Prefer an existing relevant check for trivial, low-risk changes. Do not add checks solely for ceremony.
+- Prefer a rerunnable check when repeated execution or independent reproduction materially increases confidence.
 - Use reliable manual or boundary checks when automation is unavailable, and state the remaining gap.
 
 **The tests:**
