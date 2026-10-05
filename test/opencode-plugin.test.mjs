@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { mkdtemp, readFile, rm, writeFile, mkdir } from 'node:fs/promises';
+import { access, mkdtemp, readFile, rm, writeFile, mkdir } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import { test } from 'bun:test';
@@ -107,12 +107,14 @@ test('registers the current skill bundle with accessible reference files', async
       },
     },
   });
-  assert.equal(registered.size, 25);
+  assert.equal(registered.size, 27);
   assert.equal(registered.get('eval').autoinvoke, false);
   assert.equal(registered.get('incremental-commits').autoinvoke, true);
   const principles = [...registered.values()].filter((skill) => skill.id.startsWith('principle-'));
-  assert.equal(principles.length, 10);
+  assert.equal(principles.length, 11);
   assert.equal(registered.get('principle-isolate-mutable-state').autoinvoke, false);
+  assert.equal(registered.get('principle-integrate-through-review').autoinvoke, false);
+  assert.equal(registered.get('pr-delivery').autoinvoke, true);
   for (const principle of principles) assert.equal(principle.autoinvoke, false);
   assert.equal(registered.has('code-crafting-v1'), false);
   const skill = registered.get('harness-configuration');
@@ -136,7 +138,26 @@ test('preserves an existing skill and remains duplicate-free on transform replay
     },
   });
   assert.equal(registered.get('code-crafting'), existing);
-  assert.equal(registered.size, 25);
+  assert.equal(registered.size, 27);
+});
+
+test('delivery guidance resolves its local references inside the shared skill bundle', async () => {
+  const skills = await readSkills();
+  const ids = new Set([
+    'code-crafting', 'implementation-planning', 'incremental-commits', 'pr-delivery',
+    'principle-isolate-mutable-state', 'principle-integrate-through-review',
+    'principle-sequence-verifiable-slices',
+  ]);
+  for (const skill of skills.filter((entry) => ids.has(entry.id))) {
+    for (const [, target] of skill.content.matchAll(/\]\(([^)]+)\)/g)) {
+      if (/^(https?:|#)/.test(target)) continue;
+      const file = path.resolve(path.dirname(skill.path), target.split('#')[0]);
+      await access(file);
+      if (path.basename(file) === 'SKILL.md') {
+        assert.ok(skills.some((entry) => entry.path === file), `${skill.id}: ${target} is not bundled`);
+      }
+    }
+  }
 });
 
 test('supports multiline YAML and preserves the Markdown body', async () => {
