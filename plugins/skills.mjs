@@ -22,6 +22,7 @@ export const skillIDs = [
   'principle-boundary-discipline',
   'principle-evidence-before-verdicts',
   'principle-hide-useful-complexity',
+  'principle-isolate-mutable-state',
   'principle-preserve-decision-context',
   'principle-sequence-verifiable-slices',
   'principle-smallest-complete-change',

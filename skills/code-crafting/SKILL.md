@@ -48,6 +48,8 @@ Before editing or assessing:
 
 ## Choose a Slice
 
+Before writing or delegating implementation work, read and apply [isolate-mutable-state](../principle-isolate-mutable-state/SKILL.md). Establish the working environment before editing, not at PR publication time.
+
 When planning dependent implementation steps, read [sequence-verifiable-slices](../principle-sequence-verifiable-slices/SKILL.md) before sequencing the work. Choose one complete slice that proves a behavior before building dependent work:
 
 - A parser handles one new case.
