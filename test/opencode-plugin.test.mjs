@@ -107,10 +107,11 @@ test('registers the current skill bundle with accessible reference files', async
       },
     },
   });
-  assert.equal(registered.size, 24);
+  assert.equal(registered.size, 25);
   assert.equal(registered.get('eval').autoinvoke, false);
   const principles = [...registered.values()].filter((skill) => skill.id.startsWith('principle-'));
-  assert.equal(principles.length, 9);
+  assert.equal(principles.length, 10);
+  assert.equal(registered.get('principle-isolate-mutable-state').autoinvoke, false);
   for (const principle of principles) assert.equal(principle.autoinvoke, false);
   assert.equal(registered.has('code-crafting-v1'), false);
   const skill = registered.get('harness-configuration');
@@ -134,7 +135,7 @@ test('preserves an existing skill and remains duplicate-free on transform replay
     },
   });
   assert.equal(registered.get('code-crafting'), existing);
-  assert.equal(registered.size, 24);
+  assert.equal(registered.size, 25);
 });
 
 test('supports multiline YAML and preserves the Markdown body', async () => {
