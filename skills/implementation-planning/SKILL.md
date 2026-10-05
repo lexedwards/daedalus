@@ -22,7 +22,7 @@ Break a plan into independently actionable implementation tasks. Tasks are verti
     - If not already in context, explore the codebase to understand the current state of the code
 
 3. **Draft vertical slices**
-    - Read and apply [sequence-verifiable-slices](../principle-sequence-verifiable-slices/SKILL.md) before choosing task and delivery boundaries.
+    - Read [sequence-verifiable-slices](../principle-sequence-verifiable-slices/SKILL.md) for dependency order and [smallest-complete-change](../principle-smallest-complete-change/SKILL.md) for task and review boundaries.
     - Create tasks from thin vertical slices that implements through ALL integration layers end-to-end
     - Each slice delivers a narrow but complete path through every layer (tests, schema, api ,ui etc.) and is verifiable on its own, along with documentation and architecture diagrams.
     - Ensure that important or critical decisions are preserved and captured in ADRs during the task, using the `/decision-capture` skill.
