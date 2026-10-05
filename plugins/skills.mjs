@@ -17,7 +17,7 @@ export const skillIDs = [
   'humanizer',
   'ideation',
   'implementation-planning',
-  'issue-commits',
+  'incremental-commits',
   'llm-wiki',
   'principle-boundary-discipline',
   'principle-evidence-before-verdicts',

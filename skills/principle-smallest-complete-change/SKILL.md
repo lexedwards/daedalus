@@ -15,6 +15,7 @@ Make the smallest complete and coherent change that satisfies the requested outc
 - Remove unnecessary structure where it serves the requested change. Reject speculative abstractions, future-proofing, and unrelated cleanup.
 - Preserve validation, security, accessibility, data-loss protection, and clear error handling.
 - Stop when the requested outcome is satisfied.
+- Size review boundaries around useful outcomes, not line counts or a target number of PRs. Prefer several small, complete PRs to one large PR, but keep inseparable integration together. A dependent PR must deliver a useful, verifiable increment relative to its declared base without needing its descendants.
 
 **The tests:**
 
@@ -22,3 +23,4 @@ Make the smallest complete and coherent change that satisfies the requested outc
 - "Am I fixing the cause, or adding the same guard to several callers?" Move the correction to the narrowest shared point that resolves the affected behavior and check its consumers.
 - "Does this smaller diff leave a caller, configuration, or contract inconsistent?" Complete the change across the affected surfaces.
 - "Which present requirement needs this abstraction or dependency?" If none does, omit it.
+- "Does this review boundary deliver a useful outcome, or only scaffolding for a later change?" Complete the outcome rather than optimizing for a smaller diff.

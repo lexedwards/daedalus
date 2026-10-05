@@ -13,9 +13,9 @@ A slice may deliver working behavior, a behavior-preserving refactor, or a verif
 - Carry each slice through every integration layer needed to deliver its outcome.
 - Address expensive unknowns early with the smallest slice that proves the risky path.
 - Verify the current slice before building dependent work on it.
-- Keep refactoring increments green with the relevant checks.
 - Include the artifacts needed to use and verify the slice.
-- Order commits and tasks around independently complete outcomes and explicit dependencies.
+- Apply the same ordering to tasks, experiments, migrations, and delivery checkpoints. State the verified prerequisite for each dependent outcome; keep independent work independent.
+- When a prerequisite changes, recheck the affected outcomes before relying on the sequence again.
 
 **The tests:**
 
