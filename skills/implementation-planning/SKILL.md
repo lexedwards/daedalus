@@ -13,6 +13,7 @@ Break a plan into independently actionable implementation tasks. Tasks are verti
 
 1. **Gather context**
     - Work from existing context
+    - Read [integrate-through-review](../principle-integrate-through-review/SKILL.md) and establish the project's completion gate and any explicit delivery exception.
     - If the user passes a github issue: fetch with `gh issue view <number>`
     - if the user references a spec: look up `.specs/<spec-name>/*.md`
     - If the user passes a Jira Epic: use it as the source and create Jira child work items by following [Jira Epic](resources/jira-epic.md)
