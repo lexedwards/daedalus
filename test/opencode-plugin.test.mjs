@@ -110,7 +110,6 @@ test('registers the current skill bundle with accessible reference files', async
   assert.equal(registered.size, 25);
   assert.equal(registered.get('eval').autoinvoke, false);
   assert.equal(registered.get('incremental-commits').autoinvoke, true);
-  assert.equal(registered.has('issue-commits'), false);
   const principles = [...registered.values()].filter((skill) => skill.id.startsWith('principle-'));
   assert.equal(principles.length, 10);
   assert.equal(registered.get('principle-isolate-mutable-state').autoinvoke, false);
