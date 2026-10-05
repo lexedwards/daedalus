@@ -4,3 +4,4 @@ Collection of agent skills to extend capabilities or bring consistency across ha
 
 - [Harness Configuration](harness-configuration/SKILL.md): skill and agent fields, discovery, precedence, cross-harness compatibility, and source-backed self-updates for six harnesses.
 - [Isolate Mutable State](principle-isolate-mutable-state/SKILL.md): separate writers and verification environments before coordinating unavoidable shared state. Code Crafting applies it before implementation, independently of PR publication.
+- [Sequence Verifiable Slices](principle-sequence-verifiable-slices/SKILL.md): grow behavior through passing commits and narrow PRs, stacking dependent outcomes. Implementation Planning defines delivery boundaries; Issue Commits records progress without assuming integration is complete.
