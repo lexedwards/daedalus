@@ -27,11 +27,13 @@ Use the smallest reliable check available:
 
 Report only checks actually performed and keep unverified behavior explicit ([principle-evidence-before-verdicts](../../principle-evidence-before-verdicts/SKILL.md)).
 
-## Completion Check
+## Local Verification Check
 
-Before declaring implementation complete, confirm:
+Before reporting implementation as locally verified, confirm:
 
 - The requested observable behavior works.
 - The change is limited to the requested slice.
 - Relevant existing checks pass.
 - Any unverified risk or deliberate simplification is stated.
+
+This checklist establishes local evidence, not integration completion. Use [integrate-through-review](../../principle-integrate-through-review/SKILL.md) for the delivery gate and [PR Delivery](../../pr-delivery/SKILL.md) for publication.

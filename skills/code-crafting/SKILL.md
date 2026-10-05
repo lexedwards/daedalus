@@ -1,6 +1,6 @@
 ---
 name: code-crafting
-description: Guide pragmatic implementation, bug fixing, refactoring, and code or design review with minimal design, behavior-focused checks, and risk-based verification.
+description: Guide pragmatic implementation, bug fixing, refactoring, and review with isolated work, verified increments, and PR delivery by default, using minimal design and risk-based verification.
 ---
 
 # Code Crafting
@@ -27,12 +27,16 @@ Before inspecting project files, identify every work mode present in the request
 
 Read each starting principle once.
 
+For implementation modes, also read [integrate-through-review](../principle-integrate-through-review/SKILL.md) to establish the delivery gate and any explicit local-only exception. The default method does not grant commit, push, or merge authority.
+
+This skill owns the implementation lifecycle for feature, bug-fix, refactor, and review-fix requests. Isolation and incremental checkpoints are defaults, not extra instructions the user must include. Use PR Delivery directly when the user wants existing work published rather than new implementation.
+
 ## Choose Workflows
 
 Use the relevant workflow for each part of the request:
 
-- **Implementation or refactor:** `TRACE -> CHOOSE SLICE -> DESIGN SEAM -> PROVE -> IMPLEMENT -> REFACTOR -> VERIFY`
-- **Bug fix:** `TRACE -> REPRODUCE -> FIX ROOT CAUSE -> REGRESSION CHECK -> VERIFY`
+- **Implementation or refactor:** `TRACE -> CHOOSE SLICE -> DESIGN SEAM -> PROVE -> IMPLEMENT -> REFACTOR -> VERIFY -> DELIVER`
+- **Bug fix:** `TRACE -> REPRODUCE -> FIX ROOT CAUSE -> REGRESSION CHECK -> VERIFY -> DELIVER`
 - **Code review:** `SCOPE -> TRACE -> GATHER EVIDENCE -> ASSESS -> REPORT`
 - **Design review:** `CONTEXT -> OPTIONS -> TRADE-OFFS -> RECOMMEND`
 
@@ -50,7 +54,7 @@ Before editing or assessing:
 
 Before writing or delegating implementation work, read and apply [isolate-mutable-state](../principle-isolate-mutable-state/SKILL.md). Establish the working environment before editing, not at PR publication time.
 
-When planning dependent implementation steps, read [sequence-verifiable-slices](../principle-sequence-verifiable-slices/SKILL.md) before sequencing the work. Choose one complete slice that proves a behavior before building dependent work:
+Read and apply [sequence-verifiable-slices](../principle-sequence-verifiable-slices/SKILL.md) when choosing implementation, commit, and PR boundaries. Choose one complete slice that proves a behavior before building dependent work:
 
 - A parser handles one new case.
 - A user completes one flow.
@@ -94,6 +98,8 @@ Do not add speculative exports or new dependencies.
 
 Refactor only after the behavior is green. Run the relevant check after each behaviorally meaningful or risk-changing refactor increment.
 
+Load [incremental-commits](../incremental-commits/SKILL.md) and checkpoint each verified increment before building on it, subject to the environment's permissions and explicit exceptions. Do this for untracked work too; several checkpoints can contribute to one complete reviewable outcome.
+
 When making a consequential decision that needs durable rationale, read [preserve-decision-context](../principle-preserve-decision-context/SKILL.md) as the decision arises. Preserve its constraints and rationale.
 
 ## Verify
@@ -115,7 +121,13 @@ For design review, compare viable options against the stated constraints, surfac
 
 ## Done and Output
 
-Implementation is done when the requested behavior works, the design is no larger than necessary, relevant checks pass, and deliberate gaps are stated.
+Implementation is locally verified when the requested behavior works, the design is no larger than necessary, relevant checks pass, and deliberate gaps are stated.
+
+When verified increments form one complete reviewable outcome under the sizing principle, hand its commits and evidence to [pr-delivery](../pr-delivery/SKILL.md), unless an explicit local-only or alternative integration instruction applies. Do not turn every checkpoint into a PR or wait for all dependent outcomes before publishing the current one.
+
+PR Delivery returns publication state and findings; it does not call this implementation workflow. Remain the owner of any requested corrections: trace the finding, implement and check the correction, checkpoint it, then resume publication with the updated evidence. Do not restart the whole task at a skill handoff.
+
+Report completion at the agreed delivery gate under the integration principle. If authorization, tooling, CI, or review blocks that gate, report the achieved state and blocker rather than silently changing the task to local-only. An explicit local-only task ends at local verification with that exception stated.
 
 Review is done when the scope is answered, findings are evidence-backed, trade-offs or recommendations are clear, and residual uncertainty is explicit.
 
@@ -124,6 +136,7 @@ Use only the fields that apply:
 ```text
 Implemented: [behavior or change]
 Verified: [checks or evidence]
+Delivery: [reached state, PR links or local-only exception, and outstanding gates]
 Remaining: [gap or risk, if any]
 ```
 
