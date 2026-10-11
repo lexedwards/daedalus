@@ -107,14 +107,15 @@ test('registers the current skill bundle with accessible reference files', async
       },
     },
   });
-  assert.equal(registered.size, 26);
+  assert.equal(registered.size, 27);
   assert.equal(registered.has('career-materials'), false);
   assert.equal(registered.get('eval').autoinvoke, false);
   assert.equal(registered.get('incremental-commits').autoinvoke, true);
   const principles = [...registered.values()].filter((skill) => skill.id.startsWith('principle-'));
-  assert.equal(principles.length, 11);
+  assert.equal(principles.length, 12);
   assert.equal(registered.get('principle-isolate-mutable-state').autoinvoke, false);
   assert.equal(registered.get('principle-integrate-through-review').autoinvoke, false);
+  assert.equal(registered.get('principle-make-structure-visible').autoinvoke, false);
   assert.equal(registered.get('pr-delivery').autoinvoke, true);
   for (const principle of principles) assert.equal(principle.autoinvoke, false);
   assert.equal(registered.has('code-crafting-v1'), false);
@@ -139,15 +140,16 @@ test('preserves an existing skill and remains duplicate-free on transform replay
     },
   });
   assert.equal(registered.get('code-crafting'), existing);
-  assert.equal(registered.size, 26);
+  assert.equal(registered.size, 27);
 });
 
-test('delivery guidance resolves its local references inside the shared skill bundle', async () => {
+test('workflow guidance resolves its local references inside the shared skill bundle', async () => {
   const skills = await readSkills();
   const ids = new Set([
     'code-crafting', 'implementation-planning', 'incremental-commits', 'pr-delivery',
     'principle-isolate-mutable-state', 'principle-integrate-through-review',
     'principle-sequence-verifiable-slices',
+    'principle-make-structure-visible', 'technical-writing',
   ]);
   for (const skill of skills.filter((entry) => ids.has(entry.id))) {
     for (const [, target] of skill.content.matchAll(/\]\(([^)]+)\)/g)) {

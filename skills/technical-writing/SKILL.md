@@ -15,6 +15,10 @@ The most valuable documentation captures the **why**. Code shows what was build 
 
 **Do not** document obvious code, comments that restate, or docs for prototypes.
 
+## Start here
+
+Before drafting or restructuring documentation, read [make-structure-visible](../principle-make-structure-visible/SKILL.md). Organize the material around what the reader needs to find or do, making logical grouping, sequence, and alternatives visible.
+
 ## Writing style
 
 Use Simplified Technical English, or ASD-STE100 and follow Zinsser's four principles of quality writing:
@@ -65,3 +69,7 @@ Prefer links to ADRs rather than duplication or lengthy documents.
 Prefer Mermaid diagrams to ASCII art or plain-text diagrams.
 
 ```
+
+## Verify
+
+Re-read the rendered document when available, or inspect its Markdown structure. Check that readers can find prerequisites, actions, alternatives, and outcomes without reconstructing their relationships ([make-structure-visible](../principle-make-structure-visible/SKILL.md)). Lint and formatting checks do not establish comprehension.

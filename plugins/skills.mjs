@@ -24,6 +24,7 @@ export const skillIDs = [
   'principle-hide-useful-complexity',
   'principle-integrate-through-review',
   'principle-isolate-mutable-state',
+  'principle-make-structure-visible',
   'principle-preserve-decision-context',
   'principle-sequence-verifiable-slices',
   'principle-smallest-complete-change',
