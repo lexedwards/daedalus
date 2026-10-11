@@ -44,6 +44,12 @@ Use the relevant workflow for each part of the request:
 
 Review modes do not edit code unless the user explicitly asks for changes. See [review workflows](references/review-workflows.md) for detailed branches.
 
+## User-Led Learning
+
+When the user is learning or implementing alongside the agent, honor the requested increment: explanation, scaffold, tests, or implementation. Do not complete user-owned work or expand a scaffold into an implementation without a request.
+
+An explicitly limited learning increment is the completion gate for that request, not a claim of integrated behavior. Verify what can be checked and identify intentionally missing behavior or failing checks. Apply the normal implementation and delivery workflow when a complete implemented outcome is requested.
+
 ## Trace
 
 Before editing or assessing:

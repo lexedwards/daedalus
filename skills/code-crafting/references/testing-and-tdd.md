@@ -23,6 +23,8 @@ If no harness exists, use the smallest durable manual, runtime, or boundary chec
 
 Choose the cheapest check that proves the behavior, and escalate when the affected boundary or risk requires it ([principle-verify-in-proportion-to-risk](../../principle-verify-in-proportion-to-risk/SKILL.md)).
 
+Test application guarantees and consequential failure paths, not an exhaustive catalogue of input permutations already covered by a dependency. Keep negative cases that establish required rejection, cancellation, or error handling; omit cases with no relevant application contract or risk.
+
 ## Prefer Real Behavior
 
 Prefer this order when each option is fast, deterministic, and safe:
