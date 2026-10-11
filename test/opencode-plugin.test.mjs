@@ -107,7 +107,8 @@ test('registers the current skill bundle with accessible reference files', async
       },
     },
   });
-  assert.equal(registered.size, 27);
+  assert.equal(registered.size, 26);
+  assert.equal(registered.has('career-materials'), false);
   assert.equal(registered.get('eval').autoinvoke, false);
   assert.equal(registered.get('incremental-commits').autoinvoke, true);
   const principles = [...registered.values()].filter((skill) => skill.id.startsWith('principle-'));
@@ -138,7 +139,7 @@ test('preserves an existing skill and remains duplicate-free on transform replay
     },
   });
   assert.equal(registered.get('code-crafting'), existing);
-  assert.equal(registered.size, 27);
+  assert.equal(registered.size, 26);
 });
 
 test('delivery guidance resolves its local references inside the shared skill bundle', async () => {

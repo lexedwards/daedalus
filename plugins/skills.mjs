@@ -7,7 +7,6 @@ const skillsDirectory = fileURLToPath(new URL('../skills/', import.meta.url));
 
 // Keep the released inventory deliberate.
 export const skillIDs = [
-  'career-materials',
   'code-crafting',
   'create-skill',
   'decision-capture',
