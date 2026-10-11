@@ -27,6 +27,8 @@ Before inspecting project files, identify every work mode present in the request
 
 Read each starting principle once.
 
+Before generating code, tests, or explanations, read [make-structure-visible](../principle-make-structure-visible/SKILL.md). Use it to expose logical grouping, sequence, and branches in the chosen representation.
+
 For implementation modes, also read [integrate-through-review](../principle-integrate-through-review/SKILL.md) to establish the delivery gate and any explicit local-only exception. The default method does not grant commit, push, or merge authority.
 
 This skill owns the implementation lifecycle for feature, bug-fix, refactor, and review-fix requests. Isolation and incremental checkpoints are defaults, not extra instructions the user must include. Use PR Delivery directly when the user wants existing work published rather than new implementation.
@@ -110,6 +112,7 @@ Before selecting completion checks, read [verify-in-proportion-to-risk](../princ
 - Keep the system working after every slice.
 - Leave one durable runnable check for non-trivial logic when the repository supports it.
 - If no automated harness exists, perform the smallest reliable manual check and state the gap.
+- Inspect the resulting implementation and tests for comprehension, not just formatting consistency ([make-structure-visible](../principle-make-structure-visible/SKILL.md)).
 
 Read [verification](references/verification.md) for risk-based escalation guidance.
 

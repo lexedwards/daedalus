@@ -15,6 +15,10 @@ The most valuable documentation captures the **why**. Code shows what was build 
 
 **Do not** document obvious code, comments that restate, or docs for prototypes.
 
+## Start here
+
+Before drafting or restructuring documentation, read [make-structure-visible](../principle-make-structure-visible/SKILL.md). Organize the material around what the reader needs to find or do, making logical grouping, sequence, and alternatives visible.
+
 ## Writing style
 
 Use Simplified Technical English, or ASD-STE100 and follow Zinsser's four principles of quality writing:
@@ -38,6 +42,8 @@ Keep the writing warm and human - a person wrote it, not a manual.
 ## Project README structure
 
 Every project should have a README that acts as an introduction and contains high-level information that covers:
+
+Keep setup instructions separate from command reference material. For command-line projects, place the command reference after the initial runnable example in Quick Start, following [Command reference](#command-reference).
 
 ```markdown
 # Project Name
@@ -65,3 +71,17 @@ Prefer links to ADRs rather than duplication or lengthy documents.
 Prefer Mermaid diagrams to ASCII art or plain-text diagrams.
 
 ```
+
+## Command reference
+
+Document command invocation in a manpage-like, reference-first form rather than a catalogue of examples:
+
+- Start with one minimal runnable invocation, then show the usage synopsis when optional arguments or subcommands need clarification.
+- Follow with a scannable list of positional arguments and flags. Give each name, value type, description, and default where applicable; identify required values, valid choices, constraints, and repeatable options.
+- Explain output destinations, exit status, and relevant operational behavior separately from the option list.
+- Use additional examples only to clarify combinations or workflows the reference cannot explain clearly. Do not make readers infer available options from examples.
+- Verify names, types, defaults, and behavior against the command's actual interface and help output.
+
+## Verify
+
+Re-read the rendered document when available, or inspect its Markdown structure. Check that readers can find prerequisites, actions, alternatives, and outcomes without reconstructing their relationships ([make-structure-visible](../principle-make-structure-visible/SKILL.md)). Lint and formatting checks do not establish comprehension.
