@@ -149,7 +149,7 @@ test('workflow guidance resolves its local references inside the shared skill bu
     'code-crafting', 'implementation-planning', 'incremental-commits', 'pr-delivery',
     'principle-isolate-mutable-state', 'principle-integrate-through-review',
     'principle-sequence-verifiable-slices',
-    'principle-make-structure-visible', 'technical-writing',
+    'principle-make-structure-visible', 'technical-writing', 'ideation',
   ]);
   for (const skill of skills.filter((entry) => ids.has(entry.id))) {
     for (const [, target] of skill.content.matchAll(/\]\(([^)]+)\)/g)) {

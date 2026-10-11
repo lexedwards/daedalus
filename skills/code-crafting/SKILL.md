@@ -96,6 +96,10 @@ If a failing check cannot be created for a legitimate reason, record the reason 
 
 Implement the chosen behavior with the least code that passes the current check. Use the **lazy ladder** in [precise change strategy](references/change-strategy.md) to choose what to reuse or add.
 
+Default to no code comments. Prefer clear names and structure; use native declaration documentation only for meaningful contract information they cannot convey, including what returned values represent. Exclude implementation narration, change history, and feedback.
+
+Read [code documentation](references/code-documentation.md) when creating or reviewing declaration documentation, or considering a new comment. Add usage examples only for public interfaces whose correct use requires non-obvious steps.
+
 Do not add speculative exports or new dependencies.
 
 Refactor only after the behavior is green. Run the relevant check after each behaviorally meaningful or risk-changing refactor increment.

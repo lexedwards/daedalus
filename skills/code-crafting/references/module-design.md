@@ -28,3 +28,9 @@ Before finalizing a seam, document or verify the caller-visible contract:
 - Configuration and defaults.
 - Performance or resource expectations when material.
 - Ownership of validation and business rules.
+
+## Ownership
+
+- Identify who constructs and configures each dependency. Accept a configured dependency when its configuration belongs to the caller; do not hide caller-owned choices inside the capability.
+- Keep each cohesive policy with its owner. Consumers apply the shared decision rather than reimplementing it in adapters.
+- Distinguish agreed constraints from proposed defaults. Confirm behavior-changing limits before adding them to the contract.

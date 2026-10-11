@@ -12,7 +12,9 @@ description: Interview and challenge the user until reaching a shared understand
     - If a llm wiki is available, query for relevant information
     - If a question can be answered by exploring the codebase, explore the codebase instead
     - For each question, provide your recommended answer
+    - Distinguish accepted requirements from recommendations and unresolved choices. Confirm behavior-changing restrictions and defaults before treating them as requirements; broad goals do not authorize arbitrary policies.
     - Ask the questions one at a time, waiting for feedback on each question before continuing.
+    - When discussing module boundaries, interfaces, or configuration ownership, load [code-crafting](../code-crafting/SKILL.md) and use its design-review workflow alongside this interview. Discussion alone does not authorize implementation.
 
 ## Pitfalls
 
