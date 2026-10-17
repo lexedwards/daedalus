@@ -1,6 +1,6 @@
 ---
 name: requirements-capture
-description: Capture product requirements for new or changed user-facing work before implementation. Use when the user wants to capture requirements, create or update a local `.specs/<spec-name>/REQUIREMENTS.md` spec, Jira Epic, Linear project or project milestone, or draft/update a PRD-style product requirements document in the response unless a destination is specified.
+description: Capture product requirements for new or changed user-facing work before implementation. Use when the user wants to capture requirements, create or update a GitHub issue, local `.specs/<spec-name>/REQUIREMENTS.md` spec, Jira Epic, Linear project or project milestone, or draft/update a PRD-style product requirements document in the response unless a destination is specified.
 ---
 
 # Requirements Capture
@@ -12,9 +12,11 @@ Do not use this skill for implementation planning, task breakdown, solution desi
 ## Workflow
 
 1. **Determine the artifact**
-   - If the user asks for requirements without naming an artifact, create or update a local spec. See [Local Spec](references/local-spec.md).
-   - If the user asks for a Jira Epic, create or update the requirements Epic. See [Jira Epic](references/jira-epic.md).
-   - If the user explicitly asks to capture requirements in Linear, create or update a Linear project for standalone or project-wide scope. Target a project milestone when the requirements are one stage of a larger project organized by milestones. See [Linear Project and Milestone](references/linear-project.md).
+   - Read [public-work-public-tracking](../principle-public-work-public-tracking/SKILL.md). Honor an explicit artifact request or existing artifact; otherwise follow the established tracker. For public GitHub repositories without an established alternative, default to a GitHub issue. Do not publish sensitive requirements publicly.
+   - For GitHub, create or update a requirements issue. See [GitHub Issue](references/github-issue.md).
+   - For Jira, create or update the requirements Epic. See [Jira Epic](references/jira-epic.md).
+   - For Linear, create or update a Linear project for standalone or project-wide scope. Target a project milestone when the requirements are one stage of a larger project organized by milestones. See [Linear Project and Milestone](references/linear-project.md).
+   - If no tracker or other artifact is selected, create or update a local spec. See [Local Spec](references/local-spec.md).
    - If the user asks for a PRD or product requirements document, produce PRD-style output. See [PRD](references/prd.md).
    - If the user references an existing artifact, update that artifact using the matching workflow.
 
@@ -37,7 +39,6 @@ Do not use this skill for implementation planning, task breakdown, solution desi
 - Use precise actors, behaviors, outcomes, constraints, and scope boundaries.
 - Use `Decisions and Constraints` for clarified choices that shape requirements.
 - Avoid implementation plans, task breakdowns, file paths, code snippets, and low-level technical design.
-- Do not include GitHub issue workflows unless the user provides a concrete use case.
 
 ## Pitfalls
 
