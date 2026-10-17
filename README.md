@@ -69,6 +69,8 @@ For coordinated work, select the `orchestrator` agent in OpenCode, or start Copi
 
 ### Delivery method
 
+[Public work, public tracking](skills/principle-public-work-public-tracking/SKILL.md) guides requirements and task placement: prefer GitHub Issues and milestones for public GitHub repositories, respect established trackers unless explicitly directed to change, and keep sensitive work private until safe to disclose.
+
 [Code Crafting](skills/code-crafting/SKILL.md) combines [isolated mutable state](skills/principle-isolate-mutable-state/SKILL.md), [verifiable slices](skills/principle-sequence-verifiable-slices/SKILL.md), and [integration through review](skills/principle-integrate-through-review/SKILL.md). [PR Delivery](skills/pr-delivery/SKILL.md) handles publication and requested follow-up; it does not provision workspaces.
 
 Code Crafting owns implementation and defaults to isolated work, [incremental commits](skills/incremental-commits/SKILL.md), and PR delivery. Each PR must deliver a complete useful outcome, not merely a small diff. A PR can contain several passing checkpoints; dependent outcomes form small stacks instead of one growing branch. Local verification, publication, readiness, and integration are reported separately.

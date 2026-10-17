@@ -13,11 +13,12 @@ Break a plan into independently actionable implementation tasks. Tasks are verti
 
 1. **Gather context**
     - Work from existing context
+    - Read [public-work-public-tracking](../principle-public-work-public-tracking/SKILL.md) and select the task destination separately from the source document. Honor explicit user direction and the established tracker; otherwise default to GitHub Issues and suitable milestones for public GitHub repositories. Keep sensitive work private.
     - Read [integrate-through-review](../principle-integrate-through-review/SKILL.md) and establish the project's completion gate and any explicit delivery exception.
     - If the user passes a github issue: fetch with `gh issue view <number>`
     - if the user references a spec: look up `.specs/<spec-name>/*.md`
-    - If the user passes a Jira Epic: use it as the source and create Jira child work items by following [Jira Epic](resources/jira-epic.md)
-    - If the user passes a Linear project or project milestone: use it as the source and create Linear issues by following [Linear Project and Milestone](resources/linear-project.md)
+    - If the user passes a Jira Epic: read it as the source using [Jira Epic](resources/jira-epic.md)
+    - If the user passes a Linear project or project milestone: read it as the source using [Linear Project and Milestone](resources/linear-project.md)
 
 2. **Explore the codebase (optional)**
     - If not already in context, explore the codebase to understand the current state of the code
@@ -31,6 +32,7 @@ Break a plan into independently actionable implementation tasks. Tasks are verti
 
 4. **Confirm with the user**:
     - Present the proposed breakdown, for each task include:
+        - Selected tracker or local destination, and any suitable milestone
         - Short descriptive title
         - User stories covered
         - Blocking relationships with other tasks
@@ -42,13 +44,14 @@ Break a plan into independently actionable implementation tasks. Tasks are verti
 
 5. **Create the tasks**
     - Create the tasks in dependency order (blockers first) so that they can be referenced correctly in the related tasks
-    - If the plan came from a github issue:
-        - create tasks as github issues using `gh issue create` and reference parent github issue in related tasks
-    - If the plan came from a spec in `.specs/<spec-name>/`:
+    - Use the selected destination, not just the source document's location. Confirm publication authorization and check for existing tasks before creating new ones; report blocked access rather than switching trackers.
+    - If GitHub Issues is selected:
+        - create tasks using `gh issue create`, reference the source and parent issue when present, and use a suitable milestone for related work or delivery goals
+    - If local task files are selected, or no tracker is selected and the plan came from a spec in `.specs/<spec-name>/`:
         - create ordered tasks as markdown files in `.specs/<spec-name>/tasks/`
-    - If the plan came from a Jira Epic:
+    - If Jira is selected:
         - create child work items by following [Jira Epic](resources/jira-epic.md)
-    - If the plan came from a Linear project or project milestone:
+    - If Linear is selected:
         - create issues by following [Linear Project and Milestone](resources/linear-project.md)
 
 ## Features

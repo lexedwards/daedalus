@@ -26,6 +26,7 @@ export const skillIDs = [
   'principle-isolate-mutable-state',
   'principle-make-structure-visible',
   'principle-preserve-decision-context',
+  'principle-public-work-public-tracking',
   'principle-sequence-verifiable-slices',
   'principle-smallest-complete-change',
   'principle-test-observable-behavior',

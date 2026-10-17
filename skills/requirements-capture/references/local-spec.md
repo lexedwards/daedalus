@@ -1,6 +1,6 @@
 # Local Requirements Spec
 
-Use this workflow when the user asks to capture requirements, create a local spec, update a local spec, or does not specify another artifact.
+Use this workflow when the user asks to create or update a local spec, or when artifact selection in [Requirements Capture](../SKILL.md) chooses a local spec.
 
 ## Artifact
 
