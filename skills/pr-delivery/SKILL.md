@@ -19,6 +19,8 @@ Read [integrate-through-review](../principle-integrate-through-review/SKILL.md) 
 
 ## Prepare Publication
 
+Read [automate-mechanics](../principle-automate-mechanics/SKILL.md) for repeatable evidence collection and checks. Reuse forge tools first; return needed automation changes to the owning implementation workflow rather than expanding publication into implementation.
+
 1. Inspect repository instructions, status, commits, remote, default branch, existing PRs, and available authenticated forge tools. Resolve the intended base and examine the base-to-head diff, not only the latest commit. Stop if it contains unrelated work, secrets, or incomplete increments.
 2. Confirm authorization to commit and publish through the selected remote and forge. If authority is unclear, ask before the external write. Never silently bypass hooks or branch protection. Missing tools or access are blockers, not permission to change the delivery policy.
 3. Confirm that the proposed review boundary satisfies the sizing principle; several passing commits may form one PR when they deliver a coherent outcome. Record dependencies and follow-ups. Prefer a short stack for dependent outcomes rather than accumulating them in one growing branch; independent outcomes target the default branch. The stack root targets that branch, and each child targets its parent with only its own incremental diff. Inspect existing topology and use available stack tooling and its instructions rather than inventing commands.

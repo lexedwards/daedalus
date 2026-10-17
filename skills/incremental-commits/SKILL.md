@@ -5,6 +5,8 @@ description: Checkpoint implementation through small verified commits using Conv
 
 # Incremental Commits
 
+Read [automate-mechanics](../principle-automate-mechanics/SKILL.md) for repeatable checks and evidence collection. Prefer existing Git and project commands; saved automation must preserve explicit staging, commit authorization, and unrelated work.
+
 Checkpoint verified implementation as it grows; do not wait until an entire task is finished. Read [sequence-verifiable-slices](../principle-sequence-verifiable-slices/SKILL.md) and [smallest-complete-change](../principle-smallest-complete-change/SKILL.md) when choosing boundaries. Follow explicit user or repository instructions not to commit.
 
 ## Checkpoint Workflow

@@ -19,6 +19,7 @@ export const skillIDs = [
   'incremental-commits',
   'llm-wiki',
   'pr-delivery',
+  'principle-automate-mechanics',
   'principle-boundary-discipline',
   'principle-evidence-before-verdicts',
   'principle-hide-useful-complexity',

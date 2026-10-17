@@ -17,6 +17,8 @@ The most valuable documentation captures the **why**. Code shows what was build 
 
 ## Start here
 
+Read [automate-mechanics](../principle-automate-mechanics/SKILL.md) for repeatable link, structure, or example validation. Reuse or save useful checks; keep explanation and editorial decisions with the agent.
+
 Before drafting or restructuring documentation, read [make-structure-visible](../principle-make-structure-visible/SKILL.md). Organize the material around what the reader needs to find or do, making logical grouping, sequence, and alternatives visible.
 
 ## Writing style

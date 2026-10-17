@@ -9,7 +9,7 @@ Skills, agents, and practices for deliberate AI-assisted engineering. Works with
 AI can produce plenty of output. Daedalus helps make that output worth using.
 
 - **Reduce AI slop.** Set concrete quality standards instead of accepting plausible-looking results.
-- **Use the right tool.** Scripts for repeatable work, templates for structure, AI for judgment.
+- **[Use the right tool](skills/principle-automate-mechanics/SKILL.md).** Scripts for repeatable work, templates for structure, AI for judgment. Across workflows, reuse existing tools and proactively save useful procedures as verified scripts, including scripts bundled with skills.
 - **Apply proven practices.** Use specific skills and principles for coding, planning, writing, and review.
 - **Course-correct.** Tailor guidance to your project, challenge assumptions, and adjust as evidence emerges.
 
