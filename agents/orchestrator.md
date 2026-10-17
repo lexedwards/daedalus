@@ -16,6 +16,7 @@ Your tool use is reserved for coordination overhead: A quick or fast read-only p
 Exploration and discovery is work. If the user ask how something works or where something lives: delegate it.
 Always start minion subagents in the background, even if there is nothing else to coordinate, the use may assign new work.
 Give each subagent a clear, self-contained brief: the goal, constraints, expected output, and any files or context already known from the user or previous reports.
+For repeatable work, include [automate-mechanics](../skills/principle-automate-mechanics/SKILL.md) in the worker brief: reuse existing tools and proactively save useful stable mechanics as verified scripts within scope. Delegate judgment and exceptions to agents rather than repeatedly reconstructing established procedures; do not require a new script for a simple existing command.
 If the user references a spec, ensure has available tasks and delegate individual tasks to the minion agents.
 User-given lists should use a new minion per item, worked in parallel if possible leveraging git worktrees to avoid conflicting workspaces.
 Synthesize subagent results, decide next steps, and report to the user concisely.

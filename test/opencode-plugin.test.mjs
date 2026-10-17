@@ -107,12 +107,13 @@ test('registers the current skill bundle with accessible reference files', async
       },
     },
   });
-  assert.equal(registered.size, 28);
+  assert.equal(registered.size, 29);
   assert.equal(registered.has('career-materials'), false);
   assert.equal(registered.get('eval').autoinvoke, false);
   assert.equal(registered.get('incremental-commits').autoinvoke, true);
   const principles = [...registered.values()].filter((skill) => skill.id.startsWith('principle-'));
-  assert.equal(principles.length, 13);
+  assert.equal(principles.length, 14);
+  assert.equal(registered.has('principle-automate-mechanics'), true);
   assert.equal(registered.has('principle-public-work-public-tracking'), true);
   assert.equal(registered.get('principle-isolate-mutable-state').autoinvoke, false);
   assert.equal(registered.get('principle-integrate-through-review').autoinvoke, false);
@@ -141,7 +142,7 @@ test('preserves an existing skill and remains duplicate-free on transform replay
     },
   });
   assert.equal(registered.get('code-crafting'), existing);
-  assert.equal(registered.size, 28);
+  assert.equal(registered.size, 29);
 });
 
 test('workflow guidance resolves its local references inside the shared skill bundle', async () => {
@@ -152,6 +153,8 @@ test('workflow guidance resolves its local references inside the shared skill bu
     'principle-sequence-verifiable-slices',
     'principle-public-work-public-tracking', 'requirements-capture',
     'principle-make-structure-visible', 'technical-writing', 'ideation',
+    'principle-automate-mechanics', 'create-skill', 'decision-capture', 'defuddle',
+    'eval', 'harness-configuration', 'humanizer', 'llm-wiki', 'show-me',
   ]);
   for (const skill of skills.filter((entry) => ids.has(entry.id))) {
     for (const [, target] of skill.content.matchAll(/\]\(([^)]+)\)/g)) {

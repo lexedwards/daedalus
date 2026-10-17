@@ -35,6 +35,7 @@ Do not use this skill for implementation planning, task breakdown, solution desi
 
 ## Shared Guidance
 
+- Read [automate-mechanics](../principle-automate-mechanics/SKILL.md) when collecting or validating artifacts. Automate stable structural checks where useful; keep product scope and acceptance decisions with the agent, without turning capture into implementation.
 - Prefer product terminology already used by the project.
 - Use precise actors, behaviors, outcomes, constraints, and scope boundaries.
 - Use `Decisions and Constraints` for clarified choices that shape requirements.

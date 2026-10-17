@@ -7,6 +7,8 @@ description: Interview and challenge the user until reaching a shared understand
 
 ## Workflow
 
+Read [automate-mechanics](../principle-automate-mechanics/SKILL.md) when discussing repeatable work. Identify reusable mechanics separately from judgment; discussion alone does not authorize creating scripts.
+
 1. **Interview the user relentlessly** about every aspect of this plan until we reach a shared understanding
     - Walk down each branch of the design tree, resolving dependencies between decisions one-by-one
     - If a llm wiki is available, query for relevant information

@@ -116,6 +116,8 @@ For each conflict, consult the relevant inventory and [compatibility guide](refe
 
 ## Configure or diagnose
 
+Read [automate-mechanics](../principle-automate-mechanics/SKILL.md) for repeatable inspection and validation. Reuse or save stable checks against versioned evidence; leave interpretation of undocumented behavior and cross-harness differences to the agent.
+
 1. Establish the target harness, version, skill versus agent, and user versus project scope. Identify any extension that owns agent loading.
 2. Read the current definition and configuration layers that discover or override it. Resolve its actual ID, not just its display name.
 3. Compare every field with the relevant inventory. Include nested settings and companion files. Check spelling, case, type, accepted values, and omitted versus empty values.

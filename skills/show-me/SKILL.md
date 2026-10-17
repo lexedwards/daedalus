@@ -121,6 +121,8 @@ function expandSkill(command: string): string {
 
 ## Guidance
 
+Read [automate-mechanics](../principle-automate-mechanics/SKILL.md) when extracting or rendering repeatable views. Reuse tools or save useful mechanics; keep selection of the explanatory view with the agent. A one-off sketch does not need a script.
+
 Place each visual next to the short text it supports. Keep only the calls, files, props, states, and boundaries needed to answer the user's current question or the options to resolve the current discussion point.
 
 You may use one of these, you may use several, it is unlikely you will use all of them. Use your judgement and don't overwhelm the user.

@@ -5,7 +5,9 @@ description: Create agent skills. Use when authoring a new skill or asking about
 
 # Creating agent skills
 
-Guided creation of effective Agent Skills. Skills are Markdown files that teach the agent how to perform specific tasks. Examples: Reviewing PRs using team standards, generating commit messages in a preferred format, or any other specialized workflow.
+Guided creation of effective Agent Skills. Skills package instructions and optional scripts and references that teach the agent how to perform specific tasks. Examples: Reviewing PRs using team standards, generating commit messages in a preferred format, or any other specialized workflow.
+
+Read [automate-mechanics](../principle-automate-mechanics/SKILL.md). During skill creation or updates, proactively identify and capture stable mechanics in `scripts/` when existing tools do not suffice. Keep triggers, judgment calls, and exceptions in `SKILL.md`; document script invocation relative to the skill directory, inputs, outputs, dependencies, side effects, and failures.
 
 ## Gather requirements upfront
 
@@ -102,6 +104,7 @@ Keep variability low by having a default decision made, with specific use-cases 
 - Frontmatter is valid with `name` and `description`
 - Reference files exist
 - Cross-skill links resolve
+- Bundled scripts pass representative success and failure checks; documented invocations work from outside the skill directory
 - It abides by the Core Principles
 
 ## Example

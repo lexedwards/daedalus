@@ -2,6 +2,7 @@
 
 Collection of agent skills to extend capabilities or bring consistency across harnesses and models.
 
+- [Automate Mechanics](principle-automate-mechanics/SKILL.md): reuse existing tools and proactively save useful repeatable procedures as verified scripts across workflows, including skill-bundled scripts. Reserve agents for judgment and exceptions.
 - [Harness Configuration](harness-configuration/SKILL.md): skill and agent fields, discovery, precedence, cross-harness compatibility, and source-backed self-updates for six harnesses.
 - [Public Work, Public Tracking](principle-public-work-public-tracking/SKILL.md): prefer public tracking alongside public code, preserve established trackers, and protect sensitive work. Requirements Capture and Implementation Planning apply it when choosing destinations.
 - [Isolate Mutable State](principle-isolate-mutable-state/SKILL.md): separate writers and verification environments before coordinating unavoidable shared state. Code Crafting applies it before implementation, independently of PR publication.

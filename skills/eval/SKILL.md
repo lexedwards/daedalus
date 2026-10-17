@@ -18,6 +18,8 @@ Resolve references such as “this change” from the supplied diff, branch, fil
 
 ## Workflow
 
+Read [automate-mechanics](../principle-automate-mechanics/SKILL.md) when preparing the experiment. Reuse or save verified setup, execution, and acceptance-check mechanics; keep scenario selection and assessment with agents. Preserve candidate isolation and blindness, and keep judge-only scripts outside candidate-visible environments.
+
 ### 1. Identify the change and baseline
 
 - Resolve the exact before-and-after definitions. Default to the environment immediately before the cited change; ask if the baseline is ambiguous.
