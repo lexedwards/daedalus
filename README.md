@@ -1,6 +1,6 @@
 # Daedalus
 
-Version: **0.2.0**
+[![GitHub release](https://img.shields.io/github/v/release/lexedwards/daedalus)](https://github.com/lexedwards/daedalus/releases/latest)
 
 Skills, agents, and practices for deliberate AI-assisted engineering. Works with OpenCode and GitHub Copilot CLI, with more ecosystems to come.
 
@@ -105,6 +105,30 @@ bun test test
 bun run check:package
 bun run lint
 ```
+
+### Releases
+
+[CI](.github/workflows/ci.yml) runs the checks above for ordinary PRs and pushes to `main`. After checks pass on `main`, [Release Please](https://github.com/googleapis/release-please) maintains one accumulating release PR. Merge that PR when ready to publish: the next successful run creates the `vX.Y.Z` tag and GitHub release at its merge commit. Nothing is published to npm.
+
+Use Conventional Commit messages in squash-merged PR titles or commits that land on `main`:
+
+- `feat:` bumps the minor version, including before 1.0.0.
+- `fix:` and alterations such as `docs:`, `refactor:`, `perf:`, `chore:`, `build:`, `ci:`, `test:`, `style:`, and `revert:` bump the patch version.
+- Breaking changes (`!` or a `BREAKING CHANGE:` footer) bump the major version, including before 1.0.0.
+- When changes accumulate, the largest required bump wins.
+
+The release PR updates `package.json`, `plugin.json`, `.release-please-manifest.json`, and `CHANGELOG.md`. The README badge shows the latest published release, not unreleased changes on `main`. Automation starts from the existing `v0.2.0` release; do not manually bump versions for each feature PR.
+
+#### One-time setup
+
+1. Under repository **Settings > Actions > General > Workflow permissions**, enable **Allow GitHub Actions to create and approve pull requests**. Organization policy must also permit this setting. The workflow creates PRs but does not approve or merge them.
+2. Ensure Actions and the pinned third-party actions in the workflow are permitted by repository or organization policy. No personal access token or custom secret is required: only the release job grants the built-in `GITHUB_TOKEN` Contents, Issues, and Pull requests write permissions. Ordinary PR checks retain read-only permissions.
+
+PRs created or updated by `GITHUB_TOKEN` do not automatically trigger PR workflows. We accept this for generated release PRs based on changes already checked on `main`. Review the version, changelog, and complete generated diff before merging; do not manually commit or merge changes into the release branch. Automation updates are not a guarantee that the branch cannot contain manual changes.
+
+If branch protection requires **Checks**, a bot-created release PR may be blocked because its check never ran. Add an explicit validation mechanism for the release PR's current revision before enabling that requirement; do not bypass branch protection. The workflow does not change protection settings.
+
+Keep the bot's `autorelease: pending` and `autorelease: tagged` labels intact: Release Please uses them to identify release PRs. If checks or release creation fail, inspect the run before retrying. Run **CI** manually on `main` from the Actions tab to retry release automation; dispatching on another branch runs checks only. Do not move an existing published tag to another commit.
 
 ## Credits
 
