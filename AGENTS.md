@@ -21,6 +21,7 @@ Do not invent build steps, test steps, or coding conventions that are not actual
 - `package.json` exports the OpenCode V2 plugin and defines its dependencies and checks.
 - `plugins/skills.mjs` lists the skills registered by the plugin.
 - `plugins/agents.mjs` lists and loads the agents registered by the plugin.
+- `.github/workflows/ci.yml` runs checks and Release Please. `release-please-config.json` and `.release-please-manifest.json` maintain an accumulating release PR, synchronized manifest versions, and GitHub releases; setup and versioning rules are in `README.md`.
 - The plugin lives outside `.opencode/plugins/` to avoid automatic project loading alongside a globally configured copy.
 - Root `plugin.json` shares `skills/` with Copilot CLI. `com.github.copilot/agents/` contains relative symlinks to the OpenCode-first definitions in `agents/`; no generator is required.
 - There is no `go.mod`, `Cargo.toml`, `pyproject.toml`, or `Makefile`.
