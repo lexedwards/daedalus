@@ -108,7 +108,7 @@ bun run lint
 
 ### Releases
 
-[CI](.github/workflows/ci.yml) runs the checks above for PRs and pushes to `main`. After checks pass on `main`, [Release Please](https://github.com/googleapis/release-please) maintains one accumulating release PR. Merge that PR when ready to publish: the next successful run creates the `vX.Y.Z` tag and GitHub release at its merge commit. Nothing is published to npm.
+[CI](.github/workflows/ci.yml) runs the checks above for ordinary PRs and pushes to `main`. After checks pass on `main`, [Release Please](https://github.com/googleapis/release-please) maintains one accumulating release PR. Merge that PR when ready to publish: the next successful run creates the `vX.Y.Z` tag and GitHub release at its merge commit. Nothing is published to npm.
 
 Use Conventional Commit messages in squash-merged PR titles or commits that land on `main`:
 
@@ -121,13 +121,14 @@ The release PR updates `package.json`, `plugin.json`, `.release-please-manifest.
 
 #### One-time setup
 
-1. Create a fine-grained personal access token restricted to `lexedwards/daedalus`, with **Contents**, **Issues**, and **Pull requests** read/write permissions. The token's owner must have repository write access. Choose an expiry and rotate it before it expires.
-2. Save it as the repository Actions secret `RELEASE_PLEASE_TOKEN`, for example with `gh secret set RELEASE_PLEASE_TOKEN --repo lexedwards/daedalus`. Enter the token at the prompt, not in a tracked file or command argument.
-3. Ensure Actions and the pinned third-party actions in the workflow are permitted by repository or organization policy. Configure branch protection to require **Checks** and human review as appropriate; the workflow does not change repository protection settings or merge PRs.
+1. Under repository **Settings > Actions > General > Workflow permissions**, enable **Allow GitHub Actions to create and approve pull requests**. Organization policy must also permit this setting. The workflow creates PRs but does not approve or merge them.
+2. Ensure Actions and the pinned third-party actions in the workflow are permitted by repository or organization policy. No personal access token or custom secret is required: only the release job grants the built-in `GITHUB_TOKEN` Contents, Issues, and Pull requests write permissions. Ordinary PR checks retain read-only permissions.
 
-A dedicated token is required because PRs created with the default `GITHUB_TOKEN` do not trigger PR workflows. Without this secret, PR checks still run, but the release job fails with setup instructions. Once configured, run **CI** manually on `main` from the Actions tab to retry; the same workflow can recover after token expiry or a transient release failure. Never dispatch it on a release PR branch to publish that branch.
+PRs created or updated by `GITHUB_TOKEN` do not automatically trigger PR workflows. We accept this for generated release PRs based on changes already checked on `main`. Review the version, changelog, and complete generated diff before merging; do not manually commit or merge changes into the release branch. Automation updates are not a guarantee that the branch cannot contain manual changes.
 
-Keep the bot's `autorelease: pending` and `autorelease: tagged` labels intact: Release Please uses them to identify release PRs. Review the generated version and changelog before merging. If checks or release creation fail, inspect the run before retrying; do not move an existing published tag to another commit.
+If branch protection requires **Checks**, a bot-created release PR may be blocked because its check never ran. Add an explicit validation mechanism for the release PR's current revision before enabling that requirement; do not bypass branch protection. The workflow does not change protection settings.
+
+Keep the bot's `autorelease: pending` and `autorelease: tagged` labels intact: Release Please uses them to identify release PRs. If checks or release creation fail, inspect the run before retrying. Run **CI** manually on `main` from the Actions tab to retry release automation; dispatching on another branch runs checks only. Do not move an existing published tag to another commit.
 
 ## Credits
 

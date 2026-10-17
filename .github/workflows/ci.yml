@@ -31,23 +31,19 @@ jobs:
     name: Release Please
     needs: checks
     if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main'
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
     runs-on: ubuntu-latest
     timeout-minutes: 10
     concurrency:
       group: release-main
       cancel-in-progress: false
     steps:
-      - name: Check release credentials
-        env:
-          RELEASE_PLEASE_TOKEN: ${{ secrets.RELEASE_PLEASE_TOKEN }}
-        run: |
-          if [ -z "$RELEASE_PLEASE_TOKEN" ]; then
-            echo "::error::Add the RELEASE_PLEASE_TOKEN Actions secret as described in README.md."
-            exit 1
-          fi
       - uses: googleapis/release-please-action@5c625bfb5d1ff62eadeeb3772007f7f66fdcf071 # v4.4.1
         with:
-          token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           target-branch: main
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
