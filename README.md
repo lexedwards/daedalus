@@ -1,5 +1,7 @@
 # Daedalus
 
+Version: **0.2.0**
+
 Skills, agents, and practices for deliberate AI-assisted engineering. Works with OpenCode and GitHub Copilot CLI, with more ecosystems to come.
 
 ## Why
