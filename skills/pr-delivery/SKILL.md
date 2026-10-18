@@ -29,7 +29,7 @@ Read [automate-mechanics](../principle-automate-mechanics/SKILL.md) for repeatab
 ## Publish
 
 1. Use the repository's supported PR tool or forge integration. Push only intended branches and create or update the matching PR; do not open duplicates. Use explicit bases. History rewrites need authorization and protection against overwriting remote changes.
-2. Write the title and reviewer briefing using [technical-writing](../technical-writing/SKILL.md). Include why the change exists, scope and exclusions, dependencies, material risks, and checks actually performed. Link related issues without triggering premature completion.
+2. Write the title and description using [technical-writing](../technical-writing/SKILL.md). Give reviewers the context the diff cannot: what prompted the work, the intended outcome, and any non-obvious reason for the approach. Keep it concise and understandable without the conversation. Include checks actually performed and material risks, limitations, or dependencies. Avoid narrating the diff, listing changed files, or repeating the conversation. Use sections only when helpful, unless the repository requires a template. Link related issues without triggering premature completion.
 3. Follow the project's draft/readiness convention. When none exists, mark locally verified work ready for review, not merge-ready; retain draft status for unresolved implementation or verification gaps. Do not change other PRs' readiness incidentally.
 4. Read back the PR URL, base, head, diff, and status. For dependent PRs, confirm that each incremental diff matches its intended scope and link parent and child PRs. Report what was published and which CI or review gates remain.
 
