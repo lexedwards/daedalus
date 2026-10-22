@@ -10,3 +10,4 @@ Collection of agent skills to extend capabilities or bring consistency across ha
 - [Incremental Commits](incremental-commits/SKILL.md): checkpoint implementation with passing commits, meaningful Conventional Commit scopes, and contextual issue references. [Smallest Complete Change](principle-smallest-complete-change/SKILL.md) keeps review boundaries useful rather than merely small.
 - [Integrate Through Review](principle-integrate-through-review/SKILL.md): distinguish local proof, central checks, independent review, and integration.
 - [PR Delivery](pr-delivery/SKILL.md): apply delivery principles to PR publication and requested CI and review follow-up. It does not provision workspaces or authorize merging.
+- [Retrospective](retrospective/SKILL.md): review closed sessions on explicit request, propose durable local improvements or sanitized Daedalus feature requests, and wait for approval before acting.
