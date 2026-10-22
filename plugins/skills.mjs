@@ -34,6 +34,7 @@ export const skillIDs = [
   'principle-trace-before-changing',
   'principle-verify-in-proportion-to-risk',
   'requirements-capture',
+  'retrospective',
   'show-me',
   'technical-writing',
 ];

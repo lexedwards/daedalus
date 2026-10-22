@@ -65,7 +65,11 @@ Use code-crafting to investigate and fix this bug: [reproduction steps].
 Use requirements-capture to define this feature before implementation: [idea].
 
 Use harness-configuration to adapt these agents to my setup: [environment].
+
+Use retrospective to review this finished session for durable local or global improvements.
 ```
+
+[Retrospective](skills/retrospective/SKILL.md) runs only on explicit request after work has ended, including an explicit stop or handoff. It proposes local agent-environment improvements and sanitized Daedalus feature requests, with approval required before edits or publication.
 
 For coordinated work, select the `orchestrator` agent in OpenCode, or start Copilot with `copilot --agent orchestrator`. Some specialist agents specify models that must be available in your host.
 
