@@ -5,7 +5,7 @@ description: Plan incremental implementation by breaking a plan, spec, PRD, Jira
 
 # Implementation Planning
 
-Break a plan into independently actionable implementation tasks. Tasks are vertical slices of work with incremental value and left in a working and deployable state.
+Break a plan into independently actionable tasks. Implementation tasks are vertical slices with incremental value, left in a working and deployable state. Investigation tasks instead deliver reviewed evidence against an agreed question; their artifacts need not become maintained product surface.
 
 ## Workflows
 
@@ -15,6 +15,7 @@ Break a plan into independently actionable implementation tasks. Tasks are verti
     - Work from existing context
     - Read [public-work-public-tracking](../principle-public-work-public-tracking/SKILL.md) and select the task destination separately from the source document. Honor explicit user direction and the established tracker; otherwise default to GitHub Issues and suitable milestones for public GitHub repositories. Keep sensitive work private.
     - Read [integrate-through-review](../principle-integrate-through-review/SKILL.md) and establish the project's completion gate and any explicit delivery exception.
+    - Distinguish investigations from implementation. Before experimental execution, agree the [investigation contract](../code-crafting/references/investigations.md): question or decision, bounds, evidence, stopping condition, reviewer, findings destination, and artifact disposition. Plan maintained diagnostic tooling explicitly rather than inferring adoption from a successful experiment.
     - If the user passes a github issue: fetch with `gh issue view <number>`
     - if the user references a spec: look up `.specs/<spec-name>/*.md`
     - If the user passes a Jira Epic: read it as the source using [Jira Epic](resources/jira-epic.md)
@@ -26,10 +27,11 @@ Break a plan into independently actionable implementation tasks. Tasks are verti
 3. **Draft vertical slices**
     - Read [automate-mechanics](../principle-automate-mechanics/SKILL.md). Include useful saved automation and its checks in the slice that needs it; do not plan repeated agent reconstruction of stable procedures. Planning alone does not authorize implementing those scripts.
     - Read [sequence-verifiable-slices](../principle-sequence-verifiable-slices/SKILL.md) for dependency order and [smallest-complete-change](../principle-smallest-complete-change/SKILL.md) for task and review boundaries.
-    - Create tasks from thin vertical slices that implements through ALL integration layers end-to-end
-    - Each slice delivers a narrow but complete path through every layer (tests, schema, api ,ui etc.) and is verifiable on its own, along with documentation and architecture diagrams.
+    - Create implementation tasks from thin vertical slices that implement through all required integration layers end-to-end.
+    - Each implementation slice delivers a narrow but complete path through every required layer (tests, schema, API, UI, etc.) and is verifiable on its own, with relevant documentation and architecture diagrams.
     - Ensure that important or critical decisions are preserved and captured in ADRs during the task, using the `/decision-capture` skill.
-    - For each slice, name its proposed PR boundary, dependency base, and verification recipe using the project's real checks. Identify any smaller passing commit increments within it.
+    - For each implementation slice, name its proposed PR boundary, dependency base, and verification recipe using the project's real checks. Identify any smaller passing commit increments within it.
+    - For an investigation, use its findings-review gate instead of requiring a production PR. Track any subsequent adoption separately unless maintained tooling is an explicit part of this task's agreed outcome; carry forward conclusions, limitations, and remaining verification requirements.
 
 4. **Confirm with the user**:
     - Present the proposed breakdown, for each task include:
@@ -76,8 +78,8 @@ Provide context of related work or omit section if none.
 
 ## Delivery and Verification
 
-- PR outcome and scope: ...
-- Base: default branch, or the parent PR for dependent work.
+- Delivery outcome and scope: PR for maintained changes, or reviewed findings for an investigation.
+- Base (if a PR): default branch, or the parent PR for dependent work.
 - Verification: commands or observable checks, expected results, and known gaps.
 - Completion gate: the project's agreed state for marking this task Done.
 

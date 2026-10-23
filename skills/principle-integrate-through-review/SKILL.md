@@ -9,6 +9,7 @@ disable-model-invocation: true
 Use a PR as the integration boundary for implementation work. Local success is evidence to bring to review, not a substitute for review.
 
 - Deliver through PRs by default unless the user or project explicitly requires local-only work or another integration process.
+- For investigations, agree the findings-review gate and experimental artifact disposition before execution. Reviewed evidence can complete the investigation without a production merge; intentionally maintained tooling still follows the implementation integration process.
 - Keep local verification, central CI, and independent review distinct. Local checks establish the prepared change; CI checks the shared integration context; an external reviewer challenges the change independently of its author.
 - Do not infer publication or merge authority from the default method. Honor repository controls and explicit authorization; when publication is blocked, preserve the verified work and report what remains.
 - Report delivery states separately: locally verified, PR opened, merge-ready, and merged. Opening a PR is not approval. Merge-ready requires current required checks, independent review, and resolved blockers under the project's policy.
