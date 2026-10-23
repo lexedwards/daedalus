@@ -16,7 +16,7 @@ Read this reference when a change spans multiple files, callers, modules, or sys
 
 ## The Lazy Ladder
 
-After tracing the real flow, choose the first option that satisfies the behavior and its constraints ([principle-smallest-complete-change](../../principle-smallest-complete-change/SKILL.md)):
+After tracing the real flow, apply [smallest-complete-change's reuse guidance](../../principle-smallest-complete-change/SKILL.md#build-adopt-or-extend) at implementation scale: choose the first option that satisfies the behavior and its constraints.
 
 1. Does this need to exist at all?
 2. Is it already in the codebase?

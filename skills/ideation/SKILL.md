@@ -16,20 +16,8 @@ Read [automate-mechanics](../principle-automate-mechanics/SKILL.md) when discuss
     - For each question, provide your recommended answer
     - Distinguish accepted requirements from recommendations and unresolved choices. Confirm behavior-changing restrictions and defaults before treating them as requirements; broad goals do not authorize arbitrary policies.
     - Ask the questions one at a time, waiting for feedback on each question before continuing.
+    - Apply [smallest-complete-change's build, adopt, or extend guidance](../principle-smallest-complete-change/SKILL.md#build-adopt-or-extend) when evaluating solution choices. Establish the user's material requirements and goals, assess alternatives with them, and hand the decision, evidence, and unresolved assumptions to planning.
     - When discussing module boundaries, interfaces, or configuration ownership, load [code-crafting](../code-crafting/SKILL.md) and use its design-review workflow alongside this interview. Discussion alone does not authorize implementation.
-
-## Build, Adopt, or Extend
-
-For a new product, replacement, or substantial standalone capability, test whether building is necessary before committing to substantial implementation. Routine fixes and incremental changes do not need an alternatives survey.
-
-- Establish the underlying need and material constraints first: required workflows, integrations, data control, operating cost, and any explicit learning or experimentation goal.
-- Agree a research bound suited to the decision: a small shortlist, a time budget, or a stopping condition. Reuse an existing assessment while its requirements and evidence remain adequate.
-- Compare building, adopting, and extending plausible existing solutions against those requirements, not feature counts. Include migration, maintenance, licensing, and operational constraints where material. Do not invent alternatives to fill a comparison.
-- Separate documented claims, behavior actually verified, and unresolved uncertainty. Check a consequential differentiator with a focused trial when practical; record what could not be checked.
-- Recommend a direction and explain the trade-offs. Respect an explicit reason to build, including learning; a suitable existing product does not automatically override that goal.
-- At the planning handoff, carry forward the requirements, alternatives considered, evidence, chosen direction, and consequential unverified assumptions. Resolve assumptions that could change the approach before dependent implementation, or plan a bounded investigation rather than treating them as facts.
-
-Stop researching when the evidence is sufficient for the decision. Reopen the assessment only when changed requirements, stale evidence, or a consequential new uncertainty warrants it.
 
 ## Pitfalls
 
