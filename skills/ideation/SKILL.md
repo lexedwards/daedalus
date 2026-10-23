@@ -18,6 +18,19 @@ Read [automate-mechanics](../principle-automate-mechanics/SKILL.md) when discuss
     - Ask the questions one at a time, waiting for feedback on each question before continuing.
     - When discussing module boundaries, interfaces, or configuration ownership, load [code-crafting](../code-crafting/SKILL.md) and use its design-review workflow alongside this interview. Discussion alone does not authorize implementation.
 
+## Build, Adopt, or Extend
+
+For a new product, replacement, or substantial standalone capability, test whether building is necessary before committing to substantial implementation. Routine fixes and incremental changes do not need an alternatives survey.
+
+- Establish the underlying need and material constraints first: required workflows, integrations, data control, operating cost, and any explicit learning or experimentation goal.
+- Agree a research bound suited to the decision: a small shortlist, a time budget, or a stopping condition. Reuse an existing assessment while its requirements and evidence remain adequate.
+- Compare building, adopting, and extending plausible existing solutions against those requirements, not feature counts. Include migration, maintenance, licensing, and operational constraints where material. Do not invent alternatives to fill a comparison.
+- Separate documented claims, behavior actually verified, and unresolved uncertainty. Check a consequential differentiator with a focused trial when practical; record what could not be checked.
+- Recommend a direction and explain the trade-offs. Respect an explicit reason to build, including learning; a suitable existing product does not automatically override that goal.
+- At the planning handoff, carry forward the requirements, alternatives considered, evidence, chosen direction, and consequential unverified assumptions. Resolve assumptions that could change the approach before dependent implementation, or plan a bounded investigation rather than treating them as facts.
+
+Stop researching when the evidence is sufficient for the decision. Reopen the assessment only when changed requirements, stale evidence, or a consequential new uncertainty warrants it.
+
 ## Pitfalls
 
 - **Always establish well-reasoned motivation** - unless exploring proof of concepts, ensure either user, product, or business justification is captured.

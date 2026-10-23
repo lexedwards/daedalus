@@ -13,6 +13,7 @@ Break a plan into independently actionable implementation tasks. Tasks are verti
 
 1. **Gather context**
     - Work from existing context
+    - For new products, replacements, or substantial standalone capabilities, carry forward the [build, adopt, or extend assessment](../ideation/SKILL.md#build-adopt-or-extend). Reuse adequate evidence; resolve consequential unverified assumptions before dependent implementation, using a bounded investigation when needed. Do not require alternatives research for routine changes.
     - Read [public-work-public-tracking](../principle-public-work-public-tracking/SKILL.md) and select the task destination separately from the source document. Honor explicit user direction and the established tracker; otherwise default to GitHub Issues and suitable milestones for public GitHub repositories. Keep sensitive work private.
     - Read [integrate-through-review](../principle-integrate-through-review/SKILL.md) and establish the project's completion gate and any explicit delivery exception.
     - If the user passes a github issue: fetch with `gh issue view <number>`
