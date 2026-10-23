@@ -13,6 +13,7 @@ Break a plan into independently actionable tasks. Implementation tasks are verti
 
 1. **Gather context**
     - Work from existing context
+    - Apply [smallest-complete-change's build, adopt, or extend guidance](../principle-smallest-complete-change/SKILL.md#build-adopt-or-extend). Carry forward the solution decision, alternatives considered, and evidence; revisit consequential unresolved assumptions before dependent implementation, planning a bounded investigation when needed.
     - Read [public-work-public-tracking](../principle-public-work-public-tracking/SKILL.md) and select the task destination separately from the source document. Honor explicit user direction and the established tracker; otherwise default to GitHub Issues and suitable milestones for public GitHub repositories. Keep sensitive work private.
     - Read [integrate-through-review](../principle-integrate-through-review/SKILL.md) and establish the project's completion gate and any explicit delivery exception.
     - Distinguish investigations from implementation. Before experimental execution, agree the [investigation contract](../code-crafting/references/investigations.md): question or decision, bounds, evidence, stopping condition, reviewer, findings destination, and artifact disposition. Plan maintained diagnostic tooling explicitly rather than inferring adoption from a successful experiment.

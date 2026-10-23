@@ -16,6 +16,7 @@ Read [automate-mechanics](../principle-automate-mechanics/SKILL.md) when discuss
     - For each question, provide your recommended answer
     - Distinguish accepted requirements from recommendations and unresolved choices. Confirm behavior-changing restrictions and defaults before treating them as requirements; broad goals do not authorize arbitrary policies.
     - Ask the questions one at a time, waiting for feedback on each question before continuing.
+    - Apply [smallest-complete-change's build, adopt, or extend guidance](../principle-smallest-complete-change/SKILL.md#build-adopt-or-extend) when evaluating solution choices. Establish the user's material requirements and goals, assess alternatives with them, and hand the decision, evidence, and unresolved assumptions to planning.
     - When discussing module boundaries, interfaces, or configuration ownership, load [code-crafting](../code-crafting/SKILL.md) and use its design-review workflow alongside this interview. Discussion alone does not authorize implementation.
 
 ## Pitfalls
