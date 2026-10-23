@@ -125,7 +125,7 @@ Before selecting completion checks, read [verify-in-proportion-to-risk](../princ
 - If no automated harness exists, perform the smallest reliable manual check and state the gap.
 - Inspect the resulting implementation and tests for comprehension, not just formatting consistency ([make-structure-visible](../principle-make-structure-visible/SKILL.md)).
 
-Read [verification](references/verification.md) for risk-based escalation guidance.
+Read [verification](references/verification.md) for risk-based escalation guidance. For multi-stage automation, use its stateful-workflow checks to exercise consequential handoffs and distinguish static validity from authenticated runtime evidence.
 
 ## Review Evidence
 
