@@ -1,6 +1,6 @@
 ---
 name: code-crafting
-description: Guide pragmatic implementation, bug fixing, refactoring, and review with isolated work, verified increments, and PR delivery by default, using minimal design and risk-based verification.
+description: Guide pragmatic implementation, bug fixing, refactoring, review, and bounded investigations with isolated work, risk-based verification, and explicit completion gates. Default to PR delivery for maintained changes and reviewed findings for investigations.
 ---
 
 # Code Crafting
@@ -15,6 +15,7 @@ Use this skill for:
 - Fixing bugs.
 - Refactoring code.
 - Reviewing code or design choices.
+- Running bounded technical investigations or experiments.
 - Choosing where logic should live.
 - Deciding how much testing or verification is enough.
 
@@ -24,6 +25,7 @@ Before inspecting project files, identify every work mode present in the request
 
 - Implementation, bug fix, or refactor: read [trace-before-changing](../principle-trace-before-changing/SKILL.md) and [smallest-complete-change](../principle-smallest-complete-change/SKILL.md).
 - Code or design review: read [trace-before-changing](../principle-trace-before-changing/SKILL.md) and [evidence-before-verdicts](../principle-evidence-before-verdicts/SKILL.md).
+- Investigation or experiment: read [trace-before-changing](../principle-trace-before-changing/SKILL.md) and [evidence-before-verdicts](../principle-evidence-before-verdicts/SKILL.md). Agree the investigation contract below before experimental execution; apply implementation principles to any tooling intentionally retained as maintained code.
 
 Read each starting principle once.
 
@@ -41,8 +43,9 @@ Use the relevant workflow for each part of the request:
 - **Bug fix:** `TRACE -> REPRODUCE -> FIX ROOT CAUSE -> REGRESSION CHECK -> VERIFY -> DELIVER`
 - **Code review:** `SCOPE -> TRACE -> GATHER EVIDENCE -> ASSESS -> REPORT`
 - **Design review:** `CONTEXT -> OPTIONS -> TRADE-OFFS -> RECOMMEND`
+- **Investigation:** `QUESTION -> BOUNDS -> EXPERIMENT -> ASSESS EVIDENCE -> REVIEW FINDINGS -> DISPOSE OR HAND OFF`
 
-Review modes do not edit code unless the user explicitly asks for changes. See [review workflows](references/review-workflows.md) for detailed branches.
+Review modes do not edit code unless the user explicitly asks for changes. Investigation artifacts follow the agreed contract below, not an assumed production-delivery goal. See [review workflows](references/review-workflows.md) for detailed review branches.
 
 ## Trace
 
@@ -53,6 +56,8 @@ Before editing or assessing:
 - Ask one short question only when ambiguity changes the public behavior or risk; otherwise state a reasonable assumption.
 
 ## Choose a Slice
+
+For an investigation, first read [investigation completion](references/investigations.md) and agree the question or decision, bounds, required evidence, stopping condition, reviewer, findings destination, and artifact disposition. Reviewed findings can complete an investigation without a production merge. If maintained tooling is an intended outcome, give it an explicit implementation slice and verification requirements; experimental usefulness alone does not establish production readiness.
 
 Before writing or delegating implementation work, read and apply [isolate-mutable-state](../principle-isolate-mutable-state/SKILL.md). Establish the working environment before editing, not at PR publication time.
 
@@ -129,6 +134,8 @@ For code review, report evidence-backed findings and distinguish defects from un
 For design review, compare viable options against the stated constraints, surface trade-offs, make one recommendation, and identify residual uncertainty. Do not turn a review into an implementation plan unless requested.
 
 ## Done and Output
+
+An investigation is complete at its agreed findings-review gate, with conclusions, evidence, limitations, artifact disposition, and any adoption or further-verification requirements recorded. Report an inconclusive result honestly; reaching a stopping condition does not mean the original uncertainty was resolved. Use the investigation reference for its completion record. The implementation delivery requirements below apply to maintained changes, not automatically to experimental artifacts.
 
 Implementation is locally verified when the requested behavior works, the design is no larger than necessary, relevant checks pass, and deliberate gaps are stated.
 
