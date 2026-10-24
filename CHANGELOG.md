@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.4.0](https://github.com/lexedwards/daedalus/compare/v0.3.0...v0.4.0) (2026-10-24)
+
+
+### Features
+
+* **skills:** align workflow standards through focused principles ([#30](https://github.com/lexedwards/daedalus/issues/30)) ([f6696ba](https://github.com/lexedwards/daedalus/commit/f6696ba8fc8c8f9722e57bbe02187a03e06281f6))
+* **skills:** define investigation completion gates ([#23](https://github.com/lexedwards/daedalus/issues/23)) ([dcb8801](https://github.com/lexedwards/daedalus/commit/dcb88013cba9e3aa4344eafe8e07b23b36a41db3))
+* **skills:** validate build-versus-adopt assumptions ([#24](https://github.com/lexedwards/daedalus/issues/24)) ([49da2fc](https://github.com/lexedwards/daedalus/commit/49da2fc55a9ea05f92478de82b2956679210ff2c))
+* **skills:** verify stateful workflow handoffs ([#22](https://github.com/lexedwards/daedalus/issues/22)) ([bbc5c7e](https://github.com/lexedwards/daedalus/commit/bbc5c7eaca013932758c072f3c2f456425b36e66))
+
 ## [0.3.0](https://github.com/lexedwards/daedalus/compare/v0.2.0...v0.3.0) (2026-10-22)
 
 
