@@ -30,6 +30,10 @@ Do not invent build steps, test steps, or coding conventions that are not actual
 
 If Cursor or Copilot rule files are added later, treat them as repo-level instructions and update this guide.
 
+### Tracking Conventions
+
+Use GitHub Issues and PR relationships for this repository. Prefer assignments and labels to progress comments; reserve comments for clarification not conveyed by metadata or the linked PR. `status: in-progress` denotes active implementation; replace it with `status: in-review` when the completing change is published for review. Preserve unrelated metadata and keep issues open until their completing PR merges into `main`.
+
 ## Build, Lint, and Test
 
 ### Build

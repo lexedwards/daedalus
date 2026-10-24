@@ -51,13 +51,15 @@ Review modes do not edit code unless the user explicitly asks for changes. Inves
 
 Before editing or assessing:
 
+- Read and apply [keep-gates-traceable](../principle-keep-gates-traceable/SKILL.md) when establishing blockers or completion gates. Carry justified requirements, optional follow-up, and residual risk separately through execution and reporting.
+- For tracked work, read and apply [keep-tracking-aligned](../principle-keep-tracking-aligned/SKILL.md). Identify and announce the active issue, discover workflow conventions, and maintain execution transitions and applicable metadata through the agreed completion gate. Pass the active issue and conventions to PR Delivery for review-stage updates; retain ownership of subsequent execution changes.
 - Trace the affected behavior, callers, and boundaries before choosing a change or making an assessment ([principle-trace-before-changing](../principle-trace-before-changing/SKILL.md)).
 - Locate the existing tests and seams. For bugs, inspect sibling callers and shared functions before choosing the fix location.
 - Ask one short question only when ambiguity changes the public behavior or risk; otherwise state a reasonable assumption.
 
 ## Choose a Slice
 
-For an investigation, first read [investigation completion](references/investigations.md) and agree the question or decision, bounds, required evidence, stopping condition, reviewer, findings destination, and artifact disposition. Reviewed findings can complete an investigation without a production merge. If maintained tooling is an intended outcome, give it an explicit implementation slice and verification requirements; experimental usefulness alone does not establish production readiness.
+For an investigation, first read [investigation completion](references/investigations.md), apply its delivery principle, and agree the execution contract. Give intentionally maintained tooling an explicit implementation slice and verification requirements.
 
 Before writing or delegating implementation work, read and apply [isolate-mutable-state](../principle-isolate-mutable-state/SKILL.md). Establish the working environment before editing, not at PR publication time.
 
@@ -135,7 +137,7 @@ For design review, compare viable options against the stated constraints, surfac
 
 ## Done and Output
 
-An investigation is complete at its agreed findings-review gate, with conclusions, evidence, limitations, artifact disposition, and any adoption or further-verification requirements recorded. Report an inconclusive result honestly; reaching a stopping condition does not mean the original uncertainty was resolved. Use the investigation reference for its completion record. The implementation delivery requirements below apply to maintained changes, not automatically to experimental artifacts.
+For investigations, use the agreed contract and the investigation reference's completion record. Report inconclusive findings honestly; reaching a stopping condition does not mean the uncertainty was resolved. The implementation requirements below apply to maintained changes.
 
 Implementation is locally verified when the requested behavior works, the design is no larger than necessary, relevant checks pass, and deliberate gaps are stated.
 
@@ -153,7 +155,7 @@ Use only the fields that apply:
 Implemented: [behavior or change]
 Verified: [checks or evidence]
 Delivery: [reached state, PR links or local-only exception, and outstanding gates]
-Remaining: [gap or risk, if any]
+Remaining: [required work, optional follow-up, and residual risk, distinguished if present]
 ```
 
 ```text

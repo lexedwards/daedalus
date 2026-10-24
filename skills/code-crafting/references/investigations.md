@@ -1,6 +1,6 @@
 # Investigation Completion
 
-An investigation resolves a question or reduces uncertainty. It is not implicitly a commitment to ship its experimental code.
+Before defining an investigation's deliverable, read and apply [match-delivery-to-task](../../principle-match-delivery-to-task/SKILL.md). Use the contract below to make its execution and handoff concrete.
 
 ## Agree Before Execution
 
@@ -16,9 +16,9 @@ Use isolated state for experiments ([isolate-mutable-state](../../principle-isol
 
 ## Findings and Handoff
 
-Record the question, conclusion or remaining uncertainty, supporting evidence, limitations, and recommendation. Separate observed results from assumptions and explain what the experiment does not establish. Include the artifact disposition and the review outcome or pending reviewer.
+Record the question, conclusion or remaining uncertainty, supporting evidence, constraints, decisions, limitations, and recommendation. Separate observed results from assumptions and explain what the experiment does not establish. Include the artifact disposition and the review outcome or pending reviewer. Link this evidence into the relevant implementation tasks with their remaining verification requirements.
 
-If adoption is proposed, state the verification and engineering work still required. Reference code is not maintained product surface, and a successful experiment is not production-readiness evidence. Integrate intentionally maintained tooling through the normal implementation checks and PR review; its scope may be diagnostic tooling rather than a production feature. An investigation can finish while a separately tracked adoption task remains open, if that matches the agreed contract.
+If adoption is proposed, identify the separately tracked engineering work or explicit maintained-tooling slice and its integration gate.
 
 ## Example Completion Gates
 

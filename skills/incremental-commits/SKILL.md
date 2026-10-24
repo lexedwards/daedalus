@@ -29,7 +29,7 @@ Explain non-obvious reasons in the body. Mark breaking changes with `!` or a `BR
 
 Include references to every known issue materially connected to the increment, including a parent issue when it explains the wider purpose. Use the project's accepted syntax; distinguish contextual references from closure. Do not fabricate IDs, require a tracker for untracked work, or list unrelated issues merely because they appeared in the conversation.
 
-Default to non-closing references. Use closing keywords only when the project's completion policy and the requested operation justify their effect.
+Default to non-closing references in checkpoint commits. This does not govern completing PRs: read and apply [PR Delivery's issue-pairing rules](../pr-delivery/SKILL.md#pair-issues-with-prs) when publishing. Use commit-level closing keywords only when repository policy and the requested operation justify their effect.
 
 ```text
 fix(parser): reject empty identifiers

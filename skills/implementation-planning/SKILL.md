@@ -5,18 +5,19 @@ description: Plan incremental implementation by breaking a plan, spec, PRD, Jira
 
 # Implementation Planning
 
-Break a plan into independently actionable tasks. Implementation tasks are vertical slices with incremental value, left in a working and deployable state. Investigation tasks instead deliver reviewed evidence against an agreed question; their artifacts need not become maintained product surface.
+Break a plan into independently actionable tasks: working vertical slices for implementation, or evidence and handoffs for investigations.
 
 ## Workflows
 
 ### Creating Tasks
 
 1. **Gather context**
-    - Work from existing context
+    - Read and apply [keep-gates-traceable](../principle-keep-gates-traceable/SKILL.md) when selecting blockers and completion gates. Include each gate's requirement or safety justification; separate optional follow-up and residual risk.
     - Apply [smallest-complete-change's build, adopt, or extend guidance](../principle-smallest-complete-change/SKILL.md#build-adopt-or-extend). Carry forward the solution decision, alternatives considered, and evidence; revisit consequential unresolved assumptions before dependent implementation, planning a bounded investigation when needed.
     - Read [public-work-public-tracking](../principle-public-work-public-tracking/SKILL.md) and select the task destination separately from the source document. Honor explicit user direction and the established tracker; otherwise default to GitHub Issues and suitable milestones for public GitHub repositories. Keep sensitive work private.
     - Read [integrate-through-review](../principle-integrate-through-review/SKILL.md) and establish the project's completion gate and any explicit delivery exception.
-    - Distinguish investigations from implementation. Before experimental execution, agree the [investigation contract](../code-crafting/references/investigations.md): question or decision, bounds, evidence, stopping condition, reviewer, findings destination, and artifact disposition. Plan maintained diagnostic tooling explicitly rather than inferring adoption from a successful experiment.
+    - Read and apply [match-delivery-to-task](../principle-match-delivery-to-task/SKILL.md) to classify deliverables. For investigations, read and agree the [investigation contract](../code-crafting/references/investigations.md) before experiments.
+    - For tracked work, read and apply [keep-tracking-aligned](../principle-keep-tracking-aligned/SKILL.md). Discover supported states, ownership, labels, and dependency conventions; carry them into the task's execution handoff.
     - If the user passes a github issue: fetch with `gh issue view <number>`
     - if the user references a spec: look up `.specs/<spec-name>/*.md`
     - If the user passes a Jira Epic: read it as the source using [Jira Epic](resources/jira-epic.md)
@@ -29,10 +30,10 @@ Break a plan into independently actionable tasks. Implementation tasks are verti
     - Read [automate-mechanics](../principle-automate-mechanics/SKILL.md). Include useful saved automation and its checks in the slice that needs it; do not plan repeated agent reconstruction of stable procedures. Planning alone does not authorize implementing those scripts.
     - Read [sequence-verifiable-slices](../principle-sequence-verifiable-slices/SKILL.md) for dependency order and [smallest-complete-change](../principle-smallest-complete-change/SKILL.md) for task and review boundaries.
     - Create implementation tasks from thin vertical slices that implement through all required integration layers end-to-end.
-    - Each implementation slice delivers a narrow but complete path through every required layer (tests, schema, API, UI, etc.) and is verifiable on its own, with relevant documentation and architecture diagrams.
+    - Include the checks and maintained documentation needed to use each implementation slice; add architecture diagrams when they explain a material boundary.
     - Ensure that important or critical decisions are preserved and captured in ADRs during the task, using the `/decision-capture` skill.
     - For each implementation slice, name its proposed PR boundary, dependency base, and verification recipe using the project's real checks. Identify any smaller passing commit increments within it.
-    - For an investigation, use its findings-review gate instead of requiring a production PR. Track any subsequent adoption separately unless maintained tooling is an explicit part of this task's agreed outcome; carry forward conclusions, limitations, and remaining verification requirements.
+    - For investigations, name the evidence destination and acceptance gate; link the findings and remaining checks into dependent implementation tasks.
 
 4. **Confirm with the user**:
     - Present the proposed breakdown, for each task include:
@@ -40,7 +41,7 @@ Break a plan into independently actionable tasks. Implementation tasks are verti
         - Short descriptive title
         - User stories covered
         - Blocking relationships with other tasks
-        - Proposed PR boundaries, stack order where dependent, and verification recipes
+        - Delivery boundaries (PRs or investigation handoffs), dependency order, and verification recipes
     - Confirm with the user:
         - Are the tasks set to the right granularity (too coarse / too fine). Highlight what could potentially be split / merged
         - Are the dependency links correct
@@ -83,6 +84,8 @@ Provide context of related work or omit section if none.
 - Base (if a PR): default branch, or the parent PR for dependent work.
 - Verification: commands or observable checks, expected results, and known gaps.
 - Completion gate: the project's agreed state for marking this task Done.
+- Gate justification: accepted requirement or demonstrated safety dependency protected by each required gate.
+- Tracking conventions: supported transitions and applicable ownership, labels, and relationships.
 
 ## Acceptance Criteria
 
@@ -99,7 +102,3 @@ AC1 - **Given** a registered user, **when** entering a valid username and passwo
 ## Further Notes
 
 ```
-
-## Pitfalls
-
-- Always rollup documentation along side implementation to avoid drift.

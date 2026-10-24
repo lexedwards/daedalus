@@ -21,6 +21,8 @@ Read [integrate-through-review](../principle-integrate-through-review/SKILL.md) 
 
 Read [automate-mechanics](../principle-automate-mechanics/SKILL.md) for repeatable evidence collection and checks. Reuse forge tools first; return needed automation changes to the owning implementation workflow rather than expanding publication into implementation.
 
+For tracked work, read and apply [keep-tracking-aligned](../principle-keep-tracking-aligned/SKILL.md). Identify the active issue and its conventions from the handoff or tracker. Maintain review-stage metadata and PR relationships using the pairing rules below, not duplicate progress comments.
+
 1. Inspect repository instructions, status, commits, remote, default branch, existing PRs, and available authenticated forge tools. Resolve the intended base and examine the base-to-head diff, not only the latest commit. Stop if it contains unrelated work, secrets, or incomplete increments.
 2. Confirm authorization to commit and publish through the selected remote and forge. If authority is unclear, ask before the external write. Never silently bypass hooks or branch protection. Missing tools or access are blockers, not permission to change the delivery policy.
 3. Confirm that the proposed review boundary satisfies the sizing principle; several passing commits may form one PR when they deliver a coherent outcome. Record dependencies and follow-ups. Prefer a short stack for dependent outcomes rather than accumulating them in one growing branch; independent outcomes target the default branch. The stack root targets that branch, and each child targets its parent with only its own incremental diff. Inspect existing topology and use available stack tooling and its instructions rather than inventing commands.
@@ -29,9 +31,16 @@ Read [automate-mechanics](../principle-automate-mechanics/SKILL.md) for repeatab
 ## Publish
 
 1. Use the repository's supported PR tool or forge integration. Push only intended branches and create or update the matching PR; do not open duplicates. Use explicit bases. History rewrites need authorization and protection against overwriting remote changes.
-2. Write the title and description using [technical-writing](../technical-writing/SKILL.md). Give reviewers the context the diff cannot: what prompted the work, the intended outcome, and any non-obvious reason for the approach. Keep it concise and understandable without the conversation. Include checks actually performed and material risks, limitations, or dependencies. Avoid narrating the diff, listing changed files, or repeating the conversation. Use sections only when helpful, unless the repository requires a template. Link related issues without triggering premature completion.
+2. Write the title and description using [technical-writing](../technical-writing/SKILL.md). Give reviewers the context the diff cannot: what prompted the work, the intended outcome, and any non-obvious reason for the approach. Keep it concise and understandable without the conversation. Include checks actually performed and material risks, limitations, or dependencies. Avoid narrating the diff, listing changed files, or repeating the conversation. Use sections only when helpful, unless the repository requires a template. Pair issues using the rules below.
 3. Follow the project's draft/readiness convention. When none exists, mark locally verified work ready for review, not merge-ready; retain draft status for unresolved implementation or verification gaps. Do not change other PRs' readiness incidentally.
-4. Read back the PR URL, base, head, diff, and status. For dependent PRs, confirm that each incremental diff matches its intended scope and link parent and child PRs. Report what was published and which CI or review gates remain.
+4. Read back the PR URL, base, head, diff, status, intended issues, and relationship types. Check tracker metadata after updates. For dependent PRs, confirm each incremental diff's scope and link parent and child PRs. Report the reached state, remaining gates, and any closure requiring later integration.
+
+## Pair Issues with PRs
+
+- For a PR intended to fully resolve an issue, use a forge-supported closing relationship, such as `Closes #123`. On GitHub, opening a PR targeting the default branch leaves the issue open; merging it closes the issue. Publication authorizes neither merging nor manual completion.
+- Use non-closing references for partial or supporting work and contextual parent issues; identify remaining work. Across multiple PRs for one issue, only the completing PR carries the closing relationship.
+- Check the forge's actual closure behavior for stacks and non-default targets. Do not assume merging a child into its parent closes the issue; verify or restore the closing relationship on the PR that completes integration into the default branch.
+- Honor explicit repository policy and user exceptions, explaining any closure that remains manual. Reopening after incomplete resolution or a regression is valid recovery, not a reason to avoid intended automatic closure or to knowingly close unfinished work.
 
 ## Requested Follow-up
 

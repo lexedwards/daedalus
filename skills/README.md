@@ -2,6 +2,10 @@
 
 Collection of agent skills to extend capabilities or bring consistency across harnesses and models.
 
+- [Create Skill](create-skill/SKILL.md): create and maintain skills with single-rule principle ownership, explicit read triggers, and subtractive review of affected guidance.
+- [Keep Gates Traceable](principle-keep-gates-traceable/SKILL.md): distinguish justified requirements and safety dependencies from optional recommendations.
+- [Match Delivery to the Task](principle-match-delivery-to-task/SKILL.md): select investigation handoffs, maintained changes, or explicitly requested research deliverables without conflating their completion gates.
+- [Keep Tracking Aligned](principle-keep-tracking-aligned/SKILL.md): maintain authoritative state and relationships through metadata and PR links; reserve comments for clarification.
 - [Automate Mechanics](principle-automate-mechanics/SKILL.md): reuse existing tools and proactively save useful repeatable procedures as verified scripts across workflows, including skill-bundled scripts. Reserve agents for judgment and exceptions.
 - [Harness Configuration](harness-configuration/SKILL.md): skill and agent fields, discovery, precedence, cross-harness compatibility, and source-backed self-updates for six harnesses.
 - [Public Work, Public Tracking](principle-public-work-public-tracking/SKILL.md): prefer public tracking alongside public code, preserve established trackers, and protect sensitive work. Requirements Capture and Implementation Planning apply it when choosing destinations.

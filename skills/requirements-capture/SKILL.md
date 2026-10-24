@@ -30,6 +30,7 @@ Do not use this skill for implementation planning, task breakdown, solution desi
    - Otherwise synthesize from known context and make assumptions explicit when useful.
 
 4. **Create or update the artifact**
+   - Read and apply [keep-gates-traceable](../principle-keep-gates-traceable/SKILL.md) before turning recommendations or unresolved choices into acceptance criteria.
    - Follow the selected reference workflow and template.
    - Keep the artifact focused on product requirements and user-facing outcomes.
 
