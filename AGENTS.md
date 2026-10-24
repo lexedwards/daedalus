@@ -136,6 +136,7 @@ If you add a script in the future:
 
 ## Editing Guidance
 
+- For skill or principle changes, read and apply [Create Skill](skills/create-skill/SKILL.md), including rule ownership and the subtractive review of affected guidance.
 - Read the relevant Markdown file before editing it.
 - Match the tone and structure already used nearby.
 - Prefer updating an existing document over creating a parallel variant.
