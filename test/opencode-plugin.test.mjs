@@ -107,13 +107,16 @@ test('registers the current skill bundle with accessible reference files', async
       },
     },
   });
-  assert.equal(registered.size, 30);
+  assert.equal(registered.size, 33);
   assert.equal(registered.has('career-materials'), false);
   assert.equal(registered.get('eval').autoinvoke, false);
   assert.equal(registered.get('retrospective').autoinvoke, false);
   assert.equal(registered.get('incremental-commits').autoinvoke, true);
   const principles = [...registered.values()].filter((skill) => skill.id.startsWith('principle-'));
-  assert.equal(principles.length, 14);
+  assert.equal(principles.length, 17);
+  for (const id of ['principle-keep-gates-traceable', 'principle-match-delivery-to-task', 'principle-keep-tracking-aligned']) {
+    assert.ok(registered.get(id)?.content, `${id} must be registered with its guidance`);
+  }
   assert.equal(registered.has('principle-automate-mechanics'), true);
   assert.equal(registered.has('principle-public-work-public-tracking'), true);
   assert.equal(registered.get('principle-isolate-mutable-state').autoinvoke, false);
@@ -143,7 +146,7 @@ test('preserves an existing skill and remains duplicate-free on transform replay
     },
   });
   assert.equal(registered.get('code-crafting'), existing);
-  assert.equal(registered.size, 30);
+  assert.equal(registered.size, 33);
 });
 
 test('workflow guidance resolves its local references inside the shared skill bundle', async () => {
@@ -155,6 +158,7 @@ test('workflow guidance resolves its local references inside the shared skill bu
     'principle-public-work-public-tracking', 'requirements-capture',
     'principle-make-structure-visible', 'technical-writing', 'ideation',
     'principle-automate-mechanics', 'create-skill', 'decision-capture', 'defuddle',
+    'principle-keep-gates-traceable', 'principle-match-delivery-to-task', 'principle-keep-tracking-aligned',
     'eval', 'harness-configuration', 'humanizer', 'llm-wiki', 'retrospective', 'show-me',
   ]);
   for (const skill of skills.filter((entry) => ids.has(entry.id))) {

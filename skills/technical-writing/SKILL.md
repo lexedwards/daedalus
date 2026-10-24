@@ -5,7 +5,7 @@ description: Write technical documentation that is approachable and concise. Use
 
 # Technical Writing
 
-The most valuable documentation captures the **why**. Code shows what was build with limited insight. Documentation provides the context essential for future people and agents working in the codebase.
+Capture the context and rationale readers cannot recover from the implementation alone.
 
 ## When to use
 
@@ -13,7 +13,7 @@ The most valuable documentation captures the **why**. Code shows what was build 
 - Changes to user-facing behavior
 - Onboarding new members or agents
 
-**Do not** document obvious code, comments that restate, or docs for prototypes.
+Do not restate obvious code. Before selecting an artifact or destination, read and apply [match-delivery-to-task](../principle-match-delivery-to-task/SKILL.md). Label findings and proposals distinctly from as-built operating guidance; use the agreed handoff destination for investigations.
 
 ## Start here
 

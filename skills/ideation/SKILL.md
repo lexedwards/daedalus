@@ -1,6 +1,6 @@
 ---
 name: ideation
-description: Interview and challenge the user until reaching a shared understanding, resolving each branch of the decision tree. If present, contrast against existing domain model, sharpening terminology and updating documentation as decisions crystallise. Use when a user wants to discuss an idea or stress-test a plan with or without existing project documentation.
+description: Interview and challenge the user to resolve material decisions and stress-test an idea or plan. Contrast with existing domain models and capture terminology as decisions crystallise.
 ---
 
 # Ideation
@@ -9,12 +9,11 @@ description: Interview and challenge the user until reaching a shared understand
 
 Read [automate-mechanics](../principle-automate-mechanics/SKILL.md) when discussing repeatable work. Identify reusable mechanics separately from judgment; discussion alone does not authorize creating scripts.
 
-1. **Interview the user relentlessly** about every aspect of this plan until we reach a shared understanding
-    - Walk down each branch of the design tree, resolving dependencies between decisions one-by-one
+1. **Resolve material decisions** until the outcome, constraints, and remaining uncertainty are understood.
+    - Read and apply [keep-gates-traceable](../principle-keep-gates-traceable/SKILL.md) when identifying decisions or blockers. Offer deferral for optional choices and label recommendations in the handoff to planning.
     - If a llm wiki is available, query for relevant information
     - If a question can be answered by exploring the codebase, explore the codebase instead
     - For each question, provide your recommended answer
-    - Distinguish accepted requirements from recommendations and unresolved choices. Confirm behavior-changing restrictions and defaults before treating them as requirements; broad goals do not authorize arbitrary policies.
     - Ask the questions one at a time, waiting for feedback on each question before continuing.
     - Apply [smallest-complete-change's build, adopt, or extend guidance](../principle-smallest-complete-change/SKILL.md#build-adopt-or-extend) when evaluating solution choices. Establish the user's material requirements and goals, assess alternatives with them, and hand the decision, evidence, and unresolved assumptions to planning.
     - When discussing module boundaries, interfaces, or configuration ownership, load [code-crafting](../code-crafting/SKILL.md) and use its design-review workflow alongside this interview. Discussion alone does not authorize implementation.

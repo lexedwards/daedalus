@@ -1,17 +1,17 @@
 ---
 name: create-skill
-description: Create agent skills. Use when authoring a new skill or asking about SKILL.md
+description: Create and maintain agent skills and focused principles. Use when authoring, updating, or reviewing SKILL.md guidance.
 ---
 
-# Creating agent skills
+# Creating and Maintaining Skills
 
-Guided creation of effective Agent Skills. Skills package instructions and optional scripts and references that teach the agent how to perform specific tasks. Examples: Reviewing PRs using team standards, generating commit messages in a preferred format, or any other specialized workflow.
+Skills package task-specific instructions, references, and scripts. Apply this workflow to updates as well as new skills.
 
 Read [automate-mechanics](../principle-automate-mechanics/SKILL.md). During skill creation or updates, proactively identify and capture stable mechanics in `scripts/` when existing tools do not suffice. Keep triggers, judgment calls, and exceptions in `SKILL.md`; document script invocation relative to the skill directory, inputs, outputs, dependencies, side effects, and failures.
 
 ## Gather requirements upfront
 
-Before creating a skill, gather essential information from the user about:
+Establish the following from the request and existing assets; ask only for missing information that changes the guidance:
 
 1. **Purpose and scope**: What specific task or workflow should this skill help with?
 2. **Target location**: Should this be a global user or local project skill?
@@ -19,13 +19,24 @@ Before creating a skill, gather essential information from the user about:
 4. **Output preferences**: Are there any required structured templates or styles?
 5. **Existing wisdom**: Are there any examples or existing proofs and conventions to follow?
 
-### Context inference
-
-If there is previous conversation context, infer information about the skill from what was discussed. Often the best and most concise skills emerge from conversations, domain knowledge, or workflows.
-
 ### User direction
 
 If the user directs exact wording to use in the skill, respect it and use it **verbatim**. Do not alter, expand, or paraphrase the text. Do not soften or add additional headings or commentary that change the interpretation.
+
+## Choose the Owner
+
+Before adding guidance, inspect related skills and principles. Give each shared decision rule one owner; keep sequence, tools, and handoffs in the consuming skills.
+
+A principle expresses one durable decision rule across workflows, not a collection of related advice. Define:
+
+- **Concern:** the single problem and when the rule applies.
+- **Rule:** one sentence that guides a choice between competing actions.
+- **Boundary:** what it does not govern and where that responsibility belongs.
+- **Tests:** observable questions or scenarios that distinguish compliance from violation.
+
+Extend an existing principle only when the addition clarifies its rule within its current scope. A second independently useful rule, or a title broadened to accommodate it, calls for a separate owner. Shared consumers alone do not justify combining rules; create a new principle only when the concern is genuinely reusable.
+
+At each consuming decision point, instruct the agent to read and apply the principle using a resolvable path. Do not assume a link loads its contents or copy its policy into every skill. Replace superseded instructions and check affected consumers for contradictions. Register new assets in the host's inventory when required.
 
 ## Skill file structure
 
@@ -79,7 +90,9 @@ description: concise description of intent and when it should be used
 
 ### Concise is key
 
-The agent is already very smart. Only add context it doesn't already have. If in doubt, delete. Keep prose that changes a decision. Tell it to do the thing and skip the reason unless it is confusing without one. Point to structural sources (READMEs, configuration files, etc.) or skills by path.
+Keep instructions that change a decision, action, or check. Remove generic exhortations, repeated policy, and explanations the agent does not need. Prefer a concrete trigger and action to vague advice; point to authoritative files instead of paraphrasing them.
+
+For every update, review the affected guidance subtractively: remove obsolete or conflicting instructions, consolidate repetition, and shorten wording without losing constraints or exceptions. Keep this review within the affected concern, not an unrelated repository-wide rewrite.
 
 ### Descriptions direct the usage
 
@@ -87,7 +100,7 @@ Descriptions are critical for discovery and help the agent decide when to apply 
 
 ### Keep `SKILL.md` < 500 lines
 
-Main instructions should be concise, and leverage progressive disclosure to supplement with detailed documentation only when needed. Keep all references one-level deep in the `references/` sub-directory.
+The limit is a ceiling, not a quality target. Move genuinely occasional detail into `references/`, with an explicit read trigger; delete redundant prose instead of relocating it. Keep reference navigation one level deep.
 
 ### Freedom is determined by fragility
 
@@ -105,29 +118,6 @@ Keep variability low by having a default decision made, with specific use-cases 
 - Reference files exist
 - Cross-skill links resolve
 - Bundled scripts pass representative success and failure checks; documented invocations work from outside the skill directory
-- It abides by the Core Principles
-
-## Example
-
-```text
-incremental-commits/
-└── SKILL.md
-```
-
-```markdown
----
-name: incremental-commits
-description: Checkpoint implementation through verified Conventional Commits with meaningful scopes and contextual issue references.
----
-
-# Incremental Commits
-
-Use during implementation, including untracked work. Follow explicit user or repository instructions not to commit.
-
-1. Check `git status` before work and again before committing. Keep unrelated or pre-existing changes out of the commit; stage only files and hunks belonging to the completed slice. Never use `git add -A` blindly.
-2. Run relevant checks, inspect `git diff --cached` and `git diff --cached --check`, and confirm the staged changes form a passing increment. Do not commit secrets, generated debris, or partial work as a completed task.
-3. Use a Conventional Commit subject: `<type>(<scope>): <imperative summary>` (for example, `feat(otel): trace agent executions`). Choose a type that describes the change, such as `feat`, `fix`, `docs`, or `refactor`.
-4. Name the affected component in the scope and reference known related issues in a footer, for example `Refs: #42` or `Refs: ALE-7, PROJ-123`. Omit references for untracked work.
-5. Verify the commit exists and the working tree state afterward. Report the checkpoint and any remaining work; a commit does not authorize publication or issue closure.
-
-```
+- Each principle has one rule and a clear boundary; consumers load it at the relevant decision
+- Walk through representative success, exception, and failure scenarios across affected skills; lint alone does not establish useful guidance
+- Re-read the final guidance for instructions that do not change behavior, duplication, and avoidable verbosity
