@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.0](https://github.com/lexedwards/daedalus/compare/v0.4.0...v0.5.0) (2026-10-29)
+
+
+### Features
+
+* **plugins:** add Copilot marketplace and Claude and Cursor manifests ([#31](https://github.com/lexedwards/daedalus/issues/31)) ([0f25e0b](https://github.com/lexedwards/daedalus/commit/0f25e0b74e03ad4c2e970709a247d043cb51d96c))
+
 ## [0.4.0](https://github.com/lexedwards/daedalus/compare/v0.3.0...v0.4.0) (2026-10-24)
 
 
