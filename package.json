@@ -19,6 +19,9 @@
     "skills/",
     "agents/",
     "plugin.json",
+    ".github/plugin/",
+    ".claude-plugin/",
+    ".cursor-plugin/",
     "com.github.copilot/",
     "README.md"
   ],

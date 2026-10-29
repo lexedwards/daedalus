@@ -1,0 +1,13 @@
+{
+  "name": "daedalus",
+  "owner": {
+    "name": "lexedwards"
+  },
+  "plugins": [
+    {
+      "name": "daedalus",
+      "source": "./",
+      "description": "Skills, agents, and practices for deliberate AI-assisted engineering"
+    }
+  ]
+}
