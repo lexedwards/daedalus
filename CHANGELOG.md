@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.1](https://github.com/lexedwards/daedalus/compare/v0.5.0...v0.5.1) (2026-11-04)
+
+
+### Bug Fixes
+
+* **pr-delivery:** make PR descriptions reviewer summaries ([#34](https://github.com/lexedwards/daedalus/issues/34)) ([2037156](https://github.com/lexedwards/daedalus/commit/2037156ee71dfef665e340d6b0f72a8e059472fe)), closes [#33](https://github.com/lexedwards/daedalus/issues/33)
+
 ## [0.5.0](https://github.com/lexedwards/daedalus/compare/v0.4.0...v0.5.0) (2026-10-29)
 
 
