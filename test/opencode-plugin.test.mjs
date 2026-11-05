@@ -60,6 +60,23 @@ test('preserves existing agents on registration and transform replay', async () 
   assert.equal(registered.size, 6);
 });
 
+test('gates adversarial mutation edits and checks on approval without granting delegation', async () => {
+  const registered = new Map();
+  await plugin.setup({ skill: { async transform() {} }, agent: agentContext(registered) });
+  const hunter = registered.get('adversarial');
+  for (const action of ['edit', 'shell']) {
+    assert.deepEqual(hunter.permissions.filter((rule) => rule.action === action), [
+      { action, resource: '*', effect: 'ask' },
+    ]);
+  }
+  assert.deepEqual(hunter.permissions.slice(Agent.Info.default('adversarial').permissions.length, -2), [
+    { action: '*', resource: '*', effect: 'deny' },
+    ...['read', 'glob', 'grep', 'webfetch', 'websearch'].map((action) => ({
+      action, resource: '*', effect: 'allow',
+    })),
+  ]);
+});
+
 test('loads agent model variants and rejects invalid metadata with the source path', async () => {
   const directory = await mkdtemp(path.join(os.tmpdir(), 'daedalus-agent-'));
   try {
