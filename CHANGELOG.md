@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.0](https://github.com/lexedwards/daedalus/compare/v0.5.1...v0.6.0) (2026-11-05)
+
+
+### Features
+
+* **agents:** support isolated adversarial mutation experiments ([#37](https://github.com/lexedwards/daedalus/issues/37)) ([4d9de05](https://github.com/lexedwards/daedalus/commit/4d9de0594b39a16f1ad851bc0d0f6ef5336e5019)), closes [#36](https://github.com/lexedwards/daedalus/issues/36)
+
 ## [0.5.1](https://github.com/lexedwards/daedalus/compare/v0.5.0...v0.5.1) (2026-11-04)
 
 
