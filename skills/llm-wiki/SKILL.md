@@ -1,6 +1,6 @@
 ---
 name: llm-wiki
-description: Initialize, maintain, and query a Karpathy-style LLM Wiki knowledge vault. Use when asked to "create a wiki", "add this source to my vault", or "look this up in my wiki". Pair with defuddle for web sources, technical-writing for technical entries, and code-crafting when the task includes codebase assessment or maintained project changes.
+description: Initialize, maintain, or reference a LLM Wiki vault. A personal knowledge base and AI second brain in a specific Karpathy-style structure. Complete with AGENTS.md, scaffolded directory structure and indexing. 
 ---
 
 # LLM Wiki

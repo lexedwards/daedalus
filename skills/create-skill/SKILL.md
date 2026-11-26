@@ -124,5 +124,5 @@ Keep variability low by having a default decision made, with specific use-cases 
 - Bundled scripts pass representative success and failure checks; documented invocations work from outside the skill directory
 - Each principle has one rule and a clear boundary; consumers load it at the relevant decision
 - Walk through representative success, exception, and failure scenarios across affected skills; lint alone does not establish useful guidance
-- For discovery or workflow-composition changes, run the [multi-turn selection eval](references/workflow-selection-eval.md); description checks alone do not prove selection or timely verification
+- When the user requests behavioral evaluation of discovery or workflow-composition changes, use the [multi-turn selection scenario](references/workflow-selection-eval.md); description checks alone do not prove selection or timely verification
 - Re-read the final guidance for instructions that do not change behavior, duplication, and avoidable verbosity

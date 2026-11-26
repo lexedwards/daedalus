@@ -1,6 +1,6 @@
 ---
 name: retrospective
-description: Review a closed agent session for durable workflow and environment improvements. Use when the user explicitly asks to "review this finished session" or "run a retrospective" after work has ended; never run automatically, and require approval before edits or issue publication. Pair with create-skill for approved guidance changes and technical-writing for reports.
+description: Review a closed agent session for durable improvements to the local agent environment or global Daedalus workflows. Use only when the user explicitly requests a retrospective after work has ended; require approval before edits or issue publication.
 disable-model-invocation: true
 ---
 

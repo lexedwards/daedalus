@@ -1,6 +1,6 @@
 ---
 name: defuddle
-description: Extract clean Markdown from web pages with Defuddle CLI. Use when asked to "read this article", "summarize this page", or consult online documentation at a URL that does not end in .md, instead of webfetch. Pair with code-crafting when checking claims against code and technical-writing when using the source in documentation.
+description: Extract clean markdown content from web pages using Defuddle CLI - removing clutter and navigation. Use instead of `webfetch` or `WebFetch` if the url **does not** end in `.md` **and** the user wants to read online web pages, articles, documentation.
 ---
 
 # Defuddle

@@ -1,6 +1,6 @@
 ---
 name: harness-configuration
-description: Configure and troubleshoot skills and agents across OpenCode V2, Codex, Claude Code, Cursor, GitHub Copilot CLI, and Pi. Use when asked "why isn't this skill loading?", "check this agent configuration", or to compare supported fields, discovery, precedence, and portability. Pair with code-crafting for codebase assessments and maintained changes, create-skill for skill guidance, and technical-writing for documentation.
+description: Author, compare, and troubleshoot custom skill and agent configuration across OpenCode V2, Codex, Claude Code, Cursor, GitHub Copilot CLI, and Pi. Use when checking supported fields, discovery, precedence, portability, or updating this skill's own configuration references.
 ---
 
 # Harness Configuration
