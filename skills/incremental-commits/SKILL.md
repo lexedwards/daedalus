@@ -1,13 +1,15 @@
 ---
 name: incremental-commits
-description: Checkpoint implementation through small verified commits using Conventional Commits, meaningful component scopes, and references to known issues in the task context. Use during implementation or when preparing commits, whether or not the work has a tracked issue.
+description: Verify changes and checkpoint them in small commits using the repository's commit convention (Conventional Commits by default). Use when asked to "commit", "commit and push", "save these changes", or checkpoint ongoing implementation, including existing changes and untracked work. Pair with code-crafting for implementation, the commit agent for message generation only, and pr-delivery for publication.
 ---
 
 # Incremental Commits
 
 Read [automate-mechanics](../principle-automate-mechanics/SKILL.md) for repeatable checks and evidence collection. Prefer existing Git and project commands; saved automation must preserve explicit staging, commit authorization, and unrelated work.
 
-Checkpoint verified implementation as it grows; do not wait until an entire task is finished. Read [sequence-verifiable-slices](../principle-sequence-verifiable-slices/SKILL.md) and [smallest-complete-change](../principle-smallest-complete-change/SKILL.md) when choosing boundaries. Follow explicit user or repository instructions not to commit.
+Checkpoint verified implementation as it grows, or prepare existing changes when asked to commit. Do not wait until an entire task is finished. Read [sequence-verifiable-slices](../principle-sequence-verifiable-slices/SKILL.md) and [smallest-complete-change](../principle-smallest-complete-change/SKILL.md) when choosing boundaries. Follow explicit user or repository instructions not to commit.
+
+Load this skill before the first commit even when a domain skill or message-generation agent already applies. The commit agent writes the message only; verification, staging, and committing remain this workflow's responsibility. A request to push also requires [pr-delivery](../pr-delivery/SKILL.md); this skill does not publish.
 
 ## Checkpoint Workflow
 
@@ -19,7 +21,7 @@ Checkpoint verified implementation as it grows; do not wait until an entire task
 
 ## Subject and Scope
 
-Use `<type>(<scope>): <imperative summary>`, following repository conventions. Choose the type by intent: `feat` adds behavior, `fix` corrects behavior, `refactor` preserves behavior while changing structure, and `docs`, `test`, `perf`, or `chore` describe their respective changes.
+Follow the repository's commit convention. When none is established, default to Conventional Commits: `<type>(<scope>): <imperative summary>`. The following type and scope guidance applies when using that convention. Choose the type by intent: `feat` adds behavior, `fix` corrects behavior, `refactor` preserves behavior while changing structure, and `docs`, `test`, `perf`, or `chore` describe their respective changes.
 
 The scope names the affected component or capability, such as `parser`, `tracing`, or `skills`. Reuse established scopes. Do not use an issue ID, branch name, or words such as `small` as the scope. Omit the optional scope when no single meaningful area applies; do not invent one to satisfy the syntax. If unrelated areas cannot share one clear outcome, split the commit.
 

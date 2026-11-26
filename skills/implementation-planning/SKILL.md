@@ -1,6 +1,6 @@
 ---
 name: implementation-planning
-description: Plan incremental implementation by breaking a plan, spec, PRD, Jira Epic, or Linear project or project milestone into vertical work slices. Use when the user wants to create implementation tasks or break down work into manageable tasks.
+description: Break a plan, spec, PRD, Jira Epic, or Linear project or milestone into verifiable work slices. Use when asked to "break this down", "create implementation tasks", or "plan the implementation". Pair with requirements-capture for product scope, code-crafting for feasibility assessments and subsequent implementation, and technical-writing for task descriptions.
 ---
 
 # Implementation Planning

@@ -1,6 +1,6 @@
 ---
 name: create-skill
-description: Create and maintain agent skills and focused principles. Use when authoring, updating, or reviewing SKILL.md guidance.
+description: Create and maintain agent skills and focused principles. Use when asked to "create a skill", "update this SKILL.md", or review agent guidance. Pair with code-crafting for assessing claims and maintained changes, technical-writing for prose, and harness-configuration for discovery and host-specific fields.
 ---
 
 # Creating and Maintaining Skills
@@ -96,7 +96,11 @@ For every update, review the affected guidance subtractively: remove obsolete or
 
 ### Descriptions direct the usage
 
-Descriptions are critical for discovery and help the agent decide when to apply the skill. Include both **what** the skill does and **when** the agent should use it. Write the description in the third person. Be specific and include trigger terms.
+Descriptions are critical for discovery. Use this shape for discoverable skills and agents: what it does; **Use when…** with realistic user phrasings; which skills it pairs with and for what work. Name companion skills explicitly and conditionally; do not imply that discussion authorizes implementation or every companion is always required.
+
+Make domain and tracker descriptions compose with workflow skills rather than compete with them. Include code-crafting for codebase assessments and maintained changes, technical-writing for technical prose, incremental-commits for commits, and pr-delivery for publication where relevant. Follow [Code Crafting's selection checkpoints](../code-crafting/SKILL.md#start-here) when work modes change and before the first write, commit, or publish action.
+
+Keep explicit-only skills and principles explicit-only. For principles loaded by a consuming workflow, describe the rule and its application boundary rather than adding ambient triggers or listing every consumer. Audit agent descriptions against actual tool permissions and output boundaries; a message writer is not a verification or commit workflow.
 
 ### Keep `SKILL.md` < 500 lines
 

@@ -1,6 +1,6 @@
 ---
 name: code-crafting
-description: Guide pragmatic implementation, bug fixing, refactoring, review, and bounded investigations with isolated work, risk-based verification, and explicit completion gates. Default to PR delivery for maintained changes and reviewed findings for investigations.
+description: Investigate, verify, and change code or documentation with proportionate checks. Use when asked to "check whether this ticket's claims are true", "find the root cause", "fix this bug", "review this design", or "update these docs". Applies alongside domain, tracker, and platform skills, not instead of them. Recheck skill selection when work modes change and before the first write, commit, or publish action. Pair with technical-writing for prose, incremental-commits before committing, and pr-delivery before publication.
 ---
 
 # Code Crafting
@@ -16,10 +16,16 @@ Use this skill for:
 - Refactoring code.
 - Reviewing code or design choices.
 - Running bounded technical investigations or experiments.
+- Assessing a ticket's claims against a codebase.
+- Editing maintained documentation.
 - Choosing where logic should live.
 - Deciding how much testing or verification is enough.
 
 ## Start Here
+
+Select workflow skills alongside domain, tracker, and platform skills; a narrower match does not replace this workflow. Reassess selection when a new turn changes the work mode, not only at session start.
+
+Before the first write, commit, or publish action, load any missing skill for that action: this skill for maintained code or documentation changes, [technical-writing](../technical-writing/SKILL.md) before drafting technical prose, [incremental-commits](../incremental-commits/SKILL.md) before committing, and [pr-delivery](../pr-delivery/SKILL.md) before publication. Apply the loaded guidance before the action, not retrospectively. Do not reload skills already active or treat selection as authorization to write.
 
 Before inspecting project files, identify every work mode present in the request, including review subtasks. Use the read tool to load the union of their starting principles. Resolve paths from this skill's base directory. Links name files to read; their contents are not loaded with this skill.
 

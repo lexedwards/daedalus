@@ -1,6 +1,6 @@
 ---
 name: pr-delivery
-description: Publish verified implementation slices as pull requests, including dependent stacks, and handle requested CI and review follow-up. Use when delivering code, opening or updating PRs, or preparing work for integration.
+description: Verify publication readiness, publish complete changes as pull requests, and handle requested CI and review follow-up. Use when asked to "push these changes", "open a PR", "update this PR", or "get this ready for review". Pair with incremental-commits for checked commits and technical-writing for PR descriptions; return implementation findings to code-crafting or the owning workflow.
 ---
 
 # PR Delivery
@@ -9,7 +9,7 @@ Publish a complete, verified outcome for review. This skill owns publication and
 
 ## Entry and Handoff
 
-Enter after an implementation workflow has produced a reviewable outcome, or when the user asks to publish existing changes. The input is the intended changes or commits, their verification evidence, and the target repository. If changes need committing, use [incremental-commits](../incremental-commits/SKILL.md) to prepare checked commits before publication.
+Load this skill before the first publication action, after an implementation workflow has produced a reviewable outcome or when the user asks to publish existing changes. The input is the intended changes or commits, their available verification evidence, and the target repository. Do not presume verification occurred: inspect the evidence and run the relevant checks before publication. If changes need committing, use [incremental-commits](../incremental-commits/SKILL.md) to prepare checked commits first.
 
 Return PR links, delivery state, and outstanding gates. If implementation is missing or review reveals a defect, return concrete findings to the owning workflow instead of invoking it from here. Publication resumes when that workflow supplies the corrected, verified outcome; loading this skill must not restart implementation.
 

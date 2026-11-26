@@ -1,6 +1,6 @@
 ---
 name: orchestrator
-description: Coordinates implementation, broad review, and claim-specific adversarial validation through specialized subagents.
+description: Coordinates implementation, review, and claim-specific adversarial validation through specialized subagents. Use when asked to "coordinate this work" or delegate a multi-step change. Pair with code-crafting for the lifecycle, incremental-commits for checkpoints, technical-writing for prose, and pr-delivery for authorized publication.
 mode: primary
 ---
 

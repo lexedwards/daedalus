@@ -1,6 +1,6 @@
 ---
 name: technical-writing
-description: Write technical documentation that is approachable and concise. Use when recording context that future engineers and agents will need to understand and operate.
+description: Write clear, concise technical prose. Use when asked to "update the README", "document this behavior", "write a bug report", or draft PR and issue descriptions, operating guides, or engineering context. Pair with code-crafting for maintained documentation changes and evidence-backed assessments, create-skill for skill guidance, and pr-delivery for PR publication.
 ---
 
 # Technical Writing
@@ -12,10 +12,14 @@ Capture the context and rationale readers cannot recover from the implementation
 - Altering public-facing interfaces or APIs
 - Changes to user-facing behavior
 - Onboarding new members or agents
+- README and documentation updates
+- Bug reports, PR descriptions, and issue descriptions
 
 Do not restate obvious code. Before selecting an artifact or destination, read and apply [match-delivery-to-task](../principle-match-delivery-to-task/SKILL.md). Label findings and proposals distinctly from as-built operating guidance; use the agreed handoff destination for investigations.
 
 ## Start here
+
+Load this skill before the first technical-prose write, including routine edits and tracker descriptions. Use it alongside the domain or tracker skill. For maintained documentation changes, also load [code-crafting](../code-crafting/SKILL.md); writing guidance does not replace its verification workflow.
 
 Read [automate-mechanics](../principle-automate-mechanics/SKILL.md) for repeatable link, structure, or example validation. Reuse or save useful checks; keep explanation and editorial decisions with the agent.
 

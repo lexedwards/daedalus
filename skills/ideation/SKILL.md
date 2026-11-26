@@ -1,6 +1,6 @@
 ---
 name: ideation
-description: Interview and challenge the user to resolve material decisions and stress-test an idea or plan. Contrast with existing domain models and capture terminology as decisions crystallise.
+description: Interview the user and stress-test an idea against existing domain models. Use when asked to "help me think this through", "challenge this idea", or resolve decisions before planning. Pair with code-crafting when checking claims against code or reviewing a design, requirements-capture for product scope, and decision-capture for consequential decisions.
 ---
 
 # Ideation

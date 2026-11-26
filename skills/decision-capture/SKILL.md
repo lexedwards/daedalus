@@ -1,6 +1,6 @@
 ---
 name: decision-capture
-description: Capture important and hard-to-reverse decisions in ADRs as they crystalise. Use when a user wants to preserve important or critical implementation decisions.
+description: Preserve important, hard-to-reverse decisions in ADRs. Use when asked to "record this decision", "write an ADR", or capture the rationale for an architectural choice. Pair with technical-writing for the ADR and code-crafting when assessing the implementation or alternatives.
 ---
 
 # Decision Capture

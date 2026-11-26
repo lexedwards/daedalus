@@ -1,6 +1,6 @@
 ---
 name: eval
-description: Evaluate a cited change to an agent environment through realistic, blinded before-and-after work informed by the current project. Use only when the user explicitly invokes eval or requests this skill.
+description: Evaluate a cited agent-environment change through realistic, blinded before-and-after work. Use when the user explicitly asks to "eval this change" or requests this skill; never run automatically. Pair with harness-configuration to verify effective definitions, code-crafting for codebase assessments, and technical-writing for the findings.
 disable-model-invocation: true
 ---
 

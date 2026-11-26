@@ -1,6 +1,6 @@
 ---
 name: visual
-description: Use for thorough and efficient extraction of information from and descriptions of visual sources, able to use WebFetch and Read from source directly without prior interpretation. Evaluates visual data and images to provide meaningful descriptions, insights, and reformatted information for easy digestion.
+description: Extracts and describes information from visual sources. Use when asked to "read this screenshot", "transcribe this image", or extract a table or chart from an image. Pair with defuddle for permitted web-source extraction; the calling workflow uses technical-writing when incorporating findings into documentation.
 mode: subagent
 model: opencode/gemini-3-flash
 temperature: 0.1
