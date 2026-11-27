@@ -1,6 +1,6 @@
 # Description Patterns
 
-Templates and examples for the rules in [Names and descriptions](../SKILL.md#names-and-descriptions). Host-specific fields, such as Claude Code's `when_to_use` or `paths`, belong to [harness-configuration](../../harness-configuration/SKILL.md); put triggers in `description`, which every host reads.
+Templates and examples for the rules in [Names and descriptions](../SKILL.md#names-and-descriptions). Host-specific fields, such as extra trigger or path-scoping fields, belong to [harness-configuration](../../harness-configuration/SKILL.md); put triggers in `description`, which every host reads.
 
 ## Templates
 
@@ -41,13 +41,20 @@ Quoted example requests are not triggers. "Fix this bug" does not match "why doe
 
 ## Request vocabulary
 
-Measured session history shows how requests are actually worded. Refresh these patterns from the user's own requests in recent transcripts when diagnosing selection.
+Requests are worded around the situation, not the skill. Diagnose selection against how people actually phrase work, and refresh these patterns from real requests in recent transcripts when a skill is skipped.
 
-- **Openings state a problem or goal, not a work mode.** They run to a few sentences: "I want…", "I have this problem where…", "how does…", or a verb on an artifact, such as "review the…" or "inspect the…". They rarely name a skill. Match the situation they describe.
-- **Steering turns are short go-aheads.** "Do it", "yes", "keep going", "commit and push", and "merged" often change the work mode, from planning to implementation or from implementation to delivery, without naming it. Workflow skills need stage triggers, such as "before the first edit" or "before committing", plus handoffs in the body of the skill that is already loaded.
+- **Openings state a problem or goal, not a work mode.** They run to a few sentences: a want, a problem report, a question about how something works, or a verb on an artifact such as "review" or "inspect". They rarely name a skill, so the description must match the situation they describe.
+- **Steering turns are short go-aheads.** Brief approvals often change the work mode, from planning to implementation or from implementation to delivery, without naming it. Workflow skills need stage triggers, such as "before the first edit" or "before committing", plus handoffs in the body of the skill that is already loaded.
 - **Users rarely load skills by name.** Selection depends almost entirely on descriptions and body handoffs.
-- **Distinctive vocabulary selects reliably.** Skills tied to URLs, named artifacts, or a domain term load far more often than process skills whose work reads like default behavior.
+- **Distinctive vocabulary selects reliably.** Skills tied to URLs, named artifacts, or a domain term load far more often than workflow skills whose work reads like default behavior.
 - **Pasted material is not the user's wording.** Exclude logs, quotes, and transcripts before judging how requests are phrased.
+
+### What made workflow triggers work
+
+Measured fixes for skipped workflow skills combined two moves:
+
+- **Name what the model cannot know.** "Holds the user's engineering standards and preferences, which the model cannot infer" selected where "sets the trace, test, and delivery gates" did not. The model skips a skill that describes process, because it believes it already follows that process. It loads one that holds knowledge it lacks.
+- **Cover the situations, including small ones.** Name the request shapes the skill applies to, such as problem reports and investigations, and say it applies "however small". Without that, a model treats a short edit or a question as below the skill's threshold. Quote an opener only if users actually type it.
 
 ## Examples
 

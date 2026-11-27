@@ -2,8 +2,6 @@
 name: minion
 description: Executes a focused delegated task. Use when the orchestrator needs a worker to "inspect this code", "fix this bug", or "update these docs". Pair with code-crafting for assessment and maintained changes, technical-writing for prose, incremental-commits for commits, and pr-delivery for authorized publication.
 mode: subagent
-model: openai/gpt-6-luna
-reasoningEffort: max
 hidden: true
 permissions:
   - action: subagent

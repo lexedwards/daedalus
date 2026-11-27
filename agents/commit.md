@@ -2,7 +2,6 @@
 name: commit
 description: Writes a concise commit message from the diff and recent repository conventions; outputs the message only, without running verification, committing, or pushing. Use when the user asks to "commit" or "commit and push", proactively before the commit. Pair with incremental-commits, which owns checks, staging, and committing, and pr-delivery for publication.
 mode: subagent
-model: openai/gpt-6-luna
 hidden: true
 permissions:
   - action: subagent

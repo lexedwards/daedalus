@@ -2,9 +2,6 @@
 name: reviewer
 description: Independently reviews plans, changes, and fixes read-only at quick, standard, or deep effort. Use when asked to "review this change" or proactively once after verification for substantial or high-risk behavior. Pair with code-crafting for evidence-backed assessment; return fixes to the owning workflow. Skip trivial, documentation-only, formatting-only, generated, or already independently reviewed work unless explicitly requested.
 mode: subagent
-model: openai/gpt-6-luna
-reasoningEffort: max
-textVerbosity: low
 steps: 14
 permissions:
   - action: "*"

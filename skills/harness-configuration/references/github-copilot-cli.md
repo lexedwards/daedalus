@@ -86,6 +86,8 @@ The [shared schema][shared] additionally documents these fields, not all present
 
 The shared schema accepts comma-separated `tools` strings as well as arrays, and says unrecognized tool names are ignored. Use arrays for CLI authoring. Unknown frontmatter keys, malformed YAML, invalid field types, and unknown model-ID diagnostics remain unverified; do not generalize tool-name ignoring to every field. Shared-schema `infer` is retired in favor of invocation controls; CLI still documents `infer`, so retain this product-specific difference.
 
+Shared agent files written for OpenCode V2 carry `permissions`, `mode`, `hidden`, and `steps`. None is a documented Copilot CLI agent field. Copilot does not enforce their restrictions: with `tools` absent, the agent gets all tools. Whether Copilot ignores the unknown keys silently or warns is unverified. Read-only and no-delegation constraints therefore rely on the agent prompt in Copilot.
+
 ## Agent identity, priority, and conflicts
 
 Source: [CLI command reference][cli], with contradiction from [config directory][settings].

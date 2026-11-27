@@ -1,11 +1,11 @@
 ---
 name: defuddle
-description: Extract clean markdown content from web pages using Defuddle CLI - removing clutter and navigation. Use instead of `webfetch` or `WebFetch` if the url **does not** end in `.md` **and** the user wants to read online web pages, articles, documentation.
+description: Extract clean markdown content from web pages using Defuddle CLI - removing clutter and navigation. Use instead of the built-in web page fetch tool if the url **does not** end in `.md` **and** the user wants to read online web pages, articles, documentation.
 ---
 
 # Defuddle
 
-The defuddle cli extracts clean readable content from Web Pages. Prefer over `webfetch` / `WebFetch` to reduce noise and clutter.
+The defuddle cli extracts clean readable content from Web Pages. Prefer over the built-in web page fetch tool to reduce noise and clutter.
 
 ## Workflow
 
