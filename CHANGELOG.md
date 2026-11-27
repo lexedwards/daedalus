@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.1](https://github.com/lexedwards/daedalus/compare/v0.6.0...v0.6.1) (2026-11-27)
+
+
+### Bug Fixes
+
+* **skills:** compose SDLC workflows at task transitions ([#40](https://github.com/lexedwards/daedalus/issues/40)) ([4bba43b](https://github.com/lexedwards/daedalus/commit/4bba43b13a4e1af282802befd7fba025f6d509b9))
+
 ## [0.6.0](https://github.com/lexedwards/daedalus/compare/v0.5.1...v0.6.0) (2026-11-05)
 
 
