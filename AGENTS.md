@@ -129,6 +129,10 @@ If you add a script in the future:
 - Document how to run the script in the same change.
 - Place the script next to the skill or agent it supports.
 
+### Portability
+
+Shipped skills and agents must work across every harness the plugin supports. Do not ship content tied to one harness, model, provider, or workstation, such as pinned models, harness-specific tool names, or local paths. Express host differences through [Harness Configuration](skills/harness-configuration/SKILL.md) instead.
+
 ### Error Handling and Safety
 
 - Do not fabricate missing commands, tests, CI, or release workflows.
@@ -155,4 +159,5 @@ Before finishing work in this repo, verify:
 - Frontmatter is present when required.
 - Markdown lint passes.
 - Examples and paths are real.
+- Shipped content is portable across supported harnesses, models, and workstations.
 - The guidance matches the repository as it exists today.

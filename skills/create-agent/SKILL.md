@@ -91,5 +91,6 @@ Classify the failure before changing the definition:
 - The description, permissions, and output contract agree
 - Every linked skill, principle, or file resolves and is readable under the agent's permissions
 - No prompt rule duplicates the meaning of guidance owned elsewhere
+- The agent works on every host it targets: no pinned model or provider unless the job requires one, and no harness-specific tool names or local paths
 - Walk through one delegation that should reach the agent, one near miss that should not, and one brief that asks it to cross its boundary
 - Register the agent where the host requires; see [harness-configuration](../harness-configuration/SKILL.md)
