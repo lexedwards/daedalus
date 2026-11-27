@@ -21,5 +21,5 @@ Understand the real path before changing or judging it.
 
 - "Can I trace this input to the observable result and name the boundaries it crosses?" If not, inspect the missing path before choosing a change.
 - "Which other callers use the code I am about to change?" Find them and establish whether they depend on the same behavior.
-- "Did I observe this behavior, or infer it from a name, comment, or worker report?" Check the source or run the path before treating the inference as fact.
+- "Did I observe this behavior, or infer it from a name or comment?" Check the source or run the path before treating the inference as fact. Validate worker reports under [evidence-before-verdicts](../principle-evidence-before-verdicts/SKILL.md).
 - "Would more exploration change this decision?" If not, stop exploring and act on the evidence already gathered.
