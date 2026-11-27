@@ -19,8 +19,7 @@ Do not invent build steps, test steps, or coding conventions that are not actual
 - `.markdownlint.yaml` defines Markdown style.
 - `.markdownlint-cli2.yaml` selects Markdown files and excludes dependencies for `bun run lint`.
 - `package.json` exports the OpenCode V2 plugin and defines its dependencies and checks.
-- `plugins/skills.mjs` lists the skills registered by the plugin.
-- `plugins/agents.mjs` lists and loads the agents registered by the plugin.
+- `plugins/skills.mjs` registers every directory in `skills/`, and `plugins/agents.mjs` registers every Markdown file in `agents/`. Everything in those directories ships; there is no inventory list to update, and tests derive their expectations from the filesystem.
 - `.github/workflows/ci.yml` runs checks and Release Please. `release-please-config.json` and `.release-please-manifest.json` maintain an accumulating release PR, synchronized manifest versions, and GitHub releases; setup and versioning rules are in `README.md`.
 - The plugin lives outside `.opencode/plugins/` to avoid automatic project loading alongside a globally configured copy.
 - Root `plugin.json` shares `skills/` with Copilot CLI. `com.github.copilot/agents/` contains relative symlinks to the OpenCode-first definitions in `agents/`; no generator is required.
