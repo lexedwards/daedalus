@@ -45,3 +45,14 @@ Scenario: edit an AI-sounding technical retry note to match a plain voice sample
 - The judge preferred revised guidance in two Sol pairs, could not compare the incomplete Sol pair, and gave mixed Opus verdicts: a small revised advantage, a tie and a baseline advantage. All completed final notes were correct; there is no consistent cross-model workflow improvement.
 
 Correction: make the technical-writing and maintained-documentation handoffs actionable in the workflow body, with later commit/publication boundaries. Keep them conditional so this SDLC correction does not impose an engineering lifecycle on fiction or standalone text. Behavioral validation of the correction remains outstanding; this batch does not meet the full promotion rule.
+
+## Ideation
+
+Scenario: challenge automatic archiving based on inactivity, then write an approved discussion brief preserving owner confirmation, seven-day restoration, legal-hold exclusion and no permanent deletion.
+
+- All 12 runs loaded `ideation` first, passed automated artifact checks and produced correct final briefs without implementation or unauthorized edits.
+- Sol loaded all companions on time in 3/3 revised runs and 2/3 baseline runs. Revised Opus loaded commit/publication guidance in 3/3 and both writing companions in 1/3; baseline Opus loaded no companions.
+- The judge preferred revised guidance in four pairs and tied two. One baseline Opus run initially dismissed the legal-hold risk, then corrected it in the approved brief.
+- Masked test exit codes weakened verification in all three revised Opus runs. The comparison supports narrower composition gains, not full workflow reliability or improved primary discovery.
+
+Correction: add an explicit approved-artifact step with writing and later commit/publication handoffs. Replace the unconditional documentation-update pitfall with an authorization boundary. This preserves read-only discussion and the requested artifact type; the correction has static checks but no fresh behavioral evaluation.
