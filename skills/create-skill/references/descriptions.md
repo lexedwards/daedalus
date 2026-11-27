@@ -41,7 +41,7 @@ Quoted example requests are not triggers. "Fix this bug" does not match "why doe
 
 ## Request vocabulary
 
-Measured session history shows how requests are actually worded. Refresh these patterns with the [session history script](../SKILL.md#improve-an-existing-skill).
+Measured session history shows how requests are actually worded. Refresh these patterns from the user's own requests in recent transcripts when diagnosing selection.
 
 - **Openings state a problem or goal, not a work mode.** They run to a few sentences: "I want…", "I have this problem where…", "how does…", or a verb on an artifact, such as "review the…" or "inspect the…". They rarely name a skill. Match the situation they describe.
 - **Steering turns are short go-aheads.** "Do it", "yes", "keep going", "commit and push", and "merged" often change the work mode, from planning to implementation or from implementation to delivery, without naming it. Workflow skills need stage triggers, such as "before the first edit" or "before committing", plus handoffs in the body of the skill that is already loaded.
