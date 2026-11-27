@@ -10,9 +10,9 @@ description: Interview the user and stress-test an idea against existing domain 
 Read [automate-mechanics](../principle-automate-mechanics/SKILL.md) when discussing repeatable work. Identify reusable mechanics separately from judgment; discussion alone does not authorize creating scripts.
 
 1. **Resolve material decisions** until the outcome, constraints, and remaining uncertainty are understood.
-    - Read and apply [keep-gates-traceable](../principle-keep-gates-traceable/SKILL.md) when identifying decisions or blockers. Offer deferral for optional choices and label recommendations in the handoff to planning.
+    - Read and apply [keep-gates-traceable](../principle-keep-gates-traceable/SKILL.md) when identifying decisions or blockers, including the handoff to planning.
     - If a llm wiki is available, query for relevant information
-    - If a question can be answered by exploring the codebase, explore the codebase instead
+    - Before asking, read and apply [trace-before-changing](../principle-trace-before-changing/SKILL.md) to answer what the codebase can answer.
     - For each question, provide your recommended answer
     - Ask the questions one at a time, waiting for feedback on each question before continuing.
     - Apply [smallest-complete-change's build, adopt, or extend guidance](../principle-smallest-complete-change/SKILL.md#build-adopt-or-extend) when evaluating solution choices. Establish the user's material requirements and goals, assess alternatives with them, and hand the decision, evidence, and unresolved assumptions to planning.

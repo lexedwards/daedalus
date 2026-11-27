@@ -9,7 +9,7 @@ Read [automate-mechanics](../principle-automate-mechanics/SKILL.md) for repeatab
 
 Checkpoint verified implementation as it grows, or prepare existing changes when asked to commit. Do not wait until an entire task is finished. Read [sequence-verifiable-slices](../principle-sequence-verifiable-slices/SKILL.md) and [smallest-complete-change](../principle-smallest-complete-change/SKILL.md) when choosing boundaries. Follow explicit user or repository instructions not to commit.
 
-Load this skill before the first commit even when a domain skill or message-generation agent already applies. The commit agent writes the message only; verification, staging, and committing remain this workflow's responsibility. A request to push also requires [pr-delivery](../pr-delivery/SKILL.md); this skill does not publish.
+Load this skill before the first commit even when a domain skill or message-generation agent already applies. The commit agent writes the message only; verification, staging, and committing remain this workflow's responsibility. A request to push also requires [pr-delivery](../pr-delivery/SKILL.md).
 
 ## Checkpoint Workflow
 

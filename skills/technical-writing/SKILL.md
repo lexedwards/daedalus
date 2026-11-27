@@ -15,7 +15,7 @@ Capture the context and rationale readers cannot recover from the implementation
 - README and documentation updates
 - Bug reports, PR descriptions, and issue descriptions
 
-Do not restate obvious code. Before selecting an artifact or destination, read and apply [match-delivery-to-task](../principle-match-delivery-to-task/SKILL.md). Label findings and proposals distinctly from as-built operating guidance; use the agreed handoff destination for investigations.
+When documenting changed behavior or a decision, read and apply [preserve-decision-context](../principle-preserve-decision-context/SKILL.md). Before selecting an artifact or destination, read and apply [match-delivery-to-task](../principle-match-delivery-to-task/SKILL.md).
 
 ## Start here
 
@@ -90,4 +90,4 @@ Document command invocation in a manpage-like, reference-first form rather than 
 
 ## Verify
 
-Re-read the rendered document when available, or inspect its Markdown structure. Check that readers can find prerequisites, actions, alternatives, and outcomes without reconstructing their relationships ([make-structure-visible](../principle-make-structure-visible/SKILL.md)). Lint and formatting checks do not establish comprehension.
+Re-read the rendered document when available, or inspect its Markdown structure. Check that readers can find prerequisites, actions, alternatives, and outcomes without reconstructing their relationships ([make-structure-visible](../principle-make-structure-visible/SKILL.md)).

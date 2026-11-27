@@ -12,12 +12,12 @@ Break a plan into independently actionable tasks: working vertical slices for im
 ### Creating Tasks
 
 1. **Gather context**
-    - Read and apply [keep-gates-traceable](../principle-keep-gates-traceable/SKILL.md) when selecting blockers and completion gates. Include each gate's requirement or safety justification; separate optional follow-up and residual risk.
+    - Read and apply [keep-gates-traceable](../principle-keep-gates-traceable/SKILL.md) when selecting blockers and completion gates.
     - Apply [smallest-complete-change's build, adopt, or extend guidance](../principle-smallest-complete-change/SKILL.md#build-adopt-or-extend). Carry forward the solution decision, alternatives considered, and evidence; revisit consequential unresolved assumptions before dependent implementation, planning a bounded investigation when needed.
-    - Read [public-work-public-tracking](../principle-public-work-public-tracking/SKILL.md) and select the task destination separately from the source document. Honor explicit user direction and the established tracker; otherwise default to GitHub Issues and suitable milestones for public GitHub repositories. Keep sensitive work private.
+    - Read [public-work-public-tracking](../principle-public-work-public-tracking/SKILL.md) and select the task destination separately from the source document.
     - Read [integrate-through-review](../principle-integrate-through-review/SKILL.md) and establish the project's completion gate and any explicit delivery exception.
     - Read and apply [match-delivery-to-task](../principle-match-delivery-to-task/SKILL.md) to classify deliverables. For investigations, read and agree the [investigation contract](../code-crafting/references/investigations.md) before experiments.
-    - For tracked work, read and apply [keep-tracking-aligned](../principle-keep-tracking-aligned/SKILL.md). Discover supported states, ownership, labels, and dependency conventions; carry them into the task's execution handoff.
+    - For tracked work, read and apply [keep-tracking-aligned](../principle-keep-tracking-aligned/SKILL.md). Carry the discovered conventions into the task's execution handoff.
     - If the user passes a github issue: fetch with `gh issue view <number>`
     - if the user references a spec: look up `.specs/<spec-name>/*.md`
     - If the user passes a Jira Epic: read it as the source using [Jira Epic](resources/jira-epic.md)
@@ -28,13 +28,12 @@ Break a plan into independently actionable tasks: working vertical slices for im
 
 3. **Draft vertical slices**
     - Read [automate-mechanics](../principle-automate-mechanics/SKILL.md). Include useful saved automation and its checks in the slice that needs it; do not plan repeated agent reconstruction of stable procedures. Planning alone does not authorize implementing those scripts.
-    - Read [sequence-verifiable-slices](../principle-sequence-verifiable-slices/SKILL.md) for dependency order and [smallest-complete-change](../principle-smallest-complete-change/SKILL.md) for task and review boundaries.
-    - Create implementation tasks from thin vertical slices that implement through all required integration layers end-to-end.
-    - Keep accepted correctness and safety constraints in the first slice that exposes the behavior; narrow the feature's scope rather than shipping known-invalid output and deferring its correction. Each task's acceptance criteria must be achievable from its declared base and dependencies, not depend on whichever task happens to land later.
+    - Read [sequence-verifiable-slices](../principle-sequence-verifiable-slices/SKILL.md) for dependency order and slice shape, and [smallest-complete-change](../principle-smallest-complete-change/SKILL.md) for task and review boundaries.
+    - Keep accepted correctness and safety constraints in the first slice that exposes the behavior; narrow the feature's scope rather than shipping known-invalid output and deferring its correction.
     - Include the checks and maintained documentation needed to use each implementation slice; add architecture diagrams when they explain a material boundary.
     - Ensure that important or critical decisions are preserved and captured in ADRs during the task, using the `/decision-capture` skill.
     - For each implementation slice, name its proposed PR boundary, dependency base, and verification recipe using the project's real checks. Identify any smaller passing commit increments within it.
-    - For investigations, name the evidence destination and acceptance gate; link the findings and remaining checks into dependent implementation tasks.
+    - For investigations, name the evidence destination and acceptance gate.
 
 4. **Confirm with the user**:
     - Present the proposed breakdown, for each task include:
@@ -51,7 +50,7 @@ Break a plan into independently actionable tasks: working vertical slices for im
 5. **Create the tasks**
     - Before writing maintained task files, load [technical-writing](../technical-writing/SKILL.md) and [code-crafting](../code-crafting/SKILL.md). Planning authorizes only the approved task artifacts, not implementation.
     - Create the tasks in dependency order (blockers first) so that they can be referenced correctly in the related tasks
-    - Use the selected destination, not just the source document's location. Confirm publication authorization and check for existing tasks before creating new ones; report blocked access rather than switching trackers.
+    - Create tasks in the destination selected in step 1. Confirm publication authorization and check for existing tasks before creating new ones.
     - If GitHub Issues is selected:
         - create tasks using `gh issue create`, reference the source and parent issue when present, and use a suitable milestone for related work or delivery goals
     - If local task files are selected, or no tracker is selected and the plan came from a spec in `.specs/<spec-name>/`:

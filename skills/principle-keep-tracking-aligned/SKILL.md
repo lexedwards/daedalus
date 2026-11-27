@@ -13,7 +13,7 @@ This governs tracking accuracy, not tracker selection, completion-gate definitio
 - Identify the active issue before execution, discover supported states and metadata conventions, and state it when starting or switching tasks. Distinguish it from parent milestones and follow-up work; do not require issues for untracked work.
 - With write authorization, reflect starting, blocking, entering review, and completing through supported states or equivalent metadata. Preserve unrelated assignments, labels, and dependencies; confirm missing conventions or ownership before introducing metadata.
 - Prefer structured state, assignments, labels, dependency relationships, and implementation or review links over narrative updates. A linked PR carries implementation evidence; do not duplicate it in progress comments. Use comments for clarification that metadata and linked artifacts cannot convey, such as a blocker's cause or a handoff limitation.
-- Mark complete only when accepted criteria and the agreed delivery gate are met. Investigation acceptance is not implementation delivery; publishing a PR is not integration. Represent partial and contextual work without implying resolution.
+- Mark complete only when accepted criteria and the agreed delivery gate are met. Read [integrate-through-review](../principle-integrate-through-review/SKILL.md) and [match-delivery-to-task](../principle-match-delivery-to-task/SKILL.md) for what each gate means. Represent partial and contextual work without implying resolution.
 - Read back each update. If access, authorization, or tooling prevents it, report the actual tracker state and unapplied transition rather than implying synchronization.
 
 **The tests:**

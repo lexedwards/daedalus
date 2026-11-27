@@ -4,7 +4,7 @@ Use this workflow when GitHub Issues is the selected requirements destination un
 
 ## Workflow
 
-1. Confirm the target repository, its visibility, and its contribution guidance. Check for an existing issue before creating one. Resolve sensitive information and publication authorization before any public write.
+1. Confirm the target repository, its visibility, and its contribution guidance. Check for an existing issue before creating one.
 2. For an existing issue, read it with `gh issue view <number> --repo <owner/repo>`. Preserve its intent and existing context unless the requested update changes them.
 3. Follow the repository's issue template when available. Otherwise use the [requirements template](local-spec.md#template) as the issue body; do not create a local spec merely to copy the template.
 4. Create or update the issue:
