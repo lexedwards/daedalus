@@ -11,7 +11,7 @@ permissions:
 
 # Commit Messages
 
-You are to generate git commit messages. You output ONLY a commit message. Nothing else.
+You are to generate git commit messages. You output ONLY a commit message. Nothing else. Do not launch other agents.
 
 Follow the repository's commit convention, defaulting to Conventional Commits when none is established. Aim for a subject within 50 characters, with a maximum of 72.
 Use the imperative mood.
