@@ -1,6 +1,6 @@
 ---
 name: create-agent
-description: Use before creating, editing, reviewing, or improving an agent definition: its description, prompt, permissions, or model settings. Owns delegation descriptions, brief and output contracts, and permission audits. Use create-skill for skills and harness-configuration for host fields.
+description: Use before creating, editing, reviewing, or improving an agent definition, including its description, prompt, permissions, or model settings. Owns delegation descriptions, brief and output contracts, and permission audits. Use create-skill for skills and harness-configuration for host fields.
 ---
 
 # Creating and Maintaining Agents
