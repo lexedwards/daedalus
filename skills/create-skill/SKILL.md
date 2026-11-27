@@ -118,7 +118,7 @@ Choose model invocation only when the agent or another skill must reach the skil
 ### Write descriptions for selection
 
 - **Lead with the trigger condition.** Name the situation in broad terms: the work mode, artifact, or observable state, such as "any task that changes or debugs code".
-- **State what the skill adds beyond default behavior.** A description that reads like what the model already does gets skipped.
+- **State what the skill adds beyond default behavior.** A description that reads like what the model already does gets skipped. For workflow skills, name the knowledge the model cannot have, such as the user's standards, preferences, or conventions, rather than the process; a process description reads like default behavior.
 - **One condition per distinct case.** Collapse synonyms for the same case.
 - **Quote only words people actually type**, such as a command name or a term the user habitually uses. Do not use sample requests as triggers.
 - **Point to the nearest sibling** when the two could compete: "Use technical-writing for prose."

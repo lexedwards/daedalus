@@ -1,6 +1,6 @@
 ---
 name: technical-writing
-description: Use before writing or editing technical prose, such as READMEs, docs, ADRs, PR and issue descriptions, bug reports, and operating guides. Sets plain technical style, reader-first structure, and Markdown conventions. Use humanizer for non-technical prose and create-skill for skill guidance.
+description: Use before writing or editing any technical prose, however small, including updates to a README or other docs, ADRs, PR and issue descriptions, and bug reports. Holds the user's writing standards and taste, which the model cannot infer, for voice, structure, and Markdown conventions. Use humanizer for non-technical prose.
 ---
 
 # Technical Writing

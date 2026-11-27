@@ -1,6 +1,6 @@
 ---
 name: code-crafting
-description: Use for any task that changes, debugs, investigates, or reviews code or maintained docs, including when a plan gets the go-ahead. Sets the trace, test-first, verification, and delivery gates and loads the matching principles. Use technical-writing for prose drafted outside the repository.
+description: Use for any bug or problem report, investigation, change, or review involving code or maintained docs, including requests that start "I have this problem where". Holds the user's engineering standards and preferences, which the model cannot infer, for tracing, testing, sizing, and delivering changes. Use technical-writing for prose drafted outside the repository.
 ---
 
 # Code Crafting
