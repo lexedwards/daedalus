@@ -1,6 +1,6 @@
 ---
 name: incremental-commits
-description: Verify changes and checkpoint them in small commits using the repository's commit convention (Conventional Commits by default). Use when asked to "commit", "commit and push", "save these changes", or checkpoint ongoing implementation, including existing changes and untracked work. Pair with code-crafting for implementation, the commit agent for message generation only, and pr-delivery for publication.
+description: Use before any commit, including "commit and push", and when checkpointing verified work mid-task. Owns staging only the increment, checking the staged snapshot, commit messages in the repository convention, and issue references. Use pr-delivery for pushing and pull requests.
 ---
 
 # Incremental Commits

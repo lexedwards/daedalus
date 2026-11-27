@@ -1,6 +1,6 @@
 ---
 name: pr-delivery
-description: Verify publication readiness, publish complete changes as pull requests, and handle requested CI and review follow-up. Use when asked to "push these changes", "open a PR", "update this PR", or "get this ready for review". Pair with incremental-commits for checked commits and technical-writing for PR descriptions; return implementation findings to code-crafting or the owning workflow.
+description: Use before pushing a branch, opening or updating a pull request, or getting one merge-ready, including CI failures and review feedback. Owns publication checks, reviewer-focused descriptions, issue closing links, and triage of CI and review findings. Use incremental-commits for commits.
 ---
 
 # PR Delivery
