@@ -13,7 +13,7 @@ Prefer publicly accessible work tracking when the resulting code is public, so c
 - Respect the project's established tracker, even if private. Changing tracking systems requires explicit user direction; do not create a competing tracker or migrate existing work on your own.
 - Honor explicit requests for local artifacts or response-only drafts. A draft's location does not itself change the project's tracker, and a local source document does not automatically require local task tracking.
 - Keep undisclosed security vulnerabilities and other sensitive work private until safe to disclose. Do not copy sensitive details into public issues, milestones, commits, or PRs.
-- This default chooses a destination, not permission to publish. Respect write authorization, and report unavailable tools or access rather than silently choosing a different tracker.
+- This default chooses a destination, not permission to publish; tracker writes follow [act-on-explicit-authority](../principle-act-on-explicit-authority/SKILL.md). Report unavailable tools or access rather than silently choosing a different tracker.
 
 **The tests:**
 

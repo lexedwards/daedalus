@@ -20,7 +20,7 @@ Read [automate-mechanics](../principle-automate-mechanics/SKILL.md) when repeati
     - Read and apply [preserve-decision-context](../principle-preserve-decision-context/SKILL.md) before offering an ADR. It owns which decisions get an ADR, what each ADR must record, and how far each ADR's scope extends.
 
 3. **Write the ADR**
-    - Before the first maintained ADR write, load [technical-writing](../technical-writing/SKILL.md) and [code-crafting](../code-crafting/SKILL.md); recording a decision does not authorize implementing it.
+    - Before the first maintained ADR write, load [technical-writing](../technical-writing/SKILL.md) and [code-crafting](../code-crafting/SKILL.md). Stop at the ADR; read and apply [act-on-explicit-authority](../principle-act-on-explicit-authority/SKILL.md) before implementing the decision.
     - Use the template, location, and numbering below
 
 If the user later requests a commit or publication, load [incremental-commits](../incremental-commits/SKILL.md) before committing and [pr-delivery](../pr-delivery/SKILL.md) before pushing or preparing a PR.
