@@ -17,7 +17,7 @@ Load this skill before the first commit even when a domain skill or message-gene
 2. Pair a new behavior expectation with its implementation in a passing checkpoint. Observe the check fail before the implementation when appropriate; do not commit that intentionally failing intermediate state. Behavior-preserving and documentation increments use their relevant checks instead of artificial tests.
 3. Stage only the increment's files and hunks. Keep unrelated or pre-existing work out; never use `git add -A` blindly. Run relevant checks for the staged change, inspect `git diff --cached` and `git diff --cached --check`, and exclude secrets, generated debris, and incomplete work. A passing run that includes unstaged fixes does not verify the staged snapshot. Run checks directly, or preserve their failure status with the shell's supported pipeline handling; `test-command | tail` alone does not gate a commit on test success. Stop on a failed or unknown check result.
 4. Write the subject and contextual references using the guidance below, then commit with repository hooks and signing intact. If controls or permissions block the commit, report the blocker rather than bypassing them.
-5. Verify the commit exists and inspect the resulting working tree. Report the checkpoint and any remaining work. Publication, tracker completion, and merge are outside this skill; do not infer their authorization from a commit.
+5. Verify the commit exists and inspect the resulting working tree. Report the checkpoint and any remaining work. Publication, tracker completion, and merge are outside this skill; stop after the commit and read and apply [act-on-explicit-authority](../principle-act-on-explicit-authority/SKILL.md) before any of them.
 
 ## Subject and Scope
 

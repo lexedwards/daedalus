@@ -25,7 +25,7 @@ Use this skill for:
 
 Select workflow skills alongside domain, tracker, and platform skills; a narrower match does not replace this workflow. Reassess selection when a new turn changes the work mode, not only at session start.
 
-Before the first write, commit, or publish action, load any missing skill for that action: this skill for maintained code or documentation changes, [technical-writing](../technical-writing/SKILL.md) before drafting technical prose, [incremental-commits](../incremental-commits/SKILL.md) before committing, and [pr-delivery](../pr-delivery/SKILL.md) before publication. Apply the loaded guidance before the action, not retrospectively. Do not reload skills already active or treat selection as authorization to write.
+Before the first write, commit, or publish action, load any missing skill for that action: this skill for maintained code or documentation changes, [technical-writing](../technical-writing/SKILL.md) before drafting technical prose, [incremental-commits](../incremental-commits/SKILL.md) before committing, and [pr-delivery](../pr-delivery/SKILL.md) before publication. Apply the loaded guidance before the action, not retrospectively. Do not reload skills already active. Before the first write, read and apply [act-on-explicit-authority](../principle-act-on-explicit-authority/SKILL.md).
 
 Before inspecting project files, identify every work mode present in the request, including review subtasks. Use the read tool to load the union of their starting principles. Resolve paths from this skill's base directory. Links name files to read; their contents are not loaded with this skill.
 

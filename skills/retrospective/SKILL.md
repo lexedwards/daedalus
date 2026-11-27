@@ -53,11 +53,11 @@ Present findings in order of impact. For each actionable finding, show:
 3. Exact proposed local edits and affected paths, if any.
 4. Exact sanitized issue title and body, or proposed update to an existing issue, if any. Include the generalized problem, desired outcome, and acceptance criteria; distinguish possible solutions from requirements.
 
-Wait for the user to approve the subset to act on. Invocation alone does not authorize edits, commits, publication, or issue creation. Do not write proposal files without approval. Seek renewed approval if the action or issue text changes materially.
+Wait for the user to approve the subset to act on. Read and apply [act-on-explicit-authority](../principle-act-on-explicit-authority/SKILL.md): make no edits, commits, publication, or issue creation before that approval. Do not write proposal files without approval. Seek renewed approval if the action or issue text changes materially.
 
 ## 5. Apply and Report
 
-- Apply only approved local changes, following project instructions. Use [create-skill](../create-skill/SKILL.md) for skill changes and [code-crafting](../code-crafting/SKILL.md) for implementation work. Do not let a workflow's default publication behavior override the approved scope: local approval alone does not authorize pushing source-project information or changes.
+- Apply only approved local changes, following project instructions. Use [create-skill](../create-skill/SKILL.md) for skill changes and [code-crafting](../code-crafting/SKILL.md) for implementation work. Do not let a workflow's default publication behavior override the approved scope: pushing source-project information or changes needs its own approval.
 - Recheck the exact approved global title and body for sensitive details, then create the feature request with available GitHub tools and the explicit repository `lexedwards/daedalus`. For example, use `gh issue create --repo lexedwards/daedalus --title <approved-title> --body <approved-body>` with correctly quoted arguments. Never infer the destination from the current checkout. Do not assume a feature-request label or template exists.
 - If tooling, authentication, permissions, or safe disclosure blocks an action, report the blocker and retain the approved proposal in the conversation. Do not silently change destinations, publish extra context, or claim success.
 - Verify changed local artifacts with relevant checks. Read back published issues to confirm destination and content. Report applied changes, verification, issue links, skipped findings, and remaining blockers concisely. Do not claim that a global issue has implemented the improvement.
