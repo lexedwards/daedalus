@@ -47,6 +47,13 @@ function openCodeFixture(file) {
   db.run('insert into part values (?, ?, ?, ?, ?)', ['p2', 'l1', 'legacy', 2, JSON.stringify({ type: 'text', text: 'skill body', synthetic: true })]);
   db.run('insert into message values (?, ?, ?, ?)', ['l2', 'legacy', 2, JSON.stringify({ role: 'assistant', modelID: 'old-gpt' })]);
   db.run('insert into part values (?, ?, ?, ?, ?)', ['p3', 'l2', 'legacy', 3, JSON.stringify({ type: 'tool', tool: 'skill', state: { input: { name: 'implementation-planning' } } })]);
+  db.run('insert into session values (?, ?, ?)', ['legacy-b', null, 0]);
+  db.run('insert into message values (?, ?, ?, ?)', ['b1', 'legacy-b', 4, JSON.stringify({ role: 'user' })]);
+  db.run('insert into part values (?, ?, ?, ?, ?)', ['q1', 'b1', 'legacy-b', 4, JSON.stringify({ type: 'text', text: 'first follow-up' })]);
+  db.run('insert into message values (?, ?, ?, ?)', ['l3', 'legacy', 5, JSON.stringify({ role: 'user' })]);
+  db.run('insert into part values (?, ?, ?, ?, ?)', ['p4', 'l3', 'legacy', 5, JSON.stringify({ type: 'text', text: 'do it' })]);
+  db.run('insert into message values (?, ?, ?, ?)', ['b2', 'legacy-b', 6, JSON.stringify({ role: 'user' })]);
+  db.run('insert into part values (?, ?, ?, ?, ?)', ['q2', 'b2', 'legacy-b', 6, JSON.stringify({ type: 'text', text: 'second follow-up' })]);
   db.close();
 }
 
@@ -70,6 +77,7 @@ test('separates the user\'s own text from pasted material', () => {
   assert.deepEqual(ownText('fix this\n```\ntrace\n```\n> quoted\nthanks'), { text: 'fix this\n\nthanks', pasted: true });
   assert.deepEqual(ownText('<pasted_content id="x">log</pasted_content> what broke?'), { text: 'what broke?', pasted: true });
   assert.deepEqual(ownText('plain request'), { text: 'plain request', pasted: false });
+  assert.deepEqual(ownText('why?\n   > indented quote'), { text: 'why?', pasted: true });
 });
 
 test('extracts requests and skill loads from every supported history format', async () => {
@@ -80,25 +88,30 @@ test('extracts requests and skill loads from every supported history format', as
     const result = collect({ opencodeDb, claudeProjects: directory });
     const byId = Object.fromEntries(result.sessions.map((session) => [session.id, session]));
 
-    assert.deepEqual(Object.keys(byId).sort(), ['cc-session', 'legacy', 'root']);
+    assert.deepEqual(Object.keys(byId).sort(), ['cc-session', 'legacy', 'legacy-b', 'root']);
     assert.deepEqual(byId.root.requests.map((request) => [request.text, request.opening, request.pasted, request.explicit]), [
       ['why does this return null?', true, true, []],
       ['@ideation think this through', false, false, ['ideation']],
     ]);
     assert.deepEqual(byId.root.loads, [
-      { skill: 'code-crafting', afterRequest: 0 },
-      { skill: 'pr-delivery', afterRequest: 1 },
+      { skill: 'code-crafting', model: 'gpt', afterRequest: 0 },
+      { skill: 'pr-delivery', model: 'claude', afterRequest: 1 },
     ]);
     assert.deepEqual(byId.root.models.sort(), ['claude', 'gpt']);
-    assert.deepEqual(byId.legacy.requests.map((request) => request.text), ['plan out the release']);
-    assert.deepEqual(byId.legacy.loads, [{ skill: 'implementation-planning', afterRequest: 0 }]);
+    assert.deepEqual(byId.legacy.requests.map((request) => request.text), ['plan out the release', 'do it']);
+    assert.deepEqual(byId.legacy.loads, [{ skill: 'implementation-planning', model: 'old-gpt', afterRequest: 0 }]);
+    assert.deepEqual(byId['legacy-b'].requests.map((request) => request.text), ['first follow-up', 'second follow-up']);
     assert.deepEqual(byId['cc-session'].requests.map((request) => [request.text, request.explicit]), [
       ['tidy the skill description', []],
       ['', ['eval']],
     ]);
-    assert.deepEqual(byId['cc-session'].loads, [{ skill: 'create-skill', afterRequest: 0 }]);
+    assert.deepEqual(byId['cc-session'].loads, [{ skill: 'create-skill', model: 'claude-x', afterRequest: 0 }]);
     assert.equal(result.summary.models['old-gpt'].sessionsWithModelLoads, 1);
     assert.deepEqual(result.summary.models.gpt.explicitLoads, { ideation: 1 });
+    assert.deepEqual(result.summary.models.gpt.modelLoads, { 'code-crafting': 1 });
+    assert.deepEqual(result.summary.models.claude.modelLoads, { 'pr-delivery': 1 });
+    assert.equal(result.summary.models.gpt.sessionsWithModelLoads, 1);
+    assert.equal(result.summary.models.claude.sessionsWithModelLoads, 1);
   });
 });
 
@@ -110,14 +123,21 @@ test('stops with a clear error on unsupported history instead of reporting parti
     db.run('create table session_message (id text)');
     db.run('create table session_part (id text)');
     db.close();
+    const empty = path.join(directory, 'empty-projects');
+    await mkdir(empty);
     const run = (args) => spawnSync('bun', [script, ...args], { encoding: 'utf8' });
+    const fails = (args, message) => {
+      const result = run(args);
+      assert.equal(result.status, 2, result.stderr);
+      assert.match(result.stderr, message);
+      assert.equal(result.stdout, '');
+    };
 
-    const schema = run(['--opencode-db', unsupported, '--claude-projects', path.join(directory, 'missing')]);
-    assert.equal(schema.status, 2);
-    assert.match(schema.stderr, /session_v2 lacks columns: parent_id, model, time_created/);
-
-    const missing = run(['--opencode-db', path.join(directory, 'none.db'), '--claude-projects', path.join(directory, 'none')]);
-    assert.equal(missing.status, 2);
-    assert.match(missing.stderr, /No session history found/);
+    fails(['--opencode-db', unsupported, '--claude-projects', empty], /session_v2 lacks columns: parent_id, model, time_created/);
+    fails(['--opencode-db', path.join(directory, 'none.db'), '--claude-projects', empty], /OpenCode database not found/);
+    fails(['--opencode-db', unsupported, '--claude-projects', path.join(directory, 'none')], /Claude Code projects directory not found/);
+    fails(['--bogus', 'value'], /Unknown or incomplete option: --bogus/);
+    fails(['--out'], /Unknown or incomplete option: --out/);
+    assert.throws(() => collect({ opencodeDb: path.join(directory, 'none.db'), claudeProjects: path.join(directory, 'none') }), /No session history found/);
   });
 });

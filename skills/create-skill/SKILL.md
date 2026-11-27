@@ -150,8 +150,8 @@ Use this workflow when evidence shows a skill is skipped, misapplied, or produci
 bun <skill-dir>/scripts/session-history.mjs --out <file-outside-the-repository>
 ```
 
-- **Inputs:** `--opencode-db` (default `~/.local/share/opencode/opencode.db`) and `--claude-projects` (default `~/.claude/projects`). A missing source is skipped.
-- **Output:** JSON to `--out` or stdout. `summary` gives sessions, requests, model-invoked loads, and user-named loads per model. `sessions` lists each root session's requests and the loads that followed each one. Subagent sessions, synthetic messages, tool results, and pasted blocks are excluded; sessions mirrored from OpenCode into Claude Code are counted once.
+- **Inputs:** `--opencode-db` (default `~/.local/share/opencode/opencode.db`) and `--claude-projects` (default `~/.claude/projects`). A missing default source is skipped; a path given explicitly must exist.
+- **Output:** JSON to `--out` or stdout. `summary` gives sessions, requests, model-invoked loads, and user-named loads per model; each load counts against the model that made it. `sessions` lists each root session's requests and the loads that followed each one. Subagent sessions, synthetic messages, tool results, and pasted blocks are excluded; sessions mirrored from OpenCode into Claude Code are counted once.
 - **Failure:** exits with status 2 and a message when no history exists or a schema is unsupported, rather than reporting partial data.
 - **Privacy:** the output contains raw prompts. Keep it outside the repository and commit only general patterns.
 

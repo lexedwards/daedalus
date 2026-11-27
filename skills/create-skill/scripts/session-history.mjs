@@ -14,7 +14,7 @@ export function ownText(text) {
   const stripped = text
     .replace(/<pasted_content\b[\s\S]*?<\/pasted_content>/g, ' ')
     .replace(/```[\s\S]*?(?:```|(?![\s\S]))/g, ' ')
-    .replace(/^>.*$/gm, ' ');
+    .replace(/^ {0,3}>.*$/gm, ' ');
   return {
     text: stripped.replace(/[ \t]+\n/g, '\n').replace(/\n{3,}/g, '\n\n').trim(),
     pasted: stripped.length !== text.length,
@@ -45,13 +45,13 @@ function addRequest(session, raw, explicit = []) {
   session.requests.push({ index: session.requests.length, opening: session.requests.length === 0, text, pasted, explicit });
 }
 
-function addLoad(session, skill) {
+function addLoad(session, skill, model) {
   if (!skill) return;
-  session.loads.push({ skill, afterRequest: session.requests.length - 1 });
+  session.loads.push({ skill, model: model ?? null, afterRequest: session.requests.length - 1 });
 }
 
-function addToolLoad(session, block) {
-  if (block?.type === 'tool' && SKILL_TOOLS.has(block.name)) addLoad(session, block.state?.input?.id ?? block.state?.input?.name);
+function addToolLoad(session, block, model) {
+  if (block?.type === 'tool' && SKILL_TOOLS.has(block.name)) addLoad(session, block.state?.input?.id ?? block.state?.input?.name, model);
 }
 
 function readOpenCodeV2(db) {
@@ -72,6 +72,7 @@ function readOpenCodeV2(db) {
     where m.type in ('user', 'assistant')
     order by m.session_id, m.seq, p.ordinal`).all();
   const seen = new Set();
+  const modelOf = new Map();
   const native = new Set();
   for (const row of events) {
     const session = sessions.get(row.session_id);
@@ -87,13 +88,14 @@ function readOpenCodeV2(db) {
       if (!seen.has(key)) {
         seen.add(key);
         const message = json(row.message) ?? {};
+        modelOf.set(key, message.model?.id);
         if (message.model?.id) session.models.add(message.model.id);
         // Older assistant messages keep their content inline; newer ones store it as parts.
-        for (const block of message.content ?? []) addToolLoad(session, block);
+        for (const block of message.content ?? []) addToolLoad(session, block, message.model?.id);
       }
       const part = row.part ? json(row.part) : undefined;
       if (part?.native?.sessionID) native.add(part.native.sessionID);
-      if (row.part_type === 'tool') addToolLoad(session, part);
+      if (row.part_type === 'tool') addToolLoad(session, part, modelOf.get(key));
     }
   }
   return { sessions: [...sessions.values()], native };
@@ -114,31 +116,31 @@ function readOpenCodeV1(db) {
     select m.session_id, m.id as message_id, m.data as message, p.data as part
     from message m left join part p on p.message_id = m.id
     order by m.session_id, m.time_created, m.id, p.time_created, p.id`).all();
-  let current;
+  const flush = (session) => {
+    if (session.pending) addRequest(session, session.pending.text.join('\n'));
+    session.pending = undefined;
+  };
   for (const row of rows) {
     const session = sessions.get(row.session_id);
     if (!session) continue;
     const message = json(row.message) ?? {};
     const part = row.part ? json(row.part) : undefined;
     if (message.role === 'user') {
-      if (current?.id !== row.message_id) {
-        current = { id: row.message_id, text: [] };
-        session.pending = current;
+      if (session.pending?.id !== row.message_id) {
+        flush(session);
+        session.pending = { id: row.message_id, text: [] };
       }
-      if (part?.type === 'text' && !part.synthetic && typeof part.text === 'string') current.text.push(part.text);
+      if (part?.type === 'text' && !part.synthetic && typeof part.text === 'string') session.pending.text.push(part.text);
       continue;
     }
-    if (session.pending) {
-      addRequest(session, session.pending.text.join('\n'));
-      session.pending = undefined;
-    }
+    flush(session);
     if (message.role === 'assistant') {
       if (message.modelID) session.models.add(message.modelID);
-      if (part?.type === 'tool' && SKILL_TOOLS.has(part.tool)) addLoad(session, part.state?.input?.name ?? part.state?.input?.id);
+      if (part?.type === 'tool' && SKILL_TOOLS.has(part.tool)) addLoad(session, part.state?.input?.name ?? part.state?.input?.id, message.modelID);
     }
   }
   for (const session of sessions.values()) {
-    if (session.pending) addRequest(session, session.pending.text.join('\n'));
+    flush(session);
     delete session.pending;
   }
   return [...sessions.values()];
@@ -185,7 +187,7 @@ export function readClaudeProjects(directory, skip = new Set()) {
       if (entry.type === 'assistant') {
         if (entry.message?.model) session.models.add(entry.message.model);
         for (const block of entry.message?.content ?? []) {
-          if (block?.type === 'tool_use' && SKILL_TOOLS.has(block.name)) addLoad(session, block.input?.skill ?? block.input?.id ?? block.input?.name);
+          if (block?.type === 'tool_use' && SKILL_TOOLS.has(block.name)) addLoad(session, block.input?.skill ?? block.input?.id ?? block.input?.name, entry.message.model);
         }
       }
     }
@@ -195,25 +197,34 @@ export function readClaudeProjects(directory, skip = new Set()) {
 }
 
 export function summarize(sessions) {
+  // Each load counts against the model that made it; requests count against every model in the session.
   const models = {};
+  const entry = (model) => models[model ?? 'unknown'] ??= { sessions: 0, requests: 0, sessionsWithModelLoads: 0, modelLoads: {}, explicitLoads: {} };
   for (const session of sessions) {
-    for (const model of session.models.size ? session.models : ['unknown']) {
-      const entry = models[model] ??= { sessions: 0, requests: 0, sessionsWithModelLoads: 0, modelLoads: {}, explicitLoads: {} };
-      entry.sessions += 1;
-      entry.requests += session.requests.length;
-      if (session.loads.length) entry.sessionsWithModelLoads += 1;
-      for (const { skill } of session.loads) entry.modelLoads[skill] = (entry.modelLoads[skill] ?? 0) + 1;
+    for (const model of session.models.size ? session.models : [undefined]) {
+      const totals = entry(model);
+      totals.sessions += 1;
+      totals.requests += session.requests.length;
       for (const request of session.requests) {
-        for (const skill of request.explicit) entry.explicitLoads[skill] = (entry.explicitLoads[skill] ?? 0) + 1;
+        for (const skill of request.explicit) totals.explicitLoads[skill] = (totals.explicitLoads[skill] ?? 0) + 1;
       }
     }
+    const loaders = new Set();
+    for (const { skill, model } of session.loads) {
+      const totals = entry(model);
+      totals.modelLoads[skill] = (totals.modelLoads[skill] ?? 0) + 1;
+      loaders.add(model ?? 'unknown');
+    }
+    for (const model of loaders) entry(model).sessionsWithModelLoads += 1;
   }
   return { sessions: sessions.length, models };
 }
 
-export function collect({ opencodeDb, claudeProjects }) {
+export function collect({ opencodeDb, claudeProjects, explicit = new Set() }) {
   const haveOpenCode = opencodeDb && existsSync(opencodeDb);
   const haveClaude = claudeProjects && existsSync(claudeProjects) && statSync(claudeProjects).isDirectory();
+  if (explicit.has('opencodeDb') && !haveOpenCode) throw new UnsupportedHistory(`OpenCode database not found: ${opencodeDb}`);
+  if (explicit.has('claudeProjects') && !haveClaude) throw new UnsupportedHistory(`Claude Code projects directory not found: ${claudeProjects}`);
   if (!haveOpenCode && !haveClaude) throw new UnsupportedHistory('No session history found at the given paths');
   const opencode = haveOpenCode ? readOpenCode(opencodeDb) : { sessions: [], native: new Set() };
   const claude = haveClaude ? readClaudeProjects(claudeProjects, opencode.native) : [];
@@ -230,12 +241,14 @@ function parseArgs(argv) {
     opencodeDb: path.join(os.homedir(), '.local/share/opencode/opencode.db'),
     claudeProjects: path.join(os.homedir(), '.claude/projects'),
     out: undefined,
+    explicit: new Set(),
   };
   const names = { '--opencode-db': 'opencodeDb', '--claude-projects': 'claudeProjects', '--out': 'out' };
   for (let index = 0; index < argv.length; index += 2) {
     const name = names[argv[index]];
     if (!name || argv[index + 1] === undefined) throw new UnsupportedHistory(`Unknown or incomplete option: ${argv[index]}`);
     options[name] = argv[index + 1];
+    options.explicit.add(name);
   }
   return options;
 }
