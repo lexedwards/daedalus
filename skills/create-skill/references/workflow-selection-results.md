@@ -6,6 +6,8 @@ The six-skill experiment compares baseline `864ac68663c1c6cf2c7c3c7881f1c4366cad
 
 Models are `openai/gpt-6.2-sol#high` and `claude-agent/opus#medium`. Provider aliases are not independently pinned upstream versions. Each candidate uses a fresh private environment inside nono, ordinary skill discovery, and four fixed turns: read-only assessment, approved document creation, commit/local push, and local PR-description preparation.
 
+All 72 approved slots were attempted: 65 completed and seven incomplete. The incompletes are one `humanizer` advertisement-probe refusal and six quota-blocked Opus requirements runs. Five batches received blind judging; the requirements judge hit the same quota. No slots were replaced and no models substituted.
+
 Candidates do not receive variant identities, evaluator context or the rubric. Each completed batch receives independent, tool-disabled, blinded Opus judging. Artifact and Git checks are separate from judging. The source snapshots, prompts, rubric and budgets stay fixed while later corrections are checkpointed separately.
 
 These are synthetic documentation scenarios, not live forge integration or evidence across every use of a skill. Final evaluator checks do not establish candidate pre-commit verification. Identical document captures can support reuse of earlier checks; a missing commit-turn rerun alone is not a failure. Pipelines that hide a test's exit code remain weak enforcement even when visible output shows a pass.
