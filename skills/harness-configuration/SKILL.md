@@ -77,6 +77,8 @@ There is no shared custom-agent schema across all six. These concepts recur, but
 | `tools` | Available agent tools | String list; Claude/Pi and shared Copilot schema also allow comma-separated strings | Inherited/default tool pool | Claude, Copilot, Pi example | No native OpenCode V2 `tools` field. Copilot `[]` disables tools; Pi example `[]` restores defaults; Claude zero resolved tools usually prevents launch |
 | Reasoning effort | Reasoning setting | Model-dependent enum/string | Inherited/resolved | Codex `model_reasoning_effort`; Claude `effort`; Copilot `reasoningEffort`; Cursor model brackets | Different names and accepted levels; Pi example inherits thinking only without an authored model |
 
+Audit each agent `description` against the agent's actual tool permissions and output boundaries; a message writer is not a verification or commit workflow.
+
 ### Harness-specific agent controls
 
 Agent-definition fields unless the location column says otherwise. Related rows summarize families; full nested schemas and remaining options are in the linked inventories.

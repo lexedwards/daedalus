@@ -2,7 +2,7 @@
 
 Collection of agent skills to extend capabilities or bring consistency across harnesses and models.
 
-- [Create Skill](create-skill/SKILL.md): create and maintain skills with single-rule principle ownership, explicit read triggers, and subtractive review of affected guidance.
+- [Create Skill](create-skill/SKILL.md): create, maintain, and improve skills and principles: selection-focused descriptions, invocation modes, single-owner rules with semantic duplication checks, and fixes for skipped or misused skills.
 - [Keep Gates Traceable](principle-keep-gates-traceable/SKILL.md): distinguish justified requirements and safety dependencies from optional recommendations.
 - [Match Delivery to the Task](principle-match-delivery-to-task/SKILL.md): select investigation handoffs, maintained changes, or explicitly requested research deliverables without conflating their completion gates.
 - [Keep Tracking Aligned](principle-keep-tracking-aligned/SKILL.md): maintain authoritative state and relationships through metadata and PR links; reserve comments for clarification.
