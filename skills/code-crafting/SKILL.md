@@ -128,7 +128,7 @@ Read [verification](references/verification.md) for risk-based escalation guidan
 
 ## Review Evidence
 
-For code review, report evidence-backed findings and distinguish defects from uncertainty and preferences ([principle-evidence-before-verdicts](../principle-evidence-before-verdicts/SKILL.md)). For each finding, state severity, location or scope, concrete impact, recommendation, and confidence.
+For code review, report findings as [evidence-before-verdicts](../principle-evidence-before-verdicts/SKILL.md) specifies.
 
 For design review, compare viable options against the stated constraints, surface trade-offs, make one recommendation, and identify residual uncertainty. Do not turn a review into an implementation plan unless requested.
 

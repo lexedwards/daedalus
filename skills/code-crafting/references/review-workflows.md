@@ -14,7 +14,7 @@ SCOPE -> TRACE -> GATHER EVIDENCE -> ASSESS -> REPORT
 2. **Trace:** follow the relevant path through callers, shared logic, and boundaries ([principle-trace-before-changing](../../principle-trace-before-changing/SKILL.md)).
 3. **Gather evidence:** inspect tests, configuration, error paths, and targeted checks where useful.
 4. **Assess:** separate confirmed defects from risks, missing evidence, and style preferences ([principle-evidence-before-verdicts](../../principle-evidence-before-verdicts/SKILL.md)).
-5. **Report:** order findings by severity and explain impact and remediation.
+5. **Report:** order findings by severity, with the fields that principle specifies.
 
 Do not edit code unless the user asks for changes.
 
@@ -32,19 +32,6 @@ CONTEXT -> OPTIONS -> TRADE-OFFS -> RECOMMEND
 4. Recommend one option and state the residual uncertainty.
 
 Do not present a preferred design as fact when the constraints are unknown.
-
-## Finding Format
-
-For each code-review finding, include:
-
-- **Severity:** prioritize by user impact, correctness, security, data loss, or operational risk.
-- **Location:** file, symbol, path, or precise scope.
-- **Evidence:** the inspected behavior or check that supports the finding.
-- **Impact:** what can fail and under which conditions.
-- **Recommendation:** the smallest root-cause fix or next investigation.
-- **Confidence:** high, medium, or low; use low confidence for hypotheses that need confirmation.
-
-Do not report a preference as a defect. If no high-confidence issue is found, say so and list material residual risks or unverified areas.
 
 ## Review Output
 
