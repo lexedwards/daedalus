@@ -7,6 +7,8 @@ description: Create and maintain agent skills and focused principles. Use when a
 
 Skills package task-specific instructions, references, and scripts. Apply this workflow to updates as well as new skills.
 
+Before assessing or changing maintained skill guidance, load [code-crafting](../code-crafting/SKILL.md); before the first prose write, also load [technical-writing](../technical-writing/SKILL.md). This authoring workflow does not replace either companion. If the user later requests a commit or publication, load [incremental-commits](../incremental-commits/SKILL.md) before committing and [pr-delivery](../pr-delivery/SKILL.md) before pushing or preparing a PR.
+
 Read [automate-mechanics](../principle-automate-mechanics/SKILL.md). During skill creation or updates, proactively identify and capture stable mechanics in `scripts/` when existing tools do not suffice. Keep triggers, judgment calls, and exceptions in `SKILL.md`; document script invocation relative to the skill directory, inputs, outputs, dependencies, side effects, and failures.
 
 ## Gather requirements upfront

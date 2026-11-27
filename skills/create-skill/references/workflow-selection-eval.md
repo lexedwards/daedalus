@@ -2,6 +2,8 @@
 
 Use this scenario when changing skill descriptions or workflow-selection checkpoints. Follow [Eval](../../eval/SKILL.md) for isolated, blinded before-and-after execution and assessment. This is a scenario specification, not evidence that an evaluation passed.
 
+See [SDLC evaluation checkpoints](workflow-selection-results.md) for recorded results and the distinction between evaluated snapshots and later corrections.
+
 ## Project
 
 Prepare equivalent disposable projects containing:
