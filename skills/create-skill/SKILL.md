@@ -1,6 +1,6 @@
 ---
 name: create-skill
-description: Use before creating, editing, reviewing, or improving any agent skill, principle, or agent definition, including its body, frontmatter, description, name, or references. Owns the conventions for invocation mode, description shape, rule ownership, and trigger checks, and turns evidence of skipped or misused skills into fixes. Use harness-configuration for host fields and discovery.
+description: Use before creating, editing, reviewing, or improving any skill or principle, including its body, frontmatter, description, name, or references. Owns the conventions for invocation mode, description shape, rule ownership, and trigger checks, and turns evidence of skipped or misused skills into fixes. Use harness-configuration for host fields, discovery, and agent definitions.
 ---
 
 # Creating and Maintaining Skills
@@ -45,7 +45,7 @@ At each consuming decision point, instruct the agent to read and apply the princ
 
 ### Check for semantic duplication
 
-Before adding or changing guidance, compare its meaning with related skills, principles, and agents. Matching keywords is not the test: "validate at trust boundaries" and "guard inputs where data enters" are the same rule.
+Before adding or changing guidance, compare its meaning with related skills and principles. Matching keywords is not the test: "validate at trust boundaries" and "guard inputs where data enters" are the same rule.
 
 - Read the candidate owners in full rather than searching for the new wording.
 - When the meaning already has an owner, point to it from the decision point instead of restating it.
@@ -124,8 +124,6 @@ Choose model invocation only when the agent or another skill must reach the skil
 - **Point to the nearest sibling** when the two could compete: "Use technical-writing for prose."
 - **Keep it to selection.** Put companion skills, handoffs, and instructions to the reader in the body, at the point where the work changes. A listing entry is not a reliable place for instructions.
 - **Aim for about 300 characters.** The description is in context on every turn.
-
-Audit agent descriptions against actual tool permissions and output boundaries; a message writer is not a verification or commit workflow.
 
 ### Name for invocation
 

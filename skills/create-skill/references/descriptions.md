@@ -31,7 +31,7 @@ A trigger condition describes the request's situation, so it matches however the
 | Kind | Example |
 | --- | --- |
 | Work mode | "any task that changes, debugs, or reviews code" |
-| Artifact | "editing a `SKILL.md`, agent definition, or principle" |
+| Artifact | "editing a `SKILL.md`, principle, or skill reference" |
 | Observable state | "a test fails, throws, or slows down" |
 | Workflow stage | "before the first commit", "before declaring work done" |
 | File scope | "reading or editing `.ts` or `.tsx` files" |
