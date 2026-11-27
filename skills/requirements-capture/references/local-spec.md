@@ -1,6 +1,8 @@
 # Local Requirements Spec
 
-Use this workflow when the user asks to create or update a local spec, or when artifact selection in [Requirements Capture](../SKILL.md) chooses a local spec.
+Use this workflow when the user asks to create or update a local spec, or when artifact selection in [Requirements Capture](../SKILL.md) chooses a local spec. Gather context, clarify ambiguity, and review existing requirements as described in the [Requirements Capture workflow](../SKILL.md#workflow).
+
+This file also holds the requirements [template](#template) shared by the GitHub, Jira, and Linear references.
 
 ## Artifact
 
@@ -17,15 +19,7 @@ Spec names must be lower-case, kebab-case, concise, and representative of the sc
 2. **Create the spec directory**
    - Use `.specs/<spec-name>/`.
 
-3. **Gather context**
-   - Use the current conversation first.
-   - Explore the codebase lightly to align terminology, current behavior, and constraints.
-   - Ask targeted questions only for contradictions, scope boundaries, or material decisions.
-
-4. **Write `REQUIREMENTS.md`**
-   - Use the template below.
-   - Cover the complete product scope of the requested work.
-   - Put user stories inside numbered requirements so each story remains traceable to acceptance criteria.
+3. **Write `REQUIREMENTS.md`** using the [template](#template).
 
 ## Updating A Local Spec
 
@@ -33,19 +27,11 @@ Spec names must be lower-case, kebab-case, concise, and representative of the sc
    - If the user gives a spec name, read `.specs/<spec-name>/REQUIREMENTS.md`.
    - If no spec name is given, inspect `.specs/` and ask the user to choose when more than one plausible spec exists.
 
-2. **Review current requirements**
-   - Preserve existing intent unless the user asks to change it.
-   - Look for contradictions, obsolete assumptions, duplicated requirements, and missing scope boundaries.
-
-3. **Gather targeted context**
-   - Use light codebase exploration when current behavior or terminology matters.
-   - Ask targeted questions only when ambiguity materially changes the update.
-
-4. **Update `REQUIREMENTS.md`**
-   - Keep the document aligned with the template.
-   - Maintain requirement numbering and acceptance criteria traceability.
+2. **Update `REQUIREMENTS.md`** following the [template](#template).
 
 ## Template
+
+When creating requirements, cover the complete product scope of the requested work. Put user stories inside numbered requirements so each story remains traceable to acceptance criteria. When updating, keep the document aligned with the template and maintain requirement numbering and acceptance criteria traceability.
 
 ```markdown
 # [Feature] Requirements
@@ -92,6 +78,8 @@ Describe the user-facing result that should be achieved.
 ```
 
 ## Pitfalls
+
+These apply to every artifact that uses the template.
 
 - **Duplicating user stories** - keep user stories inside numbered requirements, not in a separate top-level section.
 - **Weak acceptance criteria** - Given/When/Then criteria should be observable and testable.

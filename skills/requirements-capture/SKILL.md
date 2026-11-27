@@ -24,6 +24,7 @@ Do not use this skill for implementation planning, task breakdown, solution desi
    - Use the current conversation first.
    - Explore the codebase lightly and only as needed to align terminology, current behavior, and known constraints.
    - Do not turn requirements capture into implementation design.
+   - When updating an existing artifact, read it first. Preserve its intent unless the user asks to change it, and look for contradictions, obsolete assumptions, duplicated requirements, vague terminology, and missing scope boundaries.
 
 3. **Clarify only material ambiguity**
    - Ask targeted questions when missing information affects scope, contradicts known context, or materially changes the artifact.
