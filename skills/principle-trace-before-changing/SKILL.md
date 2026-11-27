@@ -14,7 +14,7 @@ Understand the real path before changing or judging it.
 - Check existing conventions, interfaces, and dependencies before introducing a new pattern.
 - Before generating implementation or tests, identify representative local examples and match their layout, naming, comments, and data shape unless the user requests a change.
 - Resolve observable questions through inspection or execution. Ask the user when missing intent materially changes the outcome.
-- For a reported defect, reproduce the relevant path when feasible. Otherwise inspect or instrument enough of it to distinguish the suspected causes.
+- For a reported defect, prove it under [prove-bugs-before-fixing](../principle-prove-bugs-before-fixing/SKILL.md) first, then inspect or instrument enough of the path to distinguish the suspected causes.
 - Keep the investigation bounded to the decision at hand. Do not substitute assumptions for evidence.
 
 **The tests:**

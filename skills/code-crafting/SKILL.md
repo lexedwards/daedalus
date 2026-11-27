@@ -29,7 +29,7 @@ Before the first write, commit, or publish action, load any missing skill for th
 
 Before inspecting project files, identify every work mode present in the request, including review subtasks. Use the read tool to load the union of their starting principles. Resolve paths from this skill's base directory. Links name files to read; their contents are not loaded with this skill.
 
-- Implementation, bug fix, or refactor: read [trace-before-changing](../principle-trace-before-changing/SKILL.md) and [smallest-complete-change](../principle-smallest-complete-change/SKILL.md).
+- Implementation, bug fix, or refactor: read [trace-before-changing](../principle-trace-before-changing/SKILL.md) and [smallest-complete-change](../principle-smallest-complete-change/SKILL.md). For a bug fix, also read [prove-bugs-before-fixing](../principle-prove-bugs-before-fixing/SKILL.md) before the first edit.
 - Code or design review: read [trace-before-changing](../principle-trace-before-changing/SKILL.md) and [evidence-before-verdicts](../principle-evidence-before-verdicts/SKILL.md).
 - Investigation or experiment: read [trace-before-changing](../principle-trace-before-changing/SKILL.md) and [evidence-before-verdicts](../principle-evidence-before-verdicts/SKILL.md). Agree the investigation contract below before experimental execution; apply implementation principles to any tooling intentionally retained as maintained code.
 
@@ -97,7 +97,7 @@ For non-trivial observable behavior changes with a runnable harness, read [test-
 Use this precedence for behavior changes:
 
 1. For a non-trivial behavior change with a runnable harness, first add a public-behavior check and run it against the unchanged implementation. Confirm that it fails because the requested behavior is missing. Only then edit the implementation.
-2. For a bug, reproduce the failure and preserve it as a regression check when practical.
+2. For a bug, prove the failure under [prove-bugs-before-fixing](../principle-prove-bugs-before-fixing/SKILL.md) before editing.
 3. Otherwise, choose the check under [verify-in-proportion-to-risk](../principle-verify-in-proportion-to-risk/SKILL.md), which covers missing harnesses and trivial changes.
 
 If a failing check cannot be created for a legitimate reason, record the reason and use the nearest reliable check.
