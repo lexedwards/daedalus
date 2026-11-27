@@ -8,13 +8,13 @@ disable-model-invocation: true
 
 Order work into small, complete slices that each end in a verifiable, working state.
 
-A slice may deliver working behavior, a behavior-preserving refactor, or a verified answer to a risky assumption. It must not rely on unfinished dependent work.
+A slice may deliver working behavior, a behavior-preserving refactor, or a verified answer to a risky assumption. It must be useful and verifiable relative to its declared base, without needing unfinished dependent work or its descendants.
 
 - Carry each slice through every integration layer needed to deliver its outcome.
 - Address expensive unknowns early with the smallest slice that proves the risky path.
 - Verify the current slice before building dependent work on it.
 - Include the artifacts needed to use and verify the slice.
-- Apply the same ordering to tasks, experiments, migrations, and delivery checkpoints. State the verified prerequisite for each dependent outcome; keep independent work independent.
+- Apply the same ordering to tasks, experiments, migrations, and delivery checkpoints such as commits and dependent PRs. State the verified prerequisite for each dependent outcome; keep independent work independent.
 - When a prerequisite changes, recheck the affected outcomes before relying on the sequence again.
 
 **The tests:**
