@@ -10,7 +10,7 @@ Use the Epic summary for the feature name and the description for the complete r
 
 The user must provide the target Jira space key or ID. If they have not provided it, ask for it before reading metadata or creating or updating an Epic. Do not infer or hard-code a space.
 
-Every Epic created or updated through this workflow must have the `AI` label. Use `--labels ci` when creating an Epic. Use `--add-labels ci` when updating an Epic so existing labels are preserved.
+Every Epic created or updated through this workflow must have the `AI` label. Use `--labels AI` when creating an Epic. Use `--add-labels AI` when updating an Epic so existing labels are preserved.
 
 ## Creating A Jira Epic
 
