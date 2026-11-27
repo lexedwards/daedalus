@@ -1,6 +1,6 @@
 ---
 name: requirements-capture
-description: Use before implementation when a feature or product scope needs defined requirements, such as a PRD, requirements issue, local .specs/<spec-name>/REQUIREMENTS.md, Jira Epic, or Linear project or milestone. Holds the user's requirements template and acceptance-criteria conventions. Use implementation-planning for tasks.
+description: Use before implementation when a feature or product scope needs defined requirements, such as a PRD, requirements issue, local .specs/<spec-name>/REQUIREMENTS.md, Jira Epic, or Linear project or milestone. Holds the requirements template and acceptance-criteria format. Use implementation-planning for tasks.
 ---
 
 # Requirements Capture

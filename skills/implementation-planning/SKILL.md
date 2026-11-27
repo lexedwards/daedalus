@@ -1,6 +1,6 @@
 ---
 name: implementation-planning
-description: Use when a plan, spec, PRD, Jira Epic, or Linear project or milestone must become implementation tasks. Holds the user's slicing and tracking conventions, producing verifiable slices with explicit dependencies. Use requirements-capture to define the scope first.
+description: Use when a plan, spec, PRD, Jira Epic, or Linear project or milestone must become implementation tasks. Sets the slicing and tracker conventions, producing verifiable slices with explicit dependencies. Use requirements-capture to define the scope first.
 ---
 
 # Implementation Planning
