@@ -9,7 +9,7 @@ description: Use when the user wants to think an idea through, challenge it, or 
 
 Read and apply [act-on-explicit-authority](../principle-act-on-explicit-authority/SKILL.md). This workflow discusses and records; it stops before creating scripts, implementing, or changing maintained documentation without a request for that action.
 
-Read [automate-mechanics](../principle-automate-mechanics/SKILL.md) when discussing repeatable work. Identify reusable mechanics separately from judgment, and propose scripts rather than creating them.
+Read [automate-mechanics](../principle-automate-mechanics/SKILL.md) when discussing repeatable work; propose scripts rather than creating them.
 
 1. **Resolve material decisions** until the outcome, constraints, and remaining uncertainty are understood.
     - Read and apply [keep-gates-traceable](../principle-keep-gates-traceable/SKILL.md) when identifying decisions or blockers, including the handoff to planning.

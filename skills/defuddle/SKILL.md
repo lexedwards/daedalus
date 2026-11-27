@@ -9,7 +9,7 @@ The defuddle cli extracts clean readable content from Web Pages. Prefer over the
 
 ## Workflow
 
-Read [automate-mechanics](../principle-automate-mechanics/SKILL.md). Use the existing CLI directly for simple extraction; save a verified script only when useful repeated orchestration or transformation adds more than a wrapper.
+Read [automate-mechanics](../principle-automate-mechanics/SKILL.md) before scripting around the CLI; use it directly for simple extraction.
 
 ### Installation
 

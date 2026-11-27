@@ -104,7 +104,7 @@ If a failing check cannot be created for a legitimate reason, record the reason 
 
 ## Implement and Refactor
 
-Read [automate-mechanics](../principle-automate-mechanics/SKILL.md) when choosing how to execute work. Reuse existing tools and proactively save stable, useful procedures as verified automation within scope; keep contextual decisions with the agent.
+Read [automate-mechanics](../principle-automate-mechanics/SKILL.md) when choosing how to execute work.
 
 Implement the chosen behavior with the least code that passes the current check. Use the **lazy ladder** in [precise change strategy](references/change-strategy.md) to choose what to reuse or add.
 

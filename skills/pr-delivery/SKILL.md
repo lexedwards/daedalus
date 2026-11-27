@@ -19,7 +19,7 @@ Read [integrate-through-review](../principle-integrate-through-review/SKILL.md) 
 
 ## Prepare Publication
 
-Read [automate-mechanics](../principle-automate-mechanics/SKILL.md) for repeatable evidence collection and checks. Reuse forge tools first; return needed automation changes to the owning implementation workflow rather than expanding publication into implementation.
+Read [automate-mechanics](../principle-automate-mechanics/SKILL.md) for repeatable evidence collection and checks. Return needed automation changes to the owning implementation workflow rather than expanding publication into implementation.
 
 For tracked work, read and apply [keep-tracking-aligned](../principle-keep-tracking-aligned/SKILL.md). Identify the active issue and its conventions from the handoff or tracker. Maintain review-stage metadata and PR relationships using the pairing rules below.
 

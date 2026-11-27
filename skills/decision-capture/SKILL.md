@@ -9,7 +9,7 @@ Preserve important decisions from the current conversation and context (codebase
 
 ## Workflows
 
-Read [automate-mechanics](../principle-automate-mechanics/SKILL.md) when repeating ADR numbering or structural validation. Reuse or save useful mechanics; keep decision significance and rationale with the agent.
+Read [automate-mechanics](../principle-automate-mechanics/SKILL.md) when repeating ADR numbering or structural validation; decision significance and rationale remain with the agent.
 
 ### Creating an ADR
 

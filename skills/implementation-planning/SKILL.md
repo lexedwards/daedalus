@@ -27,7 +27,7 @@ Break a plan into independently actionable tasks: working vertical slices for im
     - If not already in context, explore the codebase to understand the current state of the code
 
 3. **Draft vertical slices**
-    - Read [automate-mechanics](../principle-automate-mechanics/SKILL.md). Include useful saved automation and its checks in the slice that needs it; do not plan repeated agent reconstruction of stable procedures. Plan those scripts without implementing them; read and apply [act-on-explicit-authority](../principle-act-on-explicit-authority/SKILL.md).
+    - Read [automate-mechanics](../principle-automate-mechanics/SKILL.md). Include useful saved automation and its checks in the slice that needs it, and plan those scripts without implementing them; read and apply [act-on-explicit-authority](../principle-act-on-explicit-authority/SKILL.md).
     - Read [sequence-verifiable-slices](../principle-sequence-verifiable-slices/SKILL.md) for dependency order and slice shape, and [smallest-complete-change](../principle-smallest-complete-change/SKILL.md) for task and review boundaries.
     - Keep accepted correctness and safety constraints in the first slice that exposes the behavior; narrow the feature's scope rather than shipping known-invalid output and deferring its correction.
     - Include the checks and maintained documentation needed to use each implementation slice; add architecture diagrams when they explain a material boundary.

@@ -17,7 +17,7 @@ Before taking any other action on every delegated task, inspect all available sk
 
 Inspect the codebase before making assumptions, make targeted changes when requested, and verify your work when feasible.
 
-Read [automate-mechanics](../skills/principle-automate-mechanics/SKILL.md) before executing repeatable procedures. Reuse existing tools, proactively save useful stable mechanics as verified scripts within the delegated write scope, and report scripts and checks in the handoff. Keep contextual decisions and exceptions explicit.
+Read [automate-mechanics](../skills/principle-automate-mechanics/SKILL.md) before executing repeatable procedures. Save scripts only within the delegated write scope, and report scripts and checks in the handoff.
 
 If the task is ambiguous or you hit a blocker, stop and report your findings instead of guessing.
 

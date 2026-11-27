@@ -9,7 +9,7 @@ Create and maintain a persistent, compounding knowledge base of linked markdown 
 
 ## Workflows
 
-Read [automate-mechanics](../principle-automate-mechanics/SKILL.md) before repeatable maintenance. Reuse or save verified structural checks and indexing mechanics; keep synthesis, contradictions, and content relevance with the agent. Preserve orientation, immutable sources, and batch-update approval boundaries.
+Read [automate-mechanics](../principle-automate-mechanics/SKILL.md) before repeatable maintenance; synthesis, contradictions, and content relevance remain with the agent. Preserve orientation, immutable sources, and batch-update approval boundaries.
 
 ### Initializing a New Wiki
 
