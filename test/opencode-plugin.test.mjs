@@ -38,7 +38,7 @@ function agentContext(registered = new Map()) {
   };
 }
 
-test('registers bundled agents with prompts, models, settings, and ordered permissions', async () => {
+test('registers bundled agents with prompts, settings, and ordered permissions, without pinned models', async () => {
   const registered = new Map();
   await plugin.setup({
     skill: { async transform() {} },
@@ -47,9 +47,9 @@ test('registers bundled agents with prompts, models, settings, and ordered permi
   assert.deepEqual([...registered.keys()].sort(), await agentsOnDisk());
   const reviewer = registered.get('reviewer');
   assert.match(reviewer.system, /# Independent Coding Reviewer/);
-  assert.deepEqual(reviewer.model, { providerID: 'openai', id: 'gpt-6-luna' });
-  assert.equal(reviewer.request.settings.reasoningEffort, 'max');
-  assert.equal(reviewer.request.settings.textVerbosity, 'low');
+  for (const [id, agent] of registered) {
+    assert.equal(agent.model, undefined, `${id} must not pin a model`);
+  }
   assert.equal(reviewer.steps, 14);
   assert.equal(reviewer.mode, 'subagent');
   assert.deepEqual(reviewer.permissions[Agent.Info.default('reviewer').permissions.length], {

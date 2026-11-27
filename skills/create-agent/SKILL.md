@@ -70,7 +70,7 @@ Grant the least capability the job needs, then make the description, permissions
 - Check each claim in the description against the permissions: an agent described as read-only cannot hold write access, and a message writer is not a verification or commit workflow.
 - Check that every file the prompt tells the agent to read is permitted and resolves.
 
-Permission syntax, rule order, and inheritance differ by host; see [harness-configuration](../harness-configuration/SKILL.md).
+Permission syntax, rule order, and inheritance differ by host; see [harness-configuration](../harness-configuration/SKILL.md). Hosts that read the same agent file do not all enforce the same fields. Where a host does not enforce a restriction, the prompt must state it too, so a read-only agent still says it must not edit.
 
 ## Choose the owner
 
