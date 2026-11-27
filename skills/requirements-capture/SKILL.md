@@ -1,6 +1,6 @@
 ---
 name: requirements-capture
-description: Capture product requirements before implementation. Use when asked to "define this feature", "write a PRD", or create or update a requirements issue, local .specs/<spec-name>/REQUIREMENTS.md, Jira Epic, or Linear project or milestone. Pair with technical-writing for the artifact, implementation-planning for task breakdown, and code-crafting when claims need checking against a codebase.
+description: Capture product requirements before implementation. Use when asked to "define this feature", "write a PRD", or create or update a requirements issue, local .specs/<spec-name>/REQUIREMENTS.md, Jira Epic, or Linear project or milestone. Pair with technical-writing for the artifact, implementation-planning for task breakdown, and code-crafting for maintained requirements documents or codebase assessments.
 ---
 
 # Requirements Capture
@@ -30,9 +30,12 @@ Do not use this skill for implementation planning, task breakdown, solution desi
    - Otherwise synthesize from known context and make assumptions explicit when useful.
 
 4. **Create or update the artifact**
+   - Before drafting, load [technical-writing](../technical-writing/SKILL.md). For maintained requirements documents, also load [code-crafting](../code-crafting/SKILL.md) before the first write; this does not authorize implementation.
    - Read and apply [keep-gates-traceable](../principle-keep-gates-traceable/SKILL.md) before turning recommendations or unresolved choices into acceptance criteria.
    - Follow the selected reference workflow and template.
    - Keep the artifact focused on product requirements and user-facing outcomes.
+
+If the user later requests a commit or publication of a local document, load [incremental-commits](../incremental-commits/SKILL.md) before committing and [pr-delivery](../pr-delivery/SKILL.md) before pushing or preparing a PR.
 
 ## Shared Guidance
 

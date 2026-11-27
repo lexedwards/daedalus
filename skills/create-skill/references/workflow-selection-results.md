@@ -10,7 +10,7 @@ Candidates do not receive variant identities, evaluator context or the rubric. E
 
 These are synthetic documentation scenarios, not live forge integration or evidence across every use of a skill. Final evaluator checks do not establish candidate pre-commit verification. Identical document captures can support reuse of earlier checks; a missing commit-turn rerun alone is not a failure. Pipelines that hide a test's exit code remain weak enforcement even when visible output shows a pass.
 
-Promotion requires all three revised repetitions per model to meet routing, artifact and safety outcomes without material regression. None of the five completed batches below establishes complete companion-workflow adherence in both models. Pairwise preferences support only the narrower improvements reported; publishing follow-up guidance does not establish its behavioral effectiveness.
+Promotion requires all three revised repetitions per model to meet routing, artifact and safety outcomes without material regression. None of the six batches below establishes complete companion-workflow adherence in both models. Pairwise preferences support only the narrower improvements reported; publishing follow-up guidance does not establish its behavioral effectiveness.
 
 Local evidence is retained at `/tmp/opencode/sdlc-evaluation/`: `contract.json`, per-run transcripts and artifacts, and per-skill `verification.json` and `judge-report.md`. Credentials and runtime homes must not be published. The summaries below are sanitized findings, not the raw evidence or a claim that later corrections passed behavioral evaluation.
 
@@ -70,6 +70,18 @@ Scenario: break accepted CSV-export requirements into two to five local vertical
 - Masked or ignored test exit codes and weak pre-commit evidence remained in Opus. A `Closes #12` phrase appeared in one local draft, but no forge or ticket mutation occurred; a draft phrase alone does not establish an actual tracker-state change.
 
 Correction: make maintained-task writing and later publication handoffs explicit. At slice design, keep correctness constraints with the first behavior that needs them and make acceptance criteria achievable through declared dependencies. These follow-ups have static checks, not fresh behavioral evaluation.
+
+## Requirements capture
+
+Scenario: clarify workspace-invitation behavior, then write a local product-requirements document without schemas, endpoints or implementation tasks.
+
+- All six Sol runs completed, loaded `requirements-capture` before substantive work and passed automated file/Git checks. Revised Sol loaded all companions on time (3/3). Baseline Sol omitted `code-crafting` (3/3) and once loaded publication guidance after pushing.
+- Direct artifact inspection found the requested owner-only invite/revoke behavior, viewer/editor choice, seven-day expiry, single-use acceptance, revocation/expiry rejection and existing-member role/message behavior in all six documents. This is evaluator inspection, **not blinded judging**.
+- All six Opus slots were blocked by the Claude Agent five-hour quota: two at the first task turn, four during the advertisement probe. No Opus slot reached substantive task work. These are infrastructure incompletes, not routing failures, and were not replaced.
+- The blind Opus judge was blocked by the same quota. There are no pairwise judge verdicts for this batch and no cross-model conclusion.
+- The verifier raised a secondary missing-remote-ref error for the two task-turn quota failures because no documentation branch had been pushed. That does not establish an additional candidate failure; the provider error is the primary cause.
+
+Correction: make the maintained-requirements writing and later commit/publication handoffs explicit, supported by the repeated baseline Sol omissions and the same boundary gaps in earlier batches. This correction has static checks only. The Opus comparison and independent blind review remain blocked, so this batch cannot meet the promotion rule.
 
 ## Shared verification correction
 
