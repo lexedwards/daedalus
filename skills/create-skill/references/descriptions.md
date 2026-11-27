@@ -63,10 +63,16 @@ Investigate, verify, and change code or documentation with proportionate checks.
 - The quoted requests match only those words.
 - The "Pair with" clause routes between skills instead of helping select this one.
 
-Stronger:
+Still weak, because it describes process the model believes it already follows:
 
 ```text
-Use for any task that changes, debugs, or reviews code or maintained docs, including investigations. Sets the trace, test, and delivery gates and loads the matching principles. Use technical-writing for prose-only work.
+Use for any task that changes, debugs, or reviews code or maintained docs. Sets the trace, test, and delivery gates. Use technical-writing for prose-only work.
+```
+
+Stronger, because it names what the model cannot know:
+
+```text
+Use for any task that changes, debugs, investigates, or reviews code or maintained docs. Holds the user's engineering standards and preferences, which the model cannot infer. Use technical-writing for prose-only work.
 ```
 
 ### Knowledge skill without a trigger
