@@ -22,3 +22,14 @@ Scenario: inspect existing conventions, then author a project-local release-draf
 - The judge preferred revised guidance in three pairs and tied three. This supports a narrower handoff improvement, not complete workflow adherence. Several Opus test pipelines hid exit codes.
 
 Correction: add explicit companion-loading actions at authoring and commit/publication boundaries in `create-skill`, rather than relying on its advertised description. This correction is statically checked but is **not** the revised snapshot evaluated above; its behavioral effect remains unverified. The generated release-drafting skills were inspected, not exercised on populated release history.
+
+## Decision capture
+
+Scenario: record an agreed EU tenant-isolation decision as the next accepted ADR, preserving an existing ADR and avoiding implementation details.
+
+- All 12 runs loaded `decision-capture` first, passed automated artifact checks, and produced correct, scoped ADRs in blind review.
+- Revised Sol loaded all companions on time (3/3), versus 0/3 baseline; baseline Sol omitted `code-crafting` and once loaded publication guidance after pushing.
+- Neither Opus variant loaded writing companions (0/3 each). Revised Opus loaded commit guidance in time (3/3) and publication guidance before pushing in 2/3, versus 0/3 for both in baseline.
+- The judge preferred revised guidance in all six pairs. Masked test exit codes still weakened Opus verification; primary discovery and artifact correctness did not improve because both variants already succeeded.
+
+Correction: include maintained ADR changes in the advertised `code-crafting` pairing and require both writing companions before the first ADR write. Add explicit commit/publication handoffs without authorizing implementation. This follow-up is statically checked, not behaviorally re-evaluated.
