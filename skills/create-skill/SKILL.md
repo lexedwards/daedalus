@@ -172,6 +172,7 @@ Keep variability low by having a default decision made, with specific use-cases 
 - Bundled scripts pass representative success and failure checks; documented invocations work from outside the skill directory
 - Each principle has one rule and a clear boundary; consumers load it at the relevant decision
 - No rule duplicates the meaning of guidance owned elsewhere
+- The skill works on every host it targets: no instructions tied to one harness, model, provider, or workstation, such as harness-specific tool names or local paths. Route host differences through [harness-configuration](../harness-configuration/SKILL.md)
 - Trigger checks: write about three naturally worded requests that should load the skill and two near misses that should not. Compare them with the competing sibling descriptions and confirm the mode and its flag match
 - Walk through representative success, exception, and failure scenarios across affected skills; lint alone does not establish useful guidance
 - Re-read the final guidance for instructions that do not change behavior, duplication, and avoidable verbosity
