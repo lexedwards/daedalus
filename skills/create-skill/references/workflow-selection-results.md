@@ -10,6 +10,8 @@ Candidates do not receive variant identities, evaluator context or the rubric. E
 
 These are synthetic documentation scenarios, not live forge integration or evidence across every use of a skill. Final evaluator checks do not establish candidate pre-commit verification. Identical document captures can support reuse of earlier checks; a missing commit-turn rerun alone is not a failure. Pipelines that hide a test's exit code remain weak enforcement even when visible output shows a pass.
 
+Promotion requires all three revised repetitions per model to meet routing, artifact and safety outcomes without material regression. None of the four completed batches below establishes complete companion-workflow adherence in both models. Pairwise preferences support only the narrower improvements reported; publishing follow-up guidance does not establish its behavioral effectiveness.
+
 Local evidence is retained at `/tmp/opencode/sdlc-evaluation/`: `contract.json`, per-run transcripts and artifacts, and per-skill `verification.json` and `judge-report.md`. Credentials and runtime homes must not be published. The summaries below are sanitized findings, not the raw evidence or a claim that later corrections passed behavioral evaluation.
 
 ## Create skill
@@ -56,3 +58,9 @@ Scenario: challenge automatic archiving based on inactivity, then write an appro
 - Masked test exit codes weakened verification in all three revised Opus runs. The comparison supports narrower composition gains, not full workflow reliability or improved primary discovery.
 
 Correction: add an explicit approved-artifact step with writing and later commit/publication handoffs. Replace the unconditional documentation-update pitfall with an authorization boundary. This preserves read-only discussion and the requested artifact type; the correction has static checks but no fresh behavioral evaluation.
+
+## Shared verification correction
+
+All four completed batches exposed test commands piped through `tail` without preserving the test exit code. Even when tests really passed, the command could allow a later commit after failure.
+
+Keep the correction in `incremental-commits`, which owns pre-commit verification, rather than copying shell policy into each authoring skill. Require direct checks or supported failure-preserving pipeline handling, and stop on failed or unknown results. This guidance has static validation only; the frozen comparisons above did not evaluate it.
