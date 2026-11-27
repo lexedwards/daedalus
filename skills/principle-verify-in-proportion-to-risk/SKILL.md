@@ -8,7 +8,7 @@ disable-model-invocation: true
 
 Use the narrowest reliable check that establishes the requested outcome at the affected boundary. Expand verification when the affected scope or evidence warrants it.
 
-- Check the actual behavior and resulting artifact. Do not treat compilation or a worker's self-report as sufficient proof.
+- Check the actual behavior and resulting artifact. Do not treat compilation as sufficient proof. Validate worker reports under [evidence-before-verdicts](../principle-evidence-before-verdicts/SKILL.md).
 - Cover affected callers and integrations when changing shared logic.
 - Check public contracts and relevant regressions when changing APIs, schemas, configuration, or migrations.
 - Strengthen runtime and regression checks for security, authorization, data integrity, concurrency, and critical user flows.
