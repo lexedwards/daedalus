@@ -41,7 +41,7 @@ If the user later requests a commit or publication of a local document, load [in
 
 ## Shared Guidance
 
-- Read [automate-mechanics](../principle-automate-mechanics/SKILL.md) when collecting or validating artifacts. Automate stable structural checks where useful; keep product scope and acceptance decisions with the agent, without turning capture into implementation.
+- Read [automate-mechanics](../principle-automate-mechanics/SKILL.md) when collecting or validating artifacts; product scope and acceptance decisions remain with the agent, and capture does not become implementation.
 - Prefer product terminology already used by the project.
 - Use precise actors, behaviors, outcomes, constraints, and scope boundaries.
 - Use `Decisions and Constraints` for clarified choices that shape requirements.

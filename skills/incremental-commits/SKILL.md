@@ -5,7 +5,7 @@ description: Use before any commit, including "commit and push", and when checkp
 
 # Incremental Commits
 
-Read [automate-mechanics](../principle-automate-mechanics/SKILL.md) for repeatable checks and evidence collection. Prefer existing Git and project commands; saved automation must preserve explicit staging, commit authorization, and unrelated work.
+Read [automate-mechanics](../principle-automate-mechanics/SKILL.md) for repeatable checks and evidence collection. Saved automation must preserve explicit staging, commit authorization, and unrelated work.
 
 Checkpoint verified implementation as it grows, or prepare existing changes when asked to commit. Do not wait until an entire task is finished. When choosing boundaries, read [sequence-verifiable-slices](../principle-sequence-verifiable-slices/SKILL.md) for dependency order and [smallest-complete-change](../principle-smallest-complete-change/SKILL.md) for review boundaries. Follow explicit user or repository instructions not to commit.
 

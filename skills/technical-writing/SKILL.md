@@ -21,7 +21,7 @@ When documenting changed behavior or a decision, read and apply [preserve-decisi
 
 Load this skill before the first technical-prose write, including routine edits and tracker descriptions. Use it alongside the domain or tracker skill. For maintained documentation changes, also load [code-crafting](../code-crafting/SKILL.md); writing guidance does not replace its verification workflow. For skill or principle guidance, also load [create-skill](../create-skill/SKILL.md); for agent definitions, load [create-agent](../create-agent/SKILL.md).
 
-Read [automate-mechanics](../principle-automate-mechanics/SKILL.md) for repeatable link, structure, or example validation. Reuse or save useful checks; keep explanation and editorial decisions with the agent.
+Read [automate-mechanics](../principle-automate-mechanics/SKILL.md) for repeatable link, structure, or example validation; explanation and editorial decisions remain with the agent.
 
 Before drafting or restructuring documentation, read [make-structure-visible](../principle-make-structure-visible/SKILL.md). Organize the material around what the reader needs to find or do, making logical grouping, sequence, and alternatives visible.
 
