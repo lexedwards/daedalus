@@ -1,6 +1,6 @@
 ---
 name: humanizer
-description: Edit prose to preserve the writer's voice and remove predictable AI phrasing and structure. Use when asked to "make this sound less AI-written" or revise essays, articles, profiles, case studies, or fiction. Pair with technical-writing for technical prose and code-crafting for maintained documentation changes.
+description: Use when editing non-technical prose, such as essays, articles, profiles, case studies, or fiction, including making writing sound less AI-written. Preserves the writer's voice and removes predictable AI phrasing and structure. Use technical-writing for technical prose.
 license: MIT
 metadata:
   version: "1.0.0"

@@ -1,6 +1,6 @@
 ---
 name: decision-capture
-description: Preserve important, hard-to-reverse decisions in ADRs. Use when asked to "record this decision", "write an ADR", or capture the rationale for an architectural choice. Pair with technical-writing for the ADR and code-crafting for maintained documentation changes or assessments.
+description: Use when a hard-to-reverse architectural or process decision needs a durable record, including writing, updating, or superseding an ADR. Holds the ADR template and the default location, numbering, and supersede rules. Use technical-writing for other technical prose.
 ---
 
 # Decision Capture

@@ -81,7 +81,7 @@ Return:
 - **Recommendation:** promote, retain the baseline, or gather more evidence, with reasons tied to the predeclared criteria.
 - **Evidence:** artifact and transcript locations, reproduction details, and ephemeral-environment cleanup status.
 
-Keep evidence outside candidate environments and preserve it before cleaning up disposable working directories. Do not automatically edit or promote the evaluated change. A recommendation is the deliverable.
+Keep evidence outside candidate environments and preserve it before cleaning up disposable working directories. Do not automatically edit or promote the evaluated change. A recommendation is the deliverable. When the recommendation calls for changes to a skill or principle, hand them to [create-skill](../create-skill/SKILL.md); for an agent, hand them to [create-agent](../create-agent/SKILL.md).
 
 ## Example
 

@@ -1,6 +1,6 @@
 ---
 name: principle-automate-mechanics
-description: Apply across workflows when choosing between agent judgment, existing tools, and saved scripts. Proactively capture stable, repeatable mechanics as verified automation within the requested scope.
+description: Apply when choosing, in any workflow, between agent judgment, existing tools, and saved scripts. Proactively capture stable, repeatable mechanics as verified automation within the requested scope.
 disable-model-invocation: true
 ---
 

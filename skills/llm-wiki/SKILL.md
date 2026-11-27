@@ -1,6 +1,6 @@
 ---
 name: llm-wiki
-description: Initialize, maintain, or reference a LLM Wiki vault. A personal knowledge base and AI second brain in a specific Karpathy-style structure. Complete with AGENTS.md, scaffolded directory structure and indexing. 
+description: Use when initializing, maintaining, querying, or adding sources to an LLM Wiki vault, a Karpathy-style personal knowledge base. Holds the vault's directory structure, AGENTS.md conventions, scaffolding, and indexing rules.
 ---
 
 # LLM Wiki

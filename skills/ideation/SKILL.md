@@ -1,6 +1,6 @@
 ---
 name: ideation
-description: Interview the user and stress-test an idea against existing domain models. Use when asked to "help me think this through", "challenge this idea", or resolve decisions before planning. Pair with code-crafting when checking claims against code or reviewing a design, requirements-capture for product scope, and decision-capture for consequential decisions.
+description: Use when the user wants to think an idea through, challenge it, or resolve open decisions before requirements or a plan exist. Interviews the user and stress-tests the idea against the existing domain model and code. Use requirements-capture once the scope is settled.
 ---
 
 # Ideation
@@ -31,3 +31,8 @@ Read [automate-mechanics](../principle-automate-mechanics/SKILL.md) when discuss
 - **Validate user claims against existing code** - when users claim how something works, check if the code agrees, and surface contradictions.
 - **Capture terminology within the approved scope** - propose terminology during discussion; change maintained documentation only when authorized.
 - **Use the question tool if present** - it's a better experience.
+
+## Handoffs
+
+- When the scope is settled, use [requirements-capture](../requirements-capture/SKILL.md) to define it.
+- When a consequential, hard-to-reverse decision emerges, use [decision-capture](../decision-capture/SKILL.md) to record it.
