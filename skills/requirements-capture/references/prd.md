@@ -8,19 +8,16 @@ By default, produce the PRD in the response. Write to a file only when the user 
 
 PRD-style output captures product context, outcomes, user stories, decisions, and scope. It does not include requirement-level Given/When/Then acceptance criteria by default; use a local requirements spec when that level of detail is needed.
 
+Gather context, clarify ambiguity, and review existing content as described in the [Requirements Capture workflow](../SKILL.md#workflow).
+
 ## Creating A PRD
 
-1. **Gather context**
-   - Use the current conversation first.
-   - Explore the codebase lightly only when terminology, existing behavior, or constraints need validation.
-   - Ask targeted questions only for contradictions, scope boundaries, or material decisions.
-
-2. **Write the PRD**
+1. **Write the PRD**
    - Use the template below.
    - Keep the document product-oriented and outcome-focused.
    - Include extensive user stories, including edge cases, without turning them into implementation tasks.
 
-3. **Place the PRD**
+2. **Place the PRD**
    - Return the PRD in the response by default.
    - If the user names a file, update or create that file instead.
 
@@ -30,15 +27,7 @@ PRD-style output captures product context, outcomes, user stories, decisions, an
    - If the user references a file, read that file before editing.
    - If no destination is provided, update the PRD content in the response.
 
-2. **Review current content**
-   - Preserve existing intent unless the user asks to change it.
-   - Look for contradictions, missing scope boundaries, stale assumptions, and vague terminology.
-
-3. **Gather targeted context**
-   - Use light codebase exploration when current behavior or terminology matters.
-   - Ask targeted questions only when ambiguity materially changes the update.
-
-4. **Update the PRD**
+2. **Update the PRD**
    - Keep the document aligned with the template.
    - Keep acceptance criteria out unless the user explicitly asks for them.
 
