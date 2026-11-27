@@ -133,7 +133,7 @@ The name is the word people type to invoke the skill. Use the term for its outco
 
 Use this workflow when evidence shows a skill is skipped, misapplied, or producing poor results. Evidence includes session transcripts, evaluation results, retrospectives, and user reports.
 
-1. **Collect the evidence.** Identify the request, the skill that should have applied, and what happened instead.
+1. **Collect the evidence.** Identify the request, the skill that should have applied, and what happened instead. For load rates and request wording across local history, run the session history script below.
 2. **Classify the failure:**
    - **Selection:** the skill did not load. Fix the description, invocation mode, or name.
    - **Load cost:** the skill loaded late or was skipped as too heavy. Make the first read usable alone and keep further reads conditional.
@@ -141,6 +141,19 @@ Use this workflow when evidence shows a skill is skipped, misapplied, or produci
    - **Ownership:** the rule lives in the wrong place or in several places. Apply [Choose the Owner](#choose-the-owner).
 3. **Fix the owning asset** and review the affected guidance subtractively.
 4. **Check the result again** with the trigger checks below and, for consequential changes, the original evidence.
+
+### Session history script
+
+`scripts/session-history.mjs` extracts the user's own requests and skill loads from local OpenCode and Claude Code history. It reads only; judging which skill a request should have loaded stays with the agent.
+
+```bash
+bun <skill-dir>/scripts/session-history.mjs --out <file-outside-the-repository>
+```
+
+- **Inputs:** `--opencode-db` (default `~/.local/share/opencode/opencode.db`) and `--claude-projects` (default `~/.claude/projects`). A missing default source is skipped; a path given explicitly must exist.
+- **Output:** JSON to `--out` or stdout. `summary` gives sessions, requests, model-invoked loads, and user-named loads per model; each load counts against the model that made it. `sessions` lists each root session's requests and the loads that followed each one. Subagent sessions, synthetic messages, tool results, and pasted blocks are excluded; sessions mirrored from OpenCode into Claude Code are counted once.
+- **Failure:** exits with status 2 and a message when no history exists or a schema is unsupported, rather than reporting partial data.
+- **Privacy:** the output contains raw prompts. Keep it outside the repository and commit only general patterns.
 
 ## Core Principles
 
