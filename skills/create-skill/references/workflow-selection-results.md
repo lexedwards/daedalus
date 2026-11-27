@@ -10,7 +10,7 @@ Candidates do not receive variant identities, evaluator context or the rubric. E
 
 These are synthetic documentation scenarios, not live forge integration or evidence across every use of a skill. Final evaluator checks do not establish candidate pre-commit verification. Identical document captures can support reuse of earlier checks; a missing commit-turn rerun alone is not a failure. Pipelines that hide a test's exit code remain weak enforcement even when visible output shows a pass.
 
-Promotion requires all three revised repetitions per model to meet routing, artifact and safety outcomes without material regression. None of the four completed batches below establishes complete companion-workflow adherence in both models. Pairwise preferences support only the narrower improvements reported; publishing follow-up guidance does not establish its behavioral effectiveness.
+Promotion requires all three revised repetitions per model to meet routing, artifact and safety outcomes without material regression. None of the five completed batches below establishes complete companion-workflow adherence in both models. Pairwise preferences support only the narrower improvements reported; publishing follow-up guidance does not establish its behavioral effectiveness.
 
 Local evidence is retained at `/tmp/opencode/sdlc-evaluation/`: `contract.json`, per-run transcripts and artifacts, and per-skill `verification.json` and `judge-report.md`. Credentials and runtime homes must not be published. The summaries below are sanitized findings, not the raw evidence or a claim that later corrections passed behavioral evaluation.
 
@@ -59,8 +59,20 @@ Scenario: challenge automatic archiving based on inactivity, then write an appro
 
 Correction: add an explicit approved-artifact step with writing and later commit/publication handoffs. Replace the unconditional documentation-update pitfall with an authorization boundary. This preserves read-only discussion and the requested artifact type; the correction has static checks but no fresh behavioral evaluation.
 
+## Implementation planning
+
+Scenario: break accepted CSV-export requirements into two to five local vertical task files without changing requirements or runtime code.
+
+- All 12 runs loaded `implementation-planning` before substantive work, passed automated file/Git checks and stayed within the authorized artifact scope. Generic fixture tests do not establish that a plan is correct.
+- Revised Sol loaded every companion on time (3/3), versus 0/3 baseline, which omitted `code-crafting`. Neither Opus variant loaded writing companions; revised Opus loaded commit/publication guidance in 1/3, versus 0/3 baseline.
+- Blind review found one plan in each Opus variant that explicitly deferred CSV escaping past an initial usable export, and one revised Opus plan with contradictory acceptance/dependency rules. These are planning-quality defects despite passing structural checks.
+- The judge preferred revised Sol in all three pairs; Opus had one revised preference and two split/tied verdicts. Primary discovery tied, and this is not consistent cross-model improvement.
+- Masked or ignored test exit codes and weak pre-commit evidence remained in Opus. A `Closes #12` phrase appeared in one local draft, but no forge or ticket mutation occurred; a draft phrase alone does not establish an actual tracker-state change.
+
+Correction: make maintained-task writing and later publication handoffs explicit. At slice design, keep correctness constraints with the first behavior that needs them and make acceptance criteria achievable through declared dependencies. These follow-ups have static checks, not fresh behavioral evaluation.
+
 ## Shared verification correction
 
-All four completed batches exposed test commands piped through `tail` without preserving the test exit code. Even when tests really passed, the command could allow a later commit after failure.
+The completed batches exposed test commands piped through `tail` without preserving the test exit code. Even when tests really passed, the command could allow a later commit after failure.
 
 Keep the correction in `incremental-commits`, which owns pre-commit verification, rather than copying shell policy into each authoring skill. Require direct checks or supported failure-preserving pipeline handling, and stop on failed or unknown results. This guidance has static validation only; the frozen comparisons above did not evaluate it.
