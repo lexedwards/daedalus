@@ -13,8 +13,25 @@ Support each conclusion with inspected evidence. Keep uncertainty explicit.
 - Distinguish confirmed defects, missing evidence, hypotheses, and preferences.
 - Do not recommend a correction as necessary until the evidence establishes the defect.
 - Treat worker reports and suspected counterexamples as claims to validate.
+- When assessing work, look for proof that it does what it claims: executed checks, observed behavior, or tests that fail without the change. Report a claim without proof as a finding; do not accept it.
 - Accept no findings as a valid result. Do not invent defects or expand the scope to justify a review.
 - State what was verified and what remains unknown. Do not present an unperformed check as passing.
+
+## Reporting Findings
+
+Each finding states:
+
+- **Severity:** by user impact, correctness, security, data loss, or operational risk.
+- **Location:** file and line, symbol, or precise scope.
+- **Trigger and impact:** the reachable input or state, and what fails under it.
+- **Evidence:** the inspected behavior or check that supports it.
+- **Correction:** the smallest root-cause fix or next investigation, without writing the patch.
+
+When a defect is suspected but not proven, split by evidence. Partial evidence becomes a low-confidence finding that says what would confirm it. No evidence either way becomes an open question, not a finding.
+
+Report low-severity findings briefly, in a group separate from the others. They never block.
+
+The consumer sets the output layout. This principle owns only what each finding contains.
 
 **The tests:**
 
