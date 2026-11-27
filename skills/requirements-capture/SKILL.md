@@ -12,7 +12,7 @@ Do not use this skill for implementation planning, task breakdown, solution desi
 ## Workflow
 
 1. **Determine the artifact**
-   - Read [public-work-public-tracking](../principle-public-work-public-tracking/SKILL.md). Honor an explicit artifact request or existing artifact; otherwise follow the established tracker. For public GitHub repositories without an established alternative, default to a GitHub issue. Do not publish sensitive requirements publicly.
+   - Read [public-work-public-tracking](../principle-public-work-public-tracking/SKILL.md).
    - For GitHub, create or update a requirements issue. See [GitHub Issue](references/github-issue.md).
    - For Jira, create or update the requirements Epic. See [Jira Epic](references/jira-epic.md).
    - For Linear, create or update a Linear project for standalone or project-wide scope. Target a project milestone when the requirements are one stage of a larger project organized by milestones. See [Linear Project and Milestone](references/linear-project.md).
@@ -34,7 +34,7 @@ Do not use this skill for implementation planning, task breakdown, solution desi
    - Read and apply [keep-gates-traceable](../principle-keep-gates-traceable/SKILL.md) before turning recommendations or unresolved choices into acceptance criteria.
    - Follow the selected reference workflow and template.
    - Keep the artifact focused on product requirements and user-facing outcomes.
-   - Before saving, trace each acceptance criterion and `Decisions and Constraints` entry to confirmed context. Keep unconfirmed defaults in the artifact's assumptions or open questions, not only in chat or the PR description. Approval to write the artifact does not by itself accept every earlier recommendation; surface a newly identified safety dependency for a decision instead of silently choosing its product policy.
+   - Before saving, trace each acceptance criterion and `Decisions and Constraints` entry to confirmed context. Keep unconfirmed defaults in the artifact's assumptions or open questions, not only in chat or the PR description.
 
 If the user later requests a commit or publication of a local document, load [incremental-commits](../incremental-commits/SKILL.md) before committing and [pr-delivery](../pr-delivery/SKILL.md) before pushing or preparing a PR.
 

@@ -12,11 +12,11 @@ Establish a short contract with the user before running experiments:
 - **Completion:** who reviews the findings, where they are recorded, and what constitutes acceptance. A reviewed report, issue comment, or reference artifact can be the delivery gate without a production merge.
 - **Artifact disposition:** which artifacts will be discarded, retained as non-maintained references, or integrated as maintained tooling. Do not assume all experimental code must be merged or rejected. Confirm changes to this agreement before expanding the work.
 
-Use isolated state for experiments ([isolate-mutable-state](../../principle-isolate-mutable-state/SKILL.md)). Keep useful reproduction instructions and sanitized evidence even when the executable artifacts are disposable. Discard only artifacts owned by this investigation and authorized for removal; do not delete pre-existing work or publish sensitive evidence.
+Use isolated state for experiments ([isolate-mutable-state](../../principle-isolate-mutable-state/SKILL.md)). Keep useful reproduction instructions and sanitized evidence even when the executable artifacts are disposable. Discard only artifacts owned by this investigation and authorized for removal; do not publish sensitive evidence.
 
 ## Findings and Handoff
 
-Record the question, conclusion or remaining uncertainty, supporting evidence, constraints, decisions, limitations, and recommendation. Separate observed results from assumptions and explain what the experiment does not establish. Include the artifact disposition and the review outcome or pending reviewer. Link this evidence into the relevant implementation tasks with their remaining verification requirements.
+Record the question, conclusion or remaining uncertainty, supporting evidence, constraints, decisions, limitations, and recommendation. Separate observed results from assumptions and explain what the experiment does not establish. Include the artifact disposition and the review outcome or pending reviewer.
 
 If adoption is proposed, identify the separately tracked engineering work or explicit maintained-tooling slice and its integration gate.
 

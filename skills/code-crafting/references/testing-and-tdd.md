@@ -13,8 +13,6 @@ For a behavior change with a runnable harness:
 
 For a bug, first reproduce the failure. Preserve the reproduction as a regression check when the harness and failure mode allow it.
 
-If no harness exists, use the smallest durable manual, runtime, or boundary check available and state the testing gap. A trivial, low-risk one-liner may rely on an existing relevant check.
-
 ## Choose the Check
 
 - **Unit:** pure logic with no meaningful side effects.
@@ -27,7 +25,7 @@ Test application guarantees and consequential failure paths, not an exhaustive c
 
 ## Prefer Real Behavior
 
-Prefer this order when each option is fast, deterministic, and safe:
+Within [test-observable-behavior](../../principle-test-observable-behavior/SKILL.md)'s preference for real implementations, use this order:
 
 ```text
 real implementation -> fake -> stub -> mock
@@ -37,8 +35,6 @@ real implementation -> fake -> stub -> mock
 - Use fakes for lightweight working replacements such as in-memory repositories.
 - Use stubs for canned responses.
 - Use mocks sparingly for slow, unsafe, or non-deterministic external side effects.
-
-Do not mock internal collaborators by default.
 
 ## Readable Checks
 

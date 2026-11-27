@@ -37,7 +37,7 @@ Read each starting principle once.
 
 Before generating code, tests, or explanations, read [make-structure-visible](../principle-make-structure-visible/SKILL.md). Use it to expose logical grouping, sequence, and branches in the chosen representation.
 
-For implementation modes, also read [integrate-through-review](../principle-integrate-through-review/SKILL.md) to establish the delivery gate and any explicit local-only exception. The default method does not grant commit, push, or merge authority.
+For implementation modes, also read [integrate-through-review](../principle-integrate-through-review/SKILL.md) to establish the delivery gate and any explicit local-only exception.
 
 This skill owns the implementation lifecycle for feature, bug-fix, refactor, and review-fix requests. Isolation and incremental checkpoints are defaults, not extra instructions the user must include. Use PR Delivery directly when the user wants existing work published rather than new implementation.
 
@@ -57,11 +57,11 @@ Review modes do not edit code unless the user explicitly asks for changes. Inves
 
 Before editing or assessing:
 
-- Read and apply [keep-gates-traceable](../principle-keep-gates-traceable/SKILL.md) when establishing blockers or completion gates. Carry justified requirements, optional follow-up, and residual risk separately through execution and reporting.
-- For tracked work, read and apply [keep-tracking-aligned](../principle-keep-tracking-aligned/SKILL.md). Identify and announce the active issue, discover workflow conventions, and maintain execution transitions and applicable metadata through the agreed completion gate. Pass the active issue and conventions to PR Delivery for review-stage updates; retain ownership of subsequent execution changes.
+- Read and apply [keep-gates-traceable](../principle-keep-gates-traceable/SKILL.md) when establishing blockers or completion gates.
+- For tracked work, read and apply [keep-tracking-aligned](../principle-keep-tracking-aligned/SKILL.md). Pass the active issue and conventions to PR Delivery for review-stage updates; retain ownership of subsequent execution changes.
 - Trace the affected behavior, callers, and boundaries before choosing a change or making an assessment ([principle-trace-before-changing](../principle-trace-before-changing/SKILL.md)).
-- Locate the existing tests and seams. For bugs, inspect sibling callers and shared functions before choosing the fix location.
-- Ask one short question only when ambiguity changes the public behavior or risk; otherwise state a reasonable assumption.
+- Locate the existing tests and seams.
+- When the trace leaves ambiguity, state a reasonable assumption unless the trace principle's ask condition holds.
 
 ## Choose a Slice
 
@@ -75,8 +75,6 @@ Read and apply [sequence-verifiable-slices](../principle-sequence-verifiable-sli
 - A user completes one flow.
 - An endpoint supports one operation.
 - A bug reproduction fails before the fix and passes after it.
-
-Prove expensive unknowns in the earliest useful slice.
 
 ## Make Precise, Strategic Changes
 
@@ -100,8 +98,7 @@ Use this precedence for behavior changes:
 
 1. For a non-trivial behavior change with a runnable harness, first add a public-behavior check and run it against the unchanged implementation. Confirm that it fails because the requested behavior is missing. Only then edit the implementation.
 2. For a bug, reproduce the failure and preserve it as a regression check when practical.
-3. If no harness exists, use the cheapest durable manual, runtime, or boundary check available and state the gap.
-4. For a genuinely trivial, low-risk one-liner, an existing relevant check may be enough; do not add a test solely for ceremony.
+3. Otherwise, choose the check under [verify-in-proportion-to-risk](../principle-verify-in-proportion-to-risk/SKILL.md), which covers missing harnesses and trivial changes.
 
 If a failing check cannot be created for a legitimate reason, record the reason and use the nearest reliable check.
 
@@ -111,11 +108,7 @@ Read [automate-mechanics](../principle-automate-mechanics/SKILL.md) when choosin
 
 Implement the chosen behavior with the least code that passes the current check. Use the **lazy ladder** in [precise change strategy](references/change-strategy.md) to choose what to reuse or add.
 
-Default to no code comments. Prefer clear names and structure; use native declaration documentation only for meaningful contract information they cannot convey, including what returned values represent. Exclude implementation narration, change history, and feedback.
-
-Read [code documentation](references/code-documentation.md) when creating or reviewing declaration documentation, or considering a new comment. Add usage examples only for public interfaces whose correct use requires non-obvious steps.
-
-Do not add speculative exports or new dependencies.
+Default to no code comments. Read [code documentation](references/code-documentation.md) when creating or reviewing declaration documentation, or considering a new comment.
 
 Refactor only after the behavior is green. Run the relevant check after each behaviorally meaningful or risk-changing refactor increment.
 
@@ -127,11 +120,9 @@ When making a consequential decision that needs durable rationale, read [preserv
 
 Before selecting completion checks, read [verify-in-proportion-to-risk](../principle-verify-in-proportion-to-risk/SKILL.md).
 
-- Run focused checks first and expand them to cover affected boundaries and material risks.
 - Keep the system working after every slice.
 - Leave one durable runnable check for non-trivial logic when the repository supports it.
-- If no automated harness exists, perform the smallest reliable manual check and state the gap.
-- Inspect the resulting implementation and tests for comprehension, not just formatting consistency ([make-structure-visible](../principle-make-structure-visible/SKILL.md)).
+- Re-read the resulting implementation and tests under [make-structure-visible](../principle-make-structure-visible/SKILL.md).
 
 Read [verification](references/verification.md) for risk-based escalation guidance. For multi-stage automation, use its stateful-workflow checks to exercise consequential handoffs and distinguish static validity from authenticated runtime evidence.
 
@@ -147,11 +138,11 @@ For investigations, use the agreed contract and the investigation reference's co
 
 Implementation is locally verified when the requested behavior works, the design is no larger than necessary, relevant checks pass, and deliberate gaps are stated.
 
-When verified increments form one complete reviewable outcome under the sizing principle, hand its commits and evidence to [pr-delivery](../pr-delivery/SKILL.md), unless an explicit local-only or alternative integration instruction applies. Do not turn every checkpoint into a PR or wait for all dependent outcomes before publishing the current one.
+When verified increments form one complete reviewable outcome under the sizing principle, hand its commits and evidence to [pr-delivery](../pr-delivery/SKILL.md), unless an explicit local-only or alternative integration instruction applies.
 
-PR Delivery returns publication state and findings; it does not call this implementation workflow. Remain the owner of any requested corrections: trace the finding, implement and check the correction, checkpoint it, then resume publication with the updated evidence. Do not restart the whole task at a skill handoff.
+Remain the owner of any requested corrections: trace the finding, implement and check the correction, checkpoint it, then resume publication with the updated evidence. Do not restart the whole task at a skill handoff.
 
-Report completion at the agreed delivery gate under the integration principle. If authorization, tooling, CI, or review blocks that gate, report the achieved state and blocker rather than silently changing the task to local-only. An explicit local-only task ends at local verification with that exception stated.
+Report completion at the agreed delivery gate under the integration principle.
 
 Review is done when the scope is answered, findings are evidence-backed, trade-offs or recommendations are clear, and residual uncertainty is explicit.
 
