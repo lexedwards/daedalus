@@ -11,7 +11,7 @@ For a behavior change with a runnable harness:
 3. Refactor only while the check remains green.
 4. Repeat for the next behavior.
 
-For a bug, first reproduce the failure. Preserve the reproduction as a regression check when the harness and failure mode allow it.
+For a bug, prove the failure first under [prove-bugs-before-fixing](../../principle-prove-bugs-before-fixing/SKILL.md).
 
 ## Choose the Check
 
