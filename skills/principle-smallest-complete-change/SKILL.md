@@ -15,7 +15,7 @@ Make the smallest complete and coherent change that satisfies the requested outc
 - Remove unnecessary structure where it serves the requested change. Reject speculative abstractions, future-proofing, and unrelated cleanup.
 - Preserve validation, security, accessibility, data-loss protection, and clear error handling.
 - Stop when the requested outcome is satisfied.
-- Size review boundaries around useful outcomes, not line counts or a target number of PRs. Prefer several small, complete PRs to one large PR, but keep inseparable integration together. A dependent PR must deliver a useful, verifiable increment relative to its declared base without needing its descendants.
+- Size review boundaries around useful outcomes, not line counts or a target number of PRs. Prefer several small, complete PRs to one large PR, but keep inseparable integration together. Whether a dependent PR stands on its base belongs to [Sequence Verifiable Slices](../principle-sequence-verifiable-slices/SKILL.md).
 
 **The tests:**
 
