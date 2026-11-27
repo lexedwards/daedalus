@@ -1,6 +1,6 @@
 ---
 name: harness-configuration
-description: Author, compare, and troubleshoot custom skill and agent configuration across OpenCode V2, Codex, Claude Code, Cursor, GitHub Copilot CLI, and Pi. Use when checking supported fields, discovery, precedence, portability, or updating this skill's own configuration references.
+description: Use for questions about skill or agent fields, discovery, precedence, or portability across OpenCode V2, Codex, Claude Code, Cursor, GitHub Copilot CLI, and Pi, and when updating these references. Owns source-checked field tables per harness. Use create-skill or create-agent for what to write.
 ---
 
 # Harness Configuration

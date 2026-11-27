@@ -1,6 +1,6 @@
 ---
 name: code-crafting
-description: Investigate, verify, and change code or documentation with proportionate checks. Use when asked to "check whether this ticket's claims are true", "find the root cause", "fix this bug", "review this design", or "update these docs". Applies alongside domain, tracker, and platform skills, not instead of them. Recheck skill selection when work modes change and before the first write, commit, or publish action. Pair with technical-writing for prose, incremental-commits before committing, and pr-delivery before publication.
+description: Use for any task that changes, debugs, investigates, or reviews code or maintained docs, including when a plan gets the go-ahead. Sets the trace, test-first, verification, and delivery gates and loads the matching principles. Use technical-writing for prose drafted outside the repository.
 ---
 
 # Code Crafting

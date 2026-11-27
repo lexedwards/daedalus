@@ -1,6 +1,6 @@
 ---
 name: technical-writing
-description: Write clear, concise technical prose. Use when asked to "update the README", "document this behavior", "write a bug report", or draft PR and issue descriptions, operating guides, or engineering context. Pair with code-crafting for maintained documentation changes and evidence-backed assessments, create-skill for skill guidance, and pr-delivery for PR publication.
+description: Use before writing or editing technical prose, such as READMEs, docs, ADRs, PR and issue descriptions, bug reports, and operating guides. Sets plain technical style, reader-first structure, and Markdown conventions. Use humanizer for non-technical prose and create-skill for skill guidance.
 ---
 
 # Technical Writing
@@ -19,7 +19,7 @@ Do not restate obvious code. Before selecting an artifact or destination, read a
 
 ## Start here
 
-Load this skill before the first technical-prose write, including routine edits and tracker descriptions. Use it alongside the domain or tracker skill. For maintained documentation changes, also load [code-crafting](../code-crafting/SKILL.md); writing guidance does not replace its verification workflow.
+Load this skill before the first technical-prose write, including routine edits and tracker descriptions. Use it alongside the domain or tracker skill. For maintained documentation changes, also load [code-crafting](../code-crafting/SKILL.md); writing guidance does not replace its verification workflow. For skill or principle guidance, also load [create-skill](../create-skill/SKILL.md); for agent definitions, load [create-agent](../create-agent/SKILL.md).
 
 Read [automate-mechanics](../principle-automate-mechanics/SKILL.md) for repeatable link, structure, or example validation. Reuse or save useful checks; keep explanation and editorial decisions with the agent.
 
