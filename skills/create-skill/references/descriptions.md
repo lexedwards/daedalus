@@ -39,6 +39,16 @@ A trigger condition describes the request's situation, so it matches however the
 
 Quoted example requests are not triggers. "Fix this bug" does not match "why does this return null?", but "any debugging task" does.
 
+## Request vocabulary
+
+Measured session history shows how requests are actually worded. Refresh these patterns with the [session history script](../SKILL.md#improve-an-existing-skill).
+
+- **Openings state a problem or goal, not a work mode.** They run to a few sentences: "I want…", "I have this problem where…", "how does…", or a verb on an artifact, such as "review the…" or "inspect the…". They rarely name a skill. Match the situation they describe.
+- **Steering turns are short go-aheads.** "Do it", "yes", "keep going", "commit and push", and "merged" often change the work mode, from planning to implementation or from implementation to delivery, without naming it. Workflow skills need stage triggers, such as "before the first edit" or "before committing", plus handoffs in the body of the skill that is already loaded.
+- **Users rarely load skills by name.** Selection depends almost entirely on descriptions and body handoffs.
+- **Distinctive vocabulary selects reliably.** Skills tied to URLs, named artifacts, or a domain term load far more often than process skills whose work reads like default behavior.
+- **Pasted material is not the user's wording.** Exclude logs, quotes, and transcripts before judging how requests are phrased.
+
 ## Examples
 
 ### Workflow skill read as default behavior
