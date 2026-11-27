@@ -5,7 +5,7 @@ description: Use when a hard-to-reverse architectural or process decision needs 
 
 # Decision Capture
 
-Preserve important decisions from the current conversation and context (codebase, terminology...) as ADRs. Synthesize without interviewing the user - only use what is already known.
+Preserve important decisions from the current conversation and context (codebase, terminology...) as ADRs. Synthesize without interviewing the user.
 
 ## Workflows
 
@@ -16,18 +16,18 @@ Read [automate-mechanics](../principle-automate-mechanics/SKILL.md) when repeati
 1. **Gather Context** of existing decisions and code, if not already
     - Scan the ADR directory and understand decisions made already
 
-2. **Only offer to capture important decisions**
+2. **Decide whether the decision warrants an ADR**
+    - Read and apply [preserve-decision-context](../principle-preserve-decision-context/SKILL.md) before offering an ADR. It owns which decisions get an ADR, what each ADR must record, and how far each ADR's scope extends.
 
 3. **Write the ADR**
     - Before the first maintained ADR write, load [technical-writing](../technical-writing/SKILL.md) and [code-crafting](../code-crafting/SKILL.md); recording a decision does not authorize implementing it.
-    - One scope per ADR
-    - Follows the common file structure location
+    - Use the template, location, and numbering below
 
 If the user later requests a commit or publication, load [incremental-commits](../incremental-commits/SKILL.md) before committing and [pr-delivery](../pr-delivery/SKILL.md) before pushing or preparing a PR.
 
 ### Update by superseding an ADR
 
-1. **Never delete ADRs**
+1. **Apply [preserve-decision-context](../principle-preserve-decision-context/SKILL.md)'s supersede rule**: write the replacing decision as a new ADR; keep the original and change only its status
 
 2. **Update the status in frontmatter** to mark when and where an ADR has been superseded
 
@@ -66,6 +66,8 @@ Scan the folder location for the highest existing number and increment by one, u
 
 ### What to capture
 
+Examples of decisions and context that meet the principle's criteria:
+
 - **Architecture**: e.g. event-driven writes, request/response reads; monolith-first with defined seam points for future extraction
 - **Integration patterns between systems and services**: e.g. async messaging via queue vs direct REST call; who owns the contract when two teams share an API
 - **Technology choices that are difficult to reverse**: e.g. PostgreSQL over MongoDB; Auth0 as identity provider; Kafka as the event backbone
@@ -75,12 +77,5 @@ Scan the folder location for the highest existing number and increment by one, u
 
 ## Pitfalls
 
-- Never delete ADRs, only supersede
-- Never include code snippets, implementation details, or references to specs, tasks or other other schedules of work.
-- Only offer ADRs for decisions that match all:
-  - hard to reverse
-  - require context to be understood
-  - genuine alternatives were available.
+- Never include code snippets, implementation details, or references to specs, tasks or other schedules of work.
 - Use markdown Reference-style links to refer to external information, never `[[wiki-links]]`.
-- Only include one topic per ADR
-- Be concise

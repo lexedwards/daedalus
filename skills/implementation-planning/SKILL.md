@@ -31,7 +31,7 @@ Break a plan into independently actionable tasks: working vertical slices for im
     - Read [sequence-verifiable-slices](../principle-sequence-verifiable-slices/SKILL.md) for dependency order and slice shape, and [smallest-complete-change](../principle-smallest-complete-change/SKILL.md) for task and review boundaries.
     - Keep accepted correctness and safety constraints in the first slice that exposes the behavior; narrow the feature's scope rather than shipping known-invalid output and deferring its correction.
     - Include the checks and maintained documentation needed to use each implementation slice; add architecture diagrams when they explain a material boundary.
-    - Ensure that important or critical decisions are preserved and captured in ADRs during the task, using the `/decision-capture` skill.
+    - Ensure that important or critical decisions are preserved and captured in ADRs during the task, using [decision-capture](../decision-capture/SKILL.md).
     - For each implementation slice, name its proposed PR boundary, dependency base, and verification recipe using the project's real checks. Identify any smaller passing commit increments within it.
     - For investigations, name the evidence destination and acceptance gate.
 
