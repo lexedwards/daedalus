@@ -33,3 +33,15 @@ Scenario: record an agreed EU tenant-isolation decision as the next accepted ADR
 - The judge preferred revised guidance in all six pairs. Masked test exit codes still weakened Opus verification; primary discovery and artifact correctness did not improve because both variants already succeeded.
 
 Correction: include maintained ADR changes in the advertised `code-crafting` pairing and require both writing companions before the first ADR write. Add explicit commit/publication handoffs without authorizing implementation. This follow-up is statically checked, not behaviorally re-evaluated.
+
+## Humanizer
+
+Scenario: edit an AI-sounding technical retry note to match a plain voice sample, preserving facts, uncertainty, YAML, code, a command and link targets.
+
+- Eleven runs reached the task; all loaded `humanizer` first, passed automated artifact checks and preserved the protected content in blind review.
+- One revised Sol slot stopped before task execution because the candidate refused the separate description-transcription probe as private configuration. The runner reported a description mismatch, but the output was a refusal, not evidence of a real mismatch. It is retained as incomplete and was not replaced.
+- Revised Sol loaded every companion in both completed runs (2/2); baseline Sol omitted `code-crafting` in all three. The missing third revised run prevents a complete three-repetition result.
+- Revised Opus loaded no companions (0/3). Baseline Opus loaded commit guidance before committing in 2/3, but publication guidance was late in all three. Neither loaded writing companions.
+- The judge preferred revised guidance in two Sol pairs, could not compare the incomplete Sol pair, and gave mixed Opus verdicts: a small revised advantage, a tie and a baseline advantage. All completed final notes were correct; there is no consistent cross-model workflow improvement.
+
+Correction: make the technical-writing and maintained-documentation handoffs actionable in the workflow body, with later commit/publication boundaries. Keep them conditional so this SDLC correction does not impose an engineering lifecycle on fiction or standalone text. Behavioral validation of the correction remains outstanding; this batch does not meet the full promotion rule.
