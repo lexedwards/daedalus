@@ -1,6 +1,6 @@
 ---
 name: ideation
-description: Interview and challenge the user to resolve material decisions and stress-test an idea or plan. Contrast with existing domain models and capture terminology as decisions crystallise.
+description: Interview the user and stress-test an idea against existing domain models. Use when asked to "help me think this through", "challenge this idea", or resolve decisions before planning. Pair with code-crafting when checking claims against code or reviewing a design, requirements-capture for product scope, and decision-capture for consequential decisions.
 ---
 
 # Ideation
@@ -18,6 +18,10 @@ Read [automate-mechanics](../principle-automate-mechanics/SKILL.md) when discuss
     - Apply [smallest-complete-change's build, adopt, or extend guidance](../principle-smallest-complete-change/SKILL.md#build-adopt-or-extend) when evaluating solution choices. Establish the user's material requirements and goals, assess alternatives with them, and hand the decision, evidence, and unresolved assumptions to planning.
     - When discussing module boundaries, interfaces, or configuration ownership, load [code-crafting](../code-crafting/SKILL.md) and use its design-review workflow alongside this interview. Discussion alone does not authorize implementation.
 
+2. **Record an approved handoff** when the user asks for a maintained discussion brief or documentation change.
+    - Before the first write, load [technical-writing](../technical-writing/SKILL.md) and [code-crafting](../code-crafting/SKILL.md). Keep settled constraints, recommendations and unresolved questions distinct; a brief is not approval to implement.
+    - If the user later requests a commit or publication, load [incremental-commits](../incremental-commits/SKILL.md) before committing and [pr-delivery](../pr-delivery/SKILL.md) before pushing or preparing a PR.
+
 ## Pitfalls
 
 - **Always establish well-reasoned motivation** - unless exploring proof of concepts, ensure either user, product, or business justification is captured.
@@ -25,5 +29,5 @@ Read [automate-mechanics](../principle-automate-mechanics/SKILL.md) when discuss
 - **Use precise canonical terminology** - propose precise language when user uses vague or overloaded teams.
 - **Discuss scenarios** - stress-test specific scenarios and probe for edge cases that validate the boundaries between concepts.
 - **Validate user claims against existing code** - when users claim how something works, check if the code agrees, and surface contradictions.
-- **Update terminology in documentation** - terminology and understandings evolve and should be captured inline with discussion.
+- **Capture terminology within the approved scope** - propose terminology during discussion; change maintained documentation only when authorized.
 - **Use the question tool if present** - it's a better experience.

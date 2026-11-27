@@ -1,6 +1,6 @@
 ---
 name: requirements-capture
-description: Capture product requirements for new or changed user-facing work before implementation. Use when the user wants to capture requirements, create or update a GitHub issue, local `.specs/<spec-name>/REQUIREMENTS.md` spec, Jira Epic, Linear project or project milestone, or draft/update a PRD-style product requirements document in the response unless a destination is specified.
+description: Capture product requirements before implementation. Use when asked to "define this feature", "write a PRD", or create or update a requirements issue, local .specs/<spec-name>/REQUIREMENTS.md, Jira Epic, or Linear project or milestone. Pair with technical-writing for the artifact, implementation-planning for task breakdown, and code-crafting for maintained requirements documents or codebase assessments.
 ---
 
 # Requirements Capture
@@ -30,9 +30,13 @@ Do not use this skill for implementation planning, task breakdown, solution desi
    - Otherwise synthesize from known context and make assumptions explicit when useful.
 
 4. **Create or update the artifact**
+   - Before drafting, load [technical-writing](../technical-writing/SKILL.md). For maintained requirements documents, also load [code-crafting](../code-crafting/SKILL.md) before the first write; this does not authorize implementation.
    - Read and apply [keep-gates-traceable](../principle-keep-gates-traceable/SKILL.md) before turning recommendations or unresolved choices into acceptance criteria.
    - Follow the selected reference workflow and template.
    - Keep the artifact focused on product requirements and user-facing outcomes.
+   - Before saving, trace each acceptance criterion and `Decisions and Constraints` entry to confirmed context. Keep unconfirmed defaults in the artifact's assumptions or open questions, not only in chat or the PR description. Approval to write the artifact does not by itself accept every earlier recommendation; surface a newly identified safety dependency for a decision instead of silently choosing its product policy.
+
+If the user later requests a commit or publication of a local document, load [incremental-commits](../incremental-commits/SKILL.md) before committing and [pr-delivery](../pr-delivery/SKILL.md) before pushing or preparing a PR.
 
 ## Shared Guidance
 

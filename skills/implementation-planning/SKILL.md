@@ -1,6 +1,6 @@
 ---
 name: implementation-planning
-description: Plan incremental implementation by breaking a plan, spec, PRD, Jira Epic, or Linear project or project milestone into vertical work slices. Use when the user wants to create implementation tasks or break down work into manageable tasks.
+description: Break a plan, spec, PRD, Jira Epic, or Linear project or milestone into verifiable work slices. Use when asked to "break this down", "create implementation tasks", or "plan the implementation". Pair with requirements-capture for product scope, code-crafting for feasibility assessments and maintained task files, and technical-writing for task descriptions.
 ---
 
 # Implementation Planning
@@ -30,6 +30,7 @@ Break a plan into independently actionable tasks: working vertical slices for im
     - Read [automate-mechanics](../principle-automate-mechanics/SKILL.md). Include useful saved automation and its checks in the slice that needs it; do not plan repeated agent reconstruction of stable procedures. Planning alone does not authorize implementing those scripts.
     - Read [sequence-verifiable-slices](../principle-sequence-verifiable-slices/SKILL.md) for dependency order and [smallest-complete-change](../principle-smallest-complete-change/SKILL.md) for task and review boundaries.
     - Create implementation tasks from thin vertical slices that implement through all required integration layers end-to-end.
+    - Keep accepted correctness and safety constraints in the first slice that exposes the behavior; narrow the feature's scope rather than shipping known-invalid output and deferring its correction. Each task's acceptance criteria must be achievable from its declared base and dependencies, not depend on whichever task happens to land later.
     - Include the checks and maintained documentation needed to use each implementation slice; add architecture diagrams when they explain a material boundary.
     - Ensure that important or critical decisions are preserved and captured in ADRs during the task, using the `/decision-capture` skill.
     - For each implementation slice, name its proposed PR boundary, dependency base, and verification recipe using the project's real checks. Identify any smaller passing commit increments within it.
@@ -48,6 +49,7 @@ Break a plan into independently actionable tasks: working vertical slices for im
     - Iterate until user approves
 
 5. **Create the tasks**
+    - Before writing maintained task files, load [technical-writing](../technical-writing/SKILL.md) and [code-crafting](../code-crafting/SKILL.md). Planning authorizes only the approved task artifacts, not implementation.
     - Create the tasks in dependency order (blockers first) so that they can be referenced correctly in the related tasks
     - Use the selected destination, not just the source document's location. Confirm publication authorization and check for existing tasks before creating new ones; report blocked access rather than switching trackers.
     - If GitHub Issues is selected:
@@ -58,6 +60,8 @@ Break a plan into independently actionable tasks: working vertical slices for im
         - create child work items by following [Jira Epic](resources/jira-epic.md)
     - If Linear is selected:
         - create issues by following [Linear Project and Milestone](resources/linear-project.md)
+
+If the user later requests a commit or publication of local task files, load [incremental-commits](../incremental-commits/SKILL.md) before committing and [pr-delivery](../pr-delivery/SKILL.md) before pushing or preparing a PR.
 
 ## Features
 

@@ -1,6 +1,6 @@
 ---
 name: decision-capture
-description: Capture important and hard-to-reverse decisions in ADRs as they crystalise. Use when a user wants to preserve important or critical implementation decisions.
+description: Preserve important, hard-to-reverse decisions in ADRs. Use when asked to "record this decision", "write an ADR", or capture the rationale for an architectural choice. Pair with technical-writing for the ADR and code-crafting for maintained documentation changes or assessments.
 ---
 
 # Decision Capture
@@ -19,8 +19,11 @@ Read [automate-mechanics](../principle-automate-mechanics/SKILL.md) when repeati
 2. **Only offer to capture important decisions**
 
 3. **Write the ADR**
+    - Before the first maintained ADR write, load [technical-writing](../technical-writing/SKILL.md) and [code-crafting](../code-crafting/SKILL.md); recording a decision does not authorize implementing it.
     - One scope per ADR
     - Follows the common file structure location
+
+If the user later requests a commit or publication, load [incremental-commits](../incremental-commits/SKILL.md) before committing and [pr-delivery](../pr-delivery/SKILL.md) before pushing or preparing a PR.
 
 ### Update by superseding an ADR
 

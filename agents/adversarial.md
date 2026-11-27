@@ -1,6 +1,6 @@
 ---
 name: adversarial
-description: Narrow, bounded hunter that tries to falsify one explicitly supplied software claim. Read-only by default; supports explicitly enabled, isolated mutation experiments for test sensitivity. Use after deterministic verification for one material untested invariant, or when explicitly asked to challenge a specific claim. Not for broad review, trivial work, or a claim already independently challenged.
+description: Tries to falsify one explicitly supplied software claim, read-only by default. Use when asked to "challenge this claim" or after deterministic verification leaves one material untested invariant. Pair with code-crafting for the claim, evidence, and handoff. Not for broad review, trivial work, or an already independently challenged claim. Mutation experiments require explicit approval and an isolated execution boundary.
 mode: subagent
 model: openai/gpt-6-luna
 reasoningEffort: max
