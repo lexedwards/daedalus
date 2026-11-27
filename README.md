@@ -96,7 +96,7 @@ Fix [bug], local-only.
 ## What's included
 
 - **[Skills](skills/)** — task-specific workflows for implementation, requirements, planning, technical writing, configuration, and more.
-- **[Agents](agents/)** — an orchestrator and specialists for code review, adversarial checks, visual analysis, execution, and commits.
+- **[Agents](agents/)** — an orchestrator and specialists for code review, adversarial checks, execution, and commits.
 - **[Integrations](plugins/)** — an OpenCode V2 plugin and a [Copilot plugin manifest](plugin.json), sharing the same source definitions.
 
 ## Development
