@@ -8,6 +8,8 @@ Models are `openai/gpt-6.2-sol#high` and `claude-agent/opus#medium`. Provider al
 
 All 72 approved slots were attempted: 65 completed and seven incomplete. The incompletes are one `humanizer` advertisement-probe refusal and six quota-blocked Opus requirements runs. Five batches received blind judging; the requirements judge hit the same quota. No slots were replaced and no models substituted.
 
+An explicitly authorized recovery after the quota reset added six fresh Opus requirements runs and one successful blind judge. All six recovery runs completed; original failures remain recorded separately. Across the original and recovery attempts, 71 candidate tasks completed out of 78 attempts, with six skills now assessed by blind judges. The unretried `humanizer` slot still prevents complete coverage of all original model/variant cells.
+
 Candidates do not receive variant identities, evaluator context or the rubric. Each completed batch receives independent, tool-disabled, blinded Opus judging. Artifact and Git checks are separate from judging. The source snapshots, prompts, rubric and budgets stay fixed while later corrections are checkpointed separately.
 
 These are synthetic documentation scenarios, not live forge integration or evidence across every use of a skill. Final evaluator checks do not establish candidate pre-commit verification. Identical document captures can support reuse of earlier checks; a missing commit-turn rerun alone is not a failure. Pipelines that hide a test's exit code remain weak enforcement even when visible output shows a pass.
@@ -15,6 +17,8 @@ These are synthetic documentation scenarios, not live forge integration or evide
 Promotion requires all three revised repetitions per model to meet routing, artifact and safety outcomes without material regression. None of the six batches below establishes complete companion-workflow adherence in both models. Pairwise preferences support only the narrower improvements reported; publishing follow-up guidance does not establish its behavioral effectiveness.
 
 Local evidence is retained at `/tmp/opencode/sdlc-evaluation/`: `contract.json`, per-run transcripts and artifacts, and per-skill `verification.json` and `judge-report.md`. Credentials and runtime homes must not be published. The summaries below are sanitized findings, not the raw evidence or a claim that later corrections passed behavioral evaluation.
+
+Recovery evidence is separate at `/tmp/opencode/sdlc-evaluation-recovery-20261127/`. Its contract preserves the original scenarios, rubric, source revisions and candidate limits, with new neutral labels. The recovery judge received the six retained Sol records and six fresh Opus records without model or variant mappings. The time-separated model cohorts are a limitation, not a contemporaneous 12-run replication.
 
 ## Create skill
 
@@ -80,10 +84,20 @@ Scenario: clarify workspace-invitation behavior, then write a local product-requ
 - All six Sol runs completed, loaded `requirements-capture` before substantive work and passed automated file/Git checks. Revised Sol loaded all companions on time (3/3). Baseline Sol omitted `code-crafting` (3/3) and once loaded publication guidance after pushing.
 - Direct artifact inspection found the requested owner-only invite/revoke behavior, viewer/editor choice, seven-day expiry, single-use acceptance, revocation/expiry rejection and existing-member role/message behavior in all six documents. This is evaluator inspection, **not blinded judging**.
 - All six Opus slots were blocked by the Claude Agent five-hour quota: two at the first task turn, four during the advertisement probe. No Opus slot reached substantive task work. These are infrastructure incompletes, not routing failures, and were not replaced.
-- The blind Opus judge was blocked by the same quota. There are no pairwise judge verdicts for this batch and no cross-model conclusion.
+- The original blind Opus judge was blocked by the same quota. This initial batch had no pairwise judge verdicts or Opus task evidence.
 - The verifier raised a secondary missing-remote-ref error for the two task-turn quota failures because no documentation branch had been pushed. That does not establish an additional candidate failure; the provider error is the primary cause.
 
-Correction: make the maintained-requirements writing and later commit/publication handoffs explicit, supported by the repeated baseline Sol omissions and the same boundary gaps in earlier batches. This correction has static checks only. The Opus comparison and independent blind review remain blocked, so this batch cannot meet the promotion rule.
+Initial correction: make the maintained-requirements writing and later commit/publication handoffs explicit, supported by the repeated baseline Sol omissions and the same boundary gaps in earlier batches. This correction has static checks only; it was not part of either assigned evaluation snapshot.
+
+### Authorized recovery
+
+- Six fresh Opus runs completed all four turns and passed automated file/Git checks. Effective definition bytes and recorded model settings matched the assigned revisions; fresh sandbox checks passed.
+- Both Opus variants loaded `requirements-capture` before substantive work (3/3 each), but neither loaded writing companions (0/3 each). Revised Opus loaded commit and publication guidance in time (3/3); baseline Opus loaded commit guidance in 1/3 and publication guidance before pushing in 0/3.
+- The blinded judge preferred revised guidance in five pairs and tied one, using the six retained Sol records and six recovery Opus records. Artifact quality did not uniformly improve: four Sol documents were flagged for unconfirmed recipient-binding policy, and one baseline Opus document presented address matching and invitation-status UI as decided requirements.
+- Recipient binding can protect a real safety dependency; the finding is about unconfirmed product policy, not a recommendation to omit security. Other UI and message-content assumptions appeared in both Opus variants. Minor section-heading criticisms do not establish missing edge-case coverage when criteria already cover it.
+- All 12 records preserved read-only discussion, document-only edits and local publication. Opus test pipelines still masked exit status. Identical captured document contents support snapshot continuity when a check was not repeated in the commit turn; that is distinct from whether its failure status could block a commit.
+
+Recovery correction: add an artifact-level traceability pass for acceptance criteria and recorded decisions. Keep unconfirmed defaults in the document's assumptions or open questions and surface newly identified safety dependencies instead of silently settling their policy. The recovery completes the missing comparison, not validation of this or the earlier handoff correction. Full cross-model composition and the promotion rule remain unmet.
 
 ## Shared verification correction
 

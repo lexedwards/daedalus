@@ -34,6 +34,7 @@ Do not use this skill for implementation planning, task breakdown, solution desi
    - Read and apply [keep-gates-traceable](../principle-keep-gates-traceable/SKILL.md) before turning recommendations or unresolved choices into acceptance criteria.
    - Follow the selected reference workflow and template.
    - Keep the artifact focused on product requirements and user-facing outcomes.
+   - Before saving, trace each acceptance criterion and `Decisions and Constraints` entry to confirmed context. Keep unconfirmed defaults in the artifact's assumptions or open questions, not only in chat or the PR description. Approval to write the artifact does not by itself accept every earlier recommendation; surface a newly identified safety dependency for a decision instead of silently choosing its product policy.
 
 If the user later requests a commit or publication of a local document, load [incremental-commits](../incremental-commits/SKILL.md) before committing and [pr-delivery](../pr-delivery/SKILL.md) before pushing or preparing a PR.
 
