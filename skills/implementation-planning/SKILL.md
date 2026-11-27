@@ -1,6 +1,6 @@
 ---
 name: implementation-planning
-description: Break a plan, spec, PRD, Jira Epic, or Linear project or milestone into verifiable work slices. Use when asked to "break this down", "create implementation tasks", or "plan the implementation". Pair with requirements-capture for product scope, code-crafting for feasibility assessments and maintained task files, and technical-writing for task descriptions.
+description: Use when a plan, spec, PRD, Jira Epic, or Linear project or milestone must become implementation tasks. Holds the user's slicing and tracking conventions, producing verifiable slices with explicit dependencies. Use requirements-capture to define the scope first.
 ---
 
 # Implementation Planning
@@ -101,6 +101,10 @@ AC# - **Given** <an action>, **when** <in a situation>, **then** <result>
 <example>
 AC1 - **Given** a registered user, **when** entering a valid username and password, **then** a session should be created.
 </example>
+
+## Handoffs
+
+When the scope or acceptance criteria are missing or contested, use [requirements-capture](../requirements-capture/SKILL.md) before slicing.
 
 ## Further Notes
 

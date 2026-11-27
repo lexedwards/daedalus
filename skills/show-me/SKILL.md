@@ -1,6 +1,6 @@
 ---
 name: show-me
-description: Help the user understand the current topic visually with concise diagrams, code-shape sketches, and focused artifacts.
+description: Use when the user asks to be shown something, or to see a topic, flow, or structure visually. Produces concise diagrams, code-shape sketches, and focused artifacts. Use technical-writing for prose documentation.
 metadata:
   author: Dex Horthy
   github: https://github.com/humanlayer/skills/blob/main/plugins/show-me/skills/show-me/SKILL.md

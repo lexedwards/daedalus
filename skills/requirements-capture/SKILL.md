@@ -1,6 +1,6 @@
 ---
 name: requirements-capture
-description: Capture product requirements before implementation. Use when asked to "define this feature", "write a PRD", or create or update a requirements issue, local .specs/<spec-name>/REQUIREMENTS.md, Jira Epic, or Linear project or milestone. Pair with technical-writing for the artifact, implementation-planning for task breakdown, and code-crafting for maintained requirements documents or codebase assessments.
+description: Use before implementation when a feature or product scope needs defined requirements, such as a PRD, requirements issue, local .specs/<spec-name>/REQUIREMENTS.md, Jira Epic, or Linear project or milestone. Holds the user's requirements template and acceptance-criteria conventions. Use implementation-planning for tasks.
 ---
 
 # Requirements Capture
@@ -52,3 +52,7 @@ If the user later requests a commit or publication of a local document, load [in
 - **Using vague language** - terms like "user friendly" or "fast" need concrete interpretation.
 - **Skipping scope boundaries** - unclear out-of-scope work invites scope creep.
 - **Duplicating artifact structures** - PRDs and local specs have different levels of detail.
+
+## Handoffs
+
+When the requirements are agreed and the user wants tasks, use [implementation-planning](../implementation-planning/SKILL.md).
