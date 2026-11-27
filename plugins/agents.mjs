@@ -1,4 +1,4 @@
-import { readFile } from 'node:fs/promises';
+import { readdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { Agent } from '@opencode/plugin';
@@ -6,16 +6,17 @@ import { parseDocument } from 'yaml';
 
 const agentsDirectory = fileURLToPath(new URL('../agents/', import.meta.url));
 
-export const agentIDs = [
-  'adversarial',
-  'commit',
-  'minion',
-  'orchestrator',
-  'reviewer',
-  'visual',
-];
+// Every Markdown file under agents/ ships as an agent.
+async function discoverAgentIDs(directory) {
+  const entries = await readdir(directory, { withFileTypes: true });
+  return entries
+    .filter((entry) => entry.isFile() && entry.name.endsWith('.md'))
+    .map((entry) => entry.name.slice(0, -'.md'.length))
+    .sort();
+}
 
-export async function readAgents(directory = agentsDirectory, ids = agentIDs) {
+export async function readAgents(directory = agentsDirectory, ids) {
+  ids ??= await discoverAgentIDs(directory);
   return Promise.all(ids.map(async (id) => {
     const file = path.resolve(directory, `${id}.md`);
     try {

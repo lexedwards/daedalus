@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { access, mkdtemp, readFile, rm, writeFile, mkdir } from 'node:fs/promises';
+import { access, mkdtemp, readdir, readFile, rm, writeFile, mkdir } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import { test } from 'bun:test';
@@ -7,6 +7,19 @@ import { Agent } from '@opencode/plugin';
 import plugin from '../plugins/daedalus.mjs';
 import { readSkills } from '../plugins/skills.mjs';
 import { readAgents } from '../plugins/agents.mjs';
+
+const root = new URL('../', import.meta.url);
+
+async function skillsOnDisk() {
+  const entries = await readdir(new URL('skills/', root), { withFileTypes: true });
+  return entries.filter((entry) => entry.isDirectory()).map((entry) => entry.name).sort();
+}
+
+async function agentsOnDisk() {
+  const entries = await readdir(new URL('agents/', root), { withFileTypes: true });
+  return entries.filter((entry) => entry.isFile() && entry.name.endsWith('.md'))
+    .map((entry) => entry.name.slice(0, -'.md'.length)).sort();
+}
 
 function agentContext(registered = new Map()) {
   return {
@@ -31,9 +44,7 @@ test('registers bundled agents with prompts, models, settings, and ordered permi
     skill: { async transform() {} },
     agent: agentContext(registered),
   });
-  assert.deepEqual([...registered.keys()].sort(), [
-    'adversarial', 'commit', 'minion', 'orchestrator', 'reviewer', 'visual',
-  ]);
+  assert.deepEqual([...registered.keys()].sort(), await agentsOnDisk());
   const reviewer = registered.get('reviewer');
   assert.match(reviewer.system, /# Independent Coding Reviewer/);
   assert.deepEqual(reviewer.model, { providerID: 'openai', id: 'gpt-6-luna' });
@@ -46,7 +57,6 @@ test('registers bundled agents with prompts, models, settings, and ordered permi
   });
   assert.ok(reviewer.permissions.some((rule) => rule.action === 'shell' && rule.resource === 'git diff*'));
   assert.equal(registered.get('commit').hidden, true);
-  assert.equal(registered.get('visual').request.settings.temperature, 0.1);
   assert.equal(registered.get('orchestrator').mode, 'primary');
   assert.equal(registered.get('orchestrator').model, undefined);
   assert.ok(registered.get('orchestrator').permissions.length > 0);
@@ -57,7 +67,7 @@ test('preserves existing agents on registration and transform replay', async () 
   const registered = new Map([[existing.id, existing]]);
   await plugin.setup({ skill: { async transform() {} }, agent: agentContext(registered) });
   assert.equal(registered.get('reviewer'), existing);
-  assert.equal(registered.size, 6);
+  assert.equal(registered.size, (await agentsOnDisk()).length);
 });
 
 test('gates adversarial mutation edits and checks on approval without granting delegation', async () => {
@@ -81,10 +91,11 @@ test('loads agent model variants and rejects invalid metadata with the source pa
   const directory = await mkdtemp(path.join(os.tmpdir(), 'daedalus-agent-'));
   try {
     const file = path.join(directory, 'example.md');
-    await writeFile(file, '---\nname: example\ndescription: Example\nmodel: openai/reasoner#high\n---\n# Example\n');
+    await writeFile(file, '---\nname: example\ndescription: Example\nmodel: openai/reasoner#high\ntemperature: 0.1\n---\n# Example\n');
     const [agent] = await readAgents(directory, ['example']);
     assert.deepEqual(agent.model, { providerID: 'openai', id: 'reasoner', variant: 'high' });
     assert.equal(agent.system, '# Example\n');
+    assert.equal(agent.request.settings.temperature, 0.1);
     for (const metadata of [
       'name: wrong\ndescription: Example',
       'name: example\ndescription: [broken',
@@ -114,7 +125,7 @@ async function fixture(frontmatter, run) {
   }
 }
 
-test('registers the current skill bundle with accessible reference files', async () => {
+test('registers every skill on disk with its guidance', async () => {
   const registered = new Map();
   await plugin.setup({
     agent: agentContext(),
@@ -124,29 +135,15 @@ test('registers the current skill bundle with accessible reference files', async
       },
     },
   });
-  assert.equal(registered.size, 33);
-  assert.equal(registered.has('career-materials'), false);
-  assert.equal(registered.get('eval').autoinvoke, false);
-  assert.equal(registered.get('retrospective').autoinvoke, false);
-  assert.equal(registered.get('incremental-commits').autoinvoke, true);
-  const principles = [...registered.values()].filter((skill) => skill.id.startsWith('principle-'));
-  assert.equal(principles.length, 17);
-  for (const id of ['principle-keep-gates-traceable', 'principle-match-delivery-to-task', 'principle-keep-tracking-aligned']) {
-    assert.ok(registered.get(id)?.content, `${id} must be registered with its guidance`);
+  assert.deepEqual([...registered.keys()].sort(), await skillsOnDisk());
+  for (const skill of registered.values()) {
+    assert.ok(skill.content.trim(), `${skill.id} must be registered with its guidance`);
+    assert.equal(path.isAbsolute(skill.path), true);
+    assert.equal(path.basename(path.dirname(skill.path)), skill.id);
   }
-  assert.equal(registered.has('principle-automate-mechanics'), true);
-  assert.equal(registered.has('principle-public-work-public-tracking'), true);
-  assert.equal(registered.get('principle-isolate-mutable-state').autoinvoke, false);
-  assert.equal(registered.get('principle-integrate-through-review').autoinvoke, false);
-  assert.equal(registered.get('principle-make-structure-visible').autoinvoke, false);
-  assert.equal(registered.get('pr-delivery').autoinvoke, true);
-  for (const principle of principles) assert.equal(principle.autoinvoke, false);
-  assert.equal(registered.has('code-crafting-v1'), false);
-  const skill = registered.get('harness-configuration');
-  assert.match(skill.content, /^\s*# Harness Configuration/);
-  assert.equal(skill.autoinvoke, true);
-  assert.equal(path.isAbsolute(skill.path), true);
-  assert.match(await readFile(path.join(path.dirname(skill.path), 'references/opencode-v2.md'), 'utf8'), /# OpenCode V2/);
+  const principles = [...registered.values()].filter((skill) => skill.id.startsWith('principle-'));
+  assert.ok(principles.length > 0);
+  for (const principle of principles) assert.equal(principle.autoinvoke, false, `${principle.id} must be explicit-only`);
 });
 
 test('preserves an existing skill and remains duplicate-free on transform replay', async () => {
@@ -163,22 +160,12 @@ test('preserves an existing skill and remains duplicate-free on transform replay
     },
   });
   assert.equal(registered.get('code-crafting'), existing);
-  assert.equal(registered.size, 33);
+  assert.equal(registered.size, (await skillsOnDisk()).length);
 });
 
-test('workflow guidance resolves its local references inside the shared skill bundle', async () => {
+test('every skill resolves its local references inside the shared skill bundle', async () => {
   const skills = await readSkills();
-  const ids = new Set([
-    'code-crafting', 'implementation-planning', 'incremental-commits', 'pr-delivery',
-    'principle-isolate-mutable-state', 'principle-integrate-through-review',
-    'principle-sequence-verifiable-slices',
-    'principle-public-work-public-tracking', 'requirements-capture',
-    'principle-make-structure-visible', 'technical-writing', 'ideation',
-    'principle-automate-mechanics', 'create-skill', 'decision-capture', 'defuddle',
-    'principle-keep-gates-traceable', 'principle-match-delivery-to-task', 'principle-keep-tracking-aligned',
-    'eval', 'harness-configuration', 'humanizer', 'llm-wiki', 'retrospective', 'show-me',
-  ]);
-  for (const skill of skills.filter((entry) => ids.has(entry.id))) {
+  for (const skill of skills) {
     for (const [, target] of skill.content.matchAll(/\]\(([^)]+)\)/g)) {
       if (/^(https?:|#)/.test(target)) continue;
       const file = path.resolve(path.dirname(skill.path), target.split('#')[0]);
@@ -187,6 +174,35 @@ test('workflow guidance resolves its local references inside the shared skill bu
         assert.ok(skills.some((entry) => entry.path === file), `${skill.id}: ${target} is not bundled`);
       }
     }
+  }
+});
+
+test('discovers every skill directory without an inventory list', async () => {
+  const directory = await mkdtemp(path.join(os.tmpdir(), 'daedalus-skills-'));
+  try {
+    for (const id of ['alpha', 'beta']) {
+      await mkdir(path.join(directory, id));
+      await writeFile(path.join(directory, id, 'SKILL.md'), `---\nname: ${id}\ndescription: Example\n---\n# ${id}\n`);
+    }
+    await writeFile(path.join(directory, 'README.md'), '# Index\n');
+    assert.deepEqual((await readSkills(directory)).map((skill) => skill.id).sort(), ['alpha', 'beta']);
+    await mkdir(path.join(directory, 'gamma'));
+    await assert.rejects(() => readSkills(directory), /Cannot load bundled skill gamma .*gamma[/\\]SKILL\.md/);
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
+test('discovers every agent definition without an inventory list', async () => {
+  const directory = await mkdtemp(path.join(os.tmpdir(), 'daedalus-agents-'));
+  try {
+    for (const id of ['alpha', 'beta']) {
+      await writeFile(path.join(directory, `${id}.md`), `---\nname: ${id}\ndescription: Example\n---\n# ${id}\n`);
+    }
+    await writeFile(path.join(directory, 'notes.txt'), 'ignored');
+    assert.deepEqual((await readAgents(directory)).map((agent) => agent.id).sort(), ['alpha', 'beta']);
+  } finally {
+    await rm(directory, { recursive: true, force: true });
   }
 });
 

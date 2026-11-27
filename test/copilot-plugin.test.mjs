@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { access, lstat, readFile, readdir, readlink, realpath } from 'node:fs/promises';
+import { lstat, readFile, readdir, readlink, realpath } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { test } from 'bun:test';
@@ -20,19 +20,14 @@ test('root Agent Plugins manifest shares the canonical skill inventory', async (
   assert.equal(manifest.version, pkg.version);
   const directories = (await readdir(path.join(root, 'skills'), { withFileTypes: true }))
     .filter((entry) => entry.isDirectory()).map((entry) => entry.name).sort();
-  assert.equal(directories.length, 33);
-  assert.equal(directories.includes('career-materials'), false);
   assert.deepEqual(directories, (await readSkills()).map((skill) => skill.id).sort());
-  await assert.rejects(access(path.join(root, 'skills/code-crafting-v1')), { code: 'ENOENT' });
 });
 
 test('Copilot agent symlinks resolve to canonical definitions inside the plugin root', async () => {
   const directory = path.join(root, 'com.github.copilot/agents');
   const files = (await readdir(directory)).sort();
-  assert.deepEqual(files, [
-    'adversarial.agent.md', 'commit.agent.md', 'minion.agent.md',
-    'orchestrator.agent.md', 'reviewer.agent.md', 'visual.agent.md',
-  ]);
+  const agents = (await readdir(path.join(root, 'agents'))).filter((file) => file.endsWith('.md'));
+  assert.deepEqual(files, agents.map((file) => file.replace(/\.md$/, '.agent.md')).sort());
   const pluginRoot = await realpath(root);
   for (const file of files) {
     const link = path.join(directory, file);

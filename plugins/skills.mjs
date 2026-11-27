@@ -1,48 +1,18 @@
-import { readFile } from 'node:fs/promises';
+import { readdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseDocument } from 'yaml';
 
 const skillsDirectory = fileURLToPath(new URL('../skills/', import.meta.url));
 
-// Keep the released inventory deliberate.
-export const skillIDs = [
-  'code-crafting',
-  'create-skill',
-  'decision-capture',
-  'defuddle',
-  'eval',
-  'harness-configuration',
-  'humanizer',
-  'ideation',
-  'implementation-planning',
-  'incremental-commits',
-  'llm-wiki',
-  'pr-delivery',
-  'principle-automate-mechanics',
-  'principle-boundary-discipline',
-  'principle-evidence-before-verdicts',
-  'principle-hide-useful-complexity',
-  'principle-integrate-through-review',
-  'principle-isolate-mutable-state',
-  'principle-keep-gates-traceable',
-  'principle-keep-tracking-aligned',
-  'principle-make-structure-visible',
-  'principle-match-delivery-to-task',
-  'principle-preserve-decision-context',
-  'principle-public-work-public-tracking',
-  'principle-sequence-verifiable-slices',
-  'principle-smallest-complete-change',
-  'principle-test-observable-behavior',
-  'principle-trace-before-changing',
-  'principle-verify-in-proportion-to-risk',
-  'requirements-capture',
-  'retrospective',
-  'show-me',
-  'technical-writing',
-];
+// Every directory under skills/ ships as a skill.
+async function discoverSkillIDs(directory) {
+  const entries = await readdir(directory, { withFileTypes: true });
+  return entries.filter((entry) => entry.isDirectory()).map((entry) => entry.name).sort();
+}
 
-export async function readSkills(directory = skillsDirectory, ids = skillIDs) {
+export async function readSkills(directory = skillsDirectory, ids) {
+  ids ??= await discoverSkillIDs(directory);
   return Promise.all(ids.map(async (id) => {
     const file = path.resolve(directory, id, 'SKILL.md');
     try {
