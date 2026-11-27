@@ -258,7 +258,7 @@ a `_meta/topic-map.md` that groups pages by theme for faster navigation.
 - **Always include original source** - `raw/` sources should be able to cite the origins.
 - **Always orient first** — read SCHEMA + index + recent log before any operation in a new session. Skipping this causes duplicates and missed cross-references.
 - **Always update index.md and log.md** — skipping this makes the wiki degrade. These are the navigational backbone.
-- **Describe visual information** - visual media should be saved in the assets folder, interpreted with the visual subagent: saved with concise alt-text. Prefer interpreted mermaid code with cited image source.
+- **Describe visual information** - visual media should be saved in the assets folder and described with concise alt-text. Prefer interpreted mermaid code with cited image source.
 - **Don't create pages for passing mentions** — follow the Page Thresholds in SCHEMA.md. A name appearing once in a footnote doesn't warrant an entity page.
 - **Don't create pages without cross-references** — isolated pages are invisible. Every page must link to at least 2 other pages.
 - **Frontmatter is required** — it enables search, filtering, and staleness detection.

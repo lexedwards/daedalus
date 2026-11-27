@@ -1,13 +1,13 @@
 ---
 name: create-skill
-description: Use before creating, editing, reviewing, or improving any skill or principle, including its body, frontmatter, description, name, or references. Owns the conventions for invocation mode, description shape, rule ownership, and trigger checks, and turns evidence of skipped or misused skills into fixes. Use harness-configuration for host fields, discovery, and agent definitions.
+description: Use before creating, editing, reviewing, or improving any skill or principle, including its description, name, or references. Owns invocation mode, description shape, rule ownership, and trigger checks, and turns evidence of skipped or misused skills into fixes. Use create-agent for agents and harness-configuration for host fields.
 ---
 
 # Creating and Maintaining Skills
 
 Skills package task-specific instructions, references, and scripts. Apply this workflow to new skills, updates, reviews, and improvements alike.
 
-Before assessing or changing maintained skill guidance, load [code-crafting](../code-crafting/SKILL.md); before the first prose write, also load [technical-writing](../technical-writing/SKILL.md). This authoring workflow does not replace either companion. For host-specific fields, discovery, precedence, or registration, load [harness-configuration](../harness-configuration/SKILL.md). If the user later requests a commit or publication, load [incremental-commits](../incremental-commits/SKILL.md) before committing and [pr-delivery](../pr-delivery/SKILL.md) before pushing or preparing a PR.
+Before assessing or changing maintained skill guidance, load [code-crafting](../code-crafting/SKILL.md); before the first prose write, also load [technical-writing](../technical-writing/SKILL.md). This authoring workflow does not replace either companion. For host-specific fields, discovery, precedence, or registration, load [harness-configuration](../harness-configuration/SKILL.md). Agent definitions belong to [create-agent](../create-agent/SKILL.md). If the user later requests a commit or publication, load [incremental-commits](../incremental-commits/SKILL.md) before committing and [pr-delivery](../pr-delivery/SKILL.md) before pushing or preparing a PR.
 
 Read [automate-mechanics](../principle-automate-mechanics/SKILL.md). During skill creation or updates, proactively identify and capture stable mechanics in `scripts/` when existing tools do not suffice. Keep triggers, judgment calls, and exceptions in `SKILL.md`; document script invocation relative to the skill directory, inputs, outputs, dependencies, side effects, and failures.
 
